@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px 20px;
+}
+
+.back-button {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-icons > div {
+    cursor: pointer;
+}
+
+.order-details {
+    padding: 20px;
+    /* background-color: white;  */
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.order-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    background-color: #cccccc;
+    border-radius: 8px;
+}
+
+.product-details h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.product-details p {
+    margin: 5px 0;
+    color: #555;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.message p,
+.payment-method p,
+.address p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.payment-method p {
+    margin: 2px 0;
+}
+
+.payment-method select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    color: #555;
+}
+
+.order-summary p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.summary-details {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.address p {
+    color: #555;
+}
+
+.order-button {
+    float: right;
+    display: block;
+    width: 100%;
+    background-color: transparent; /* Transparent background */
+    color: #000000; /* Blue text color */
+    padding: 15px;
+    border: 2px solid #4A90E2; /* Blue border */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+}
+
+.order-button:hover {
+    background-color: #4A90E2; /* Blue background on hover */
+    color: white; /* White text on hover */
+}
