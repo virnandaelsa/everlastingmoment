@@ -18,4 +18,25 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.pesan');
     }
+    public function login()
+    {
+        return view('auth.login');
+    }
+    public function registrasi()
+    {
+        return view('auth.registrasi');
+    }
+    public function tambah_katalog()
+    {
+        return view('penyedia_jasa.tambah_katalog');
+    }
+    public function lengkapi_administrasi()
+    {
+        return view('penyedia_jasa.lengkapi_administrasi');
+    }
+    public function pemesanan()
+    {
+        return view('penyedia_jasa.detail_pemesanan');
+    }
 }
+

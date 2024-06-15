@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F3F5F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-weight: bold;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.header img {
+    height: 50px;
+}
+
+.header h2 {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    color: #000000;
+}
+
+.container {
+    background-color: #6E9FC1;
+    padding: 20px;
+    border-radius: 10px;
+    width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin-top: 60px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.detail {
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.detail span {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.actions button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions .accept {
+    background-color: #4caf50;
+    color: white;
+}
+
+.actions .accept:hover {
+    background-color: #45a049;
+}
+
+.actions .reject {
+    background-color: #f44336;
+    color: white;
+}
+
+.actions .reject:hover {
+    background-color: #e53935;
+}
+
+.back {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.transfer-proof {
+    display: flex;
+    align-items: center;
+}
+
+.transfer-proof img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.transfer-proof a {
+    text-decoration: none;
+    color: #1e88e5;
+    font-weight: bold;
+}
