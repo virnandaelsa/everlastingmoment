@@ -38,5 +38,11 @@ class KatalogCustomerController extends Controller
     {
         return view('penyedia_jasa.detail_pemesanan');
     }
+
+
+    public function profilcust()
+    {
+        return view('customer.profilcust');
+    }
 }
 
