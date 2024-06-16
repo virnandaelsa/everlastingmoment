@@ -44,5 +44,10 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.profilcust');
     }
+
+    public function datapesanan()
+    {
+        return view('penyedia_jasa.data_pesanan');
+    }
 }
 
