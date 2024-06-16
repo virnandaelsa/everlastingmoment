@@ -1,11 +1,12 @@
 <div class="sidebar">
     <div class="text-center">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo" style="width: 100px;">
-        <h2>EVMO</h2>
+        <img src="{{ asset('images/logoevmo.png') }}" alt="Logo" style="width: 150px;">
     </div>
-    <a href="#"><i class="home-icon"></i> Home</a>
-    <a href="#"><i class="notif-icon"></i> Notifications</a>
-    <a href="#"><i class="user-icon"></i> Profile</a>
-    <a href="#"><i class="wa-icon"></i> WhatsApp</a>
-    <a href="#"><i class="help-icon"></i> Help</a>
+    <a href="#"><img src="{{ asset('icon/bxs_home.png') }}" alt="home" style="width: 30px;"></a>
+    <a href="#"><img src="{{ asset('icon/icon-park-solid_transaction.png') }}" alt="Detail Pesanan" style="width: 30px;"></a>
+    <a href="#"><img src="{{ asset('icon/iconamoon_notification-fill.png') }}" alt="Notification" style="width: 30px;"></a>
+    <a href="#"><img src="{{ asset('icon/iconamoon_profile-fill.png') }}" alt="Profil" style="width: 30px;"></a>
+    <a href="#"><img src="{{ asset('icon/ri_whatsapp-fill.png') }}" alt="Detail Pesanan" style="width: 30px;"></a>
+    <a href="#"><img src="{{ asset('icon/ic_baseline-help.png') }}" alt="Detail Pesanan" style="width: 30px;"></a>
+
 </div>
