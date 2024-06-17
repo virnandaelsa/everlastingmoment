@@ -76,5 +76,15 @@ class KatalogCustomerController extends Controller
     {
         return view('auth.notifikasi');
     }
+
+    public function review_customer()
+    {
+        return view('penyedia_jasa.review_customer');
+    }
+
+    public function lihatjasa_pj()
+    {
+        return view('penyedia_jasa.lihatjasa');
+    }
 }
 

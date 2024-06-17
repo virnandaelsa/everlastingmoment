@@ -5,8 +5,7 @@
         <div class="top-bar">
             <div class="search-bar">
                 <input type="text" placeholder="Jasa Make Up Pengantin">
-                <button class="btn-signup">SIGN UP</button>
-                <button class="btn-signin">SIGN IN</button>
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
             </div>
         </div>
             <div class="package">
@@ -78,10 +77,6 @@
         <div class="categories">
             <h2>Kategori :</h2>
             <p>Make Up Artist</p>
-    </div>
-        <div class="footer">
-            <button class="chat">Chat</button>
-            <button class="order">Pesan</button>
         </div>
     </div>
     
