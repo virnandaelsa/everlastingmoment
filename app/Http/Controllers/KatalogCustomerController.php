@@ -61,5 +61,15 @@ class KatalogCustomerController extends Controller
     {
         return view('penyedia_jasa.data_pesanan');
     }
+
+    public function review()
+    {
+        return view('customer.review');
+    }
+
+    public function helpcenter()
+    {
+        return view('auth.HelpCenter');
+    }
 }
 
