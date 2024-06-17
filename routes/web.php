@@ -22,5 +22,6 @@ Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class
 Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
 Route::get('/review', [App\Http\Controllers\KatalogCustomerController::class, 'review']);
 Route::get('/helpcenter', [App\Http\Controllers\KatalogCustomerController::class, 'helpcenter']);
+Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class, 'notifikasi']);
 
 

@@ -67,5 +67,10 @@ class KatalogCustomerController extends Controller
     {
         return view('auth.HelpCenter');
     }
+
+    public function notifikasi()
+    {
+        return view('auth.notifikasi');
+    }
 }
 
