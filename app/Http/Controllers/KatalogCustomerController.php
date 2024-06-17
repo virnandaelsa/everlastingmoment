@@ -30,6 +30,11 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.status_pesanan');
     }
+    public function wishlist()
+    {
+        return view('customer.wishlist');
+    }
+
     public function login()
     {
         return view('auth.login');
