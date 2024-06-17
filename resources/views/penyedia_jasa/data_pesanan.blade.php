@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,43 +15,10 @@
             background-color: #F3F5F9;
         }
 
-        .sidebar {
-            width: 200px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background-color: #F3F5F9; /* Warna sidebar */
-            padding-top: 20px;
-        }
-
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-            color: black;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .sidebar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .sidebar img {
-            margin-bottom: 10px;
-        }
-
         .text-center {
             text-align: center;
         }
 
-        .content {
-            margin-left: 220px; /* Lebar sidebar + margin */
-            padding: 20px;
-            background-color: #F3F5F9; /* Warna latar belakang halaman */
-        }
 
         .data-table {
             
@@ -91,21 +61,30 @@
             margin-bottom: 10px;
             text-align: right;
         }
+        /* Style untuk tombol kembali */
+        .button-container {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #337ab7;
+            border: 2px solid #337ab7;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #337ab7;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <div class="text-center">
-        <img src="{{ asset('images/logoevmo.png') }}" alt="Logo" style="width: 150px;">
-    </div>
-    <a href="#"><img src="{{ asset('icon/bxs_home.png') }}" alt="home" style="width: 30px;"></a>
-    <a href="#"><img src="{{ asset('icon/icon-park-solid_transaction.png') }}" alt="Detail Pesanan" style="width: 30px;"></a>
-    <a href="#"><img src="{{ asset('icon/iconamoon_notification-fill.png') }}" alt="Notification" style="width: 30px;"></a>
-    <a href="#"><img src="{{ asset('icon/iconamoon_profile-fill.png') }}" alt="Profil" style="width: 30px;"></a>
-    <a href="#"><img src="{{ asset('icon/ri_whatsapp-fill.png') }}" alt="Detail Pesanan" style="width: 30px;"></a>
-    <a href="#"><img src="{{ asset('icon/ic_baseline-help.png') }}" alt="Detail Pesanan" style="width: 30px;"></a>
-</div>
 
 <div class="content">
     <div class="data-table">
@@ -133,8 +112,13 @@
             </tr>
             
         </table>
+        <!-- Container untuk tombol kembali -->
+        <div class="button-container">
+            <button onclick="goBack()">Kembali</button>
+        </div>
     </div>
 </div>
 
 </body>
 </html>
+@endsection
