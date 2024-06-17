@@ -16,6 +16,8 @@ Route::get('/administrasi', [App\Http\Controllers\KatalogCustomerController::cla
 Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 Route::get('/dp', [App\Http\Controllers\KatalogCustomerController::class, 'dp']);
 Route::get('/pelunasan', [App\Http\Controllers\KatalogCustomerController::class, 'pelunasan']);
+Route::get('/status_pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'status_pesanan']);
+
 
 
 Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class, 'profilcust']);
