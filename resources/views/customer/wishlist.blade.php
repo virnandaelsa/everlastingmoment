@@ -9,19 +9,17 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
         .header {
-            width: 100%;
+            width: 1000px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 85px; 
         }
         .header img {
             height: 50px;
         }
-        .header .profile {
+        .profile {
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -29,12 +27,11 @@
         .wishlist-container {
             width: 100%;
             max-width: 800px;
-            margin: 20px;
+            margin-left: 80px;
+            margin-top: 30px;
         }
         .wishlist-item {
-            background-color: #fff;
             display: flex;
-            align-items: center;
             margin-bottom: 20px;
             padding: 20px;
             border-radius: 8px;
@@ -63,20 +60,38 @@
             color: #000;
         }
         .wishlist-item .order-btn {
-            padding: 10px 20px;
-            background-color: #007bff;
+            padding: 10px;
+            background-color: #365B80;
             color: #fff;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            font-size: 14px;
         }
         .wishlist-item .order-btn:hover {
-            background-color: #0056b3;
+            background-color: #337ab7;
+            color: white;
+        }
+        .pro {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .profile-wrapper {
+            margin-right: 10px;
+        }
+        .profile-img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
         }
     </style>
     <div class="header">
         <h1>Wishlist Saya</h1>
-        <img class="profile" src="profile.jpg" alt="Profile Picture">
+        <div class="pro">
+            <div class="profile-wrapper">
+                <img class="profile-img" src="/images/profile.jpg" alt="Profile Picture">
+            </div>
+        </div>
     </div>
     <div class="wishlist-container">
         <div class="wishlist-item">
