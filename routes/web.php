@@ -18,4 +18,7 @@ Route::get('/dp', [App\Http\Controllers\KatalogCustomerController::class, 'dp'])
 Route::get('/pelunasan', [App\Http\Controllers\KatalogCustomerController::class, 'pelunasan']);
 
 
+Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class, 'profilcust']);
+Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
+
 
