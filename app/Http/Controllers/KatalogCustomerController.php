@@ -76,5 +76,9 @@ class KatalogCustomerController extends Controller
     {
         return view('auth.notifikasi');
     }
+    public function dashboard()
+    {
+        return view('penyedia_jasa.dashboard');
+    }
 }
 
