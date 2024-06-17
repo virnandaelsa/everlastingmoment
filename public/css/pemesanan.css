@@ -2,6 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #F3F5F9;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -55,7 +56,7 @@ body {
 
 .detail span {
     display: inline-block;
-    width: 120px;
+    width: 150px;
     font-weight: bold;
     color: #000000;
 }
@@ -63,12 +64,34 @@ body {
 .actions {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
+    width: 800px;
+    position: relative;
+}
+
+.actions .back {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    left: 0;
+}
+
+.center-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
 }
 
 .actions button {
-    width: 48%;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -77,32 +100,21 @@ body {
 }
 
 .actions .accept {
-    background-color: #4caf50;
+    background: linear-gradient(45deg, #6E9FC1, #6E9FC1);
     color: white;
 }
 
 .actions .accept:hover {
-    background-color: #45a049;
+    background: linear-gradient(45deg, #45a049, #66bb6a);
 }
 
 .actions .reject {
-    background-color: #f44336;
+    background: linear-gradient(45deg, #FF0404, #6E9FC1);
     color: white;
 }
 
 .actions .reject:hover {
-    background-color: #e53935;
-}
-
-.back {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.back a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    background: linear-gradient(45deg, #e53935, #e57373);
 }
 
 .transfer-proof {
@@ -117,7 +129,6 @@ body {
 }
 
 .transfer-proof a {
-    text-decoration: none;
-    color: #1e88e5;
-    font-weight: bold;
+    color: #070707;
+    font-weight: normal; /* Menghilangkan bold */
 }
