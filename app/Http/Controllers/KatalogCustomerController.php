@@ -18,6 +18,18 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.pesan');
     }
+    public function dp()
+    {
+        return view('customer.bukti_dp');
+    }
+    public function pelunasan()
+    {
+        return view('customer.pelunasan');
+    }
+    public function status_pesanan()
+    {
+        return view('customer.status_pesanan');
+    }
     public function login()
     {
         return view('auth.login');
@@ -48,6 +60,21 @@ class KatalogCustomerController extends Controller
     public function datapesanan()
     {
         return view('penyedia_jasa.data_pesanan');
+    }
+
+    public function review()
+    {
+        return view('customer.review');
+    }
+
+    public function helpcenter()
+    {
+        return view('auth.HelpCenter');
+    }
+
+    public function notifikasi()
+    {
+        return view('auth.notifikasi');
     }
 }
 
