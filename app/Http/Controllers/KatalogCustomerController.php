@@ -26,6 +26,10 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.pelunasan');
     }
+    public function status_pesanan()
+    {
+        return view('customer.status_pesanan');
+    }
     public function login()
     {
         return view('auth.login');

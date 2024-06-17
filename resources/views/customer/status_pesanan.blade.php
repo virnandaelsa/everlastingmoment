@@ -45,6 +45,7 @@
     }
     .order-details {
         flex-grow: 1;
+        border-top : none;
     }
     .order-details p {
         margin: 5px 0;
@@ -57,8 +58,8 @@
         border-radius: 5px;
         cursor: pointer;
         font-size: 14px;
-        min-width: 100px;
-        text-align: center;
+        max-width: 100px;
+        text-align: center; /* Center text in button */
     }
 </style>
 <div class="container">
@@ -71,9 +72,7 @@
         <div class="order-item">
             <img src="{{ asset('images/makeup_arabian_look.png') }}" alt="Paket Make Up">
             <div class="order-details">
-                <div class="order-header">
-                    <p><strong>Paket Make Up Arabian Look (paket 1)</strong></p>
-                </div>
+                <p><strong>Paket Make Up Arabian Look (paket 1)</strong></p>
                 <p>Rp. 6.000.000.00</p>
                 <p>SeMUA Evelyn</p>
             </div>
@@ -85,9 +84,7 @@
         <div class="order-item">
             <img src="{{ asset('images/paket_dekorasi.png') }}" alt="Paket Dekorasi">
             <div class="order-details">
-                <div class="order-header">
-                    <p><strong>Paket Dekorasi (gedung 2)</strong></p>
-                </div>
+                <p><strong>Paket Dekorasi (gedung 2)</strong></p>
                 <p>Rp. 17.000.000.00</p>
                 <p>Dekorasi UtamaKita</p>
             </div>
@@ -99,9 +96,7 @@
         <div class="order-item">
             <img src="{{ asset('images/undangan_minimalis.png') }}" alt="Undangan Minimalis">
             <div class="order-details">
-                <div class="order-header">
-                    <p><strong>Undangan Minimalis (desain 4)</strong></p>
-                </div>
+                <p><strong>Undangan Minimalis (desain 4)</strong></p>
                 <p>Rp. 1.000.000</p>
                 <p>Sayanda wedding</p>
             </div>
