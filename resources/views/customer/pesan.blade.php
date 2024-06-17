@@ -10,6 +10,7 @@
                 <div class="order-header">
                     <img src="makeup-package.jpg" alt="Paket Make Up Arabian Look" class="package-img">
                     <div class="package-info">
+                    <div class="vendor-info">SeMUA Evelyn</div>
                         <h2>Paket Make Up Arabian Look (paket 1)</h2>
                         <p>Rp. 6.000.000.00</p>
                         <div class="rating">
@@ -17,7 +18,6 @@
                             <span>45 terpakai</span>
                         </div>
                     </div>
-                    <div class="vendor-info">SeMUA Evelyn</div>
                 </div>
                 <div class="order-details">
                     <div class="order-item">

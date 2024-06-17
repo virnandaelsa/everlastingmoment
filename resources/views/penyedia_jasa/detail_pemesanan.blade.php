@@ -23,15 +23,15 @@
         <div class="detail"><span>Uang DP:</span> Rp 10.000.000</div>
         <div class="detail transfer-proof">
             <span>Bukti Transfer:</span> 
-            <img src="path_to_transfer_proof_image" alt="Bukti Transfer">
+            <img src="{{ asset('icon/icon _image_.png') }}" alt="Bukti Transfer">
             <a href="#">Lihat Bukti Transfer</a>
         </div>
-        <div class="actions">
+    </div>
+    <div class="actions">
+        <a href="#" class="back">Kembali</a>
+        <div class="center-buttons">
             <button class="accept">TERIMA</button>
             <button class="reject">TOLAK</button>
-        </div>
-        <div class="back">
-            <a href="#">Kembali</a>
         </div>
     </div>
 </body>

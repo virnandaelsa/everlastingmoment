@@ -18,6 +18,14 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.pesan');
     }
+    public function dp()
+    {
+        return view('customer.bukti_dp');
+    }
+    public function pelunasan()
+    {
+        return view('customer.pelunasan');
+    }
     public function login()
     {
         return view('auth.login');
@@ -38,5 +46,6 @@ class KatalogCustomerController extends Controller
     {
         return view('penyedia_jasa.detail_pemesanan');
     }
+    
 }
 
