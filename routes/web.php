@@ -20,6 +20,8 @@ Route::get('/status_pemesanan', [App\Http\Controllers\KatalogCustomerController:
 Route::get('/reviewcustomer', [App\Http\Controllers\KatalogCustomerController::class, 'review_customer']);
 Route::get('/lihatjasa_pj', [App\Http\Controllers\KatalogCustomerController::class, 'lihatjasa_pj']);
 
+Route::get('/dashboard', [App\Http\Controllers\KatalogCustomerController::class, 'dashboard']);
+Route::get('/wishlist', [App\Http\Controllers\KatalogCustomerController::class, 'wishlist']);
 
 
 Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class, 'profilcust']);

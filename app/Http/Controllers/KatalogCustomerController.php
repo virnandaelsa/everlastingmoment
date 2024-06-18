@@ -30,6 +30,11 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.status_pesanan');
     }
+    public function wishlist()
+    {
+        return view('customer.wishlist');
+    }
+
     public function login()
     {
         return view('auth.login');
@@ -85,6 +90,10 @@ class KatalogCustomerController extends Controller
     public function lihatjasa_pj()
     {
         return view('penyedia_jasa.lihatjasa');
+    }
+    public function dashboard()
+    {
+        return view('penyedia_jasa.dashboard');
     }
 }
 

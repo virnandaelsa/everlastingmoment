@@ -135,6 +135,21 @@ button {
     transition: transform 0.3s ease; /* Efek transisi untuk animasi ikon */
 }
 
+.pro {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.profile {
+    margin-right: 10px; /* Anda dapat menyesuaikan nilai ini */
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
 
 
 
@@ -142,6 +157,13 @@ button {
 </head>
 <body>
   <div class="container">
+    <div class="pro">
+    <div class="profile">
+    <img class="profile" src="profile.jpg" alt="Profile Picture">
+    </div>
+    </div>
+    
+  
     <h1>Hello, Ada yang bisa kami bantu?</h1>
     <div class="search-bar">
       <i class="search-icon fas fa-search"></i>

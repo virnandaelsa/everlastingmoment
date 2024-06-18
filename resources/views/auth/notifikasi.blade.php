@@ -38,11 +38,33 @@ body {
 .notification-text {
   flex: 1; /* Membuat teks notifikasi mengisi sisa ruang yang tersedia */
 }
+
+.pro {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.profile {
+    margin-right: 10px; /* Anda dapat menyesuaikan nilai ini */
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
 </style>
 </head>
 <body>
 
 <div class="container">
+
+<div class="pro">
+    <div class="profile">
+        <img class="profile" src="profile.jpg" alt="Profile Picture">
+    </div>
+    </div>
     <h1><strong>Notifikasi</strong></h1>
   <div class="row">
     <div class="col-1">
