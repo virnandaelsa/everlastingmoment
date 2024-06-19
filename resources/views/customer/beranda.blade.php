@@ -5,8 +5,10 @@
         <div class="top-bar">
             <div class="search-bar">
                 <input type="text" placeholder="Jasa Make Up Pengantin">
-                <button class="btn-signup">SIGN UP</button>
-                <button class="btn-signin">SIGN IN</button>
+                <a href="/registrasi" class="btn-signup">SIGN UP</a>
+                <a href="/login" class="btn-signin">SIGN IN</a>
+                {{-- <button class="btn-signup">SIGN UP</button>
+                <button class="btn-signin">SIGN IN</button> --}}
             </div>
         </div>
         <div class="penawaran my-4">
