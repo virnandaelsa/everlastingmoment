@@ -43,7 +43,7 @@
                     <input type="konfirmasi_password" placeholder="konfirmasi password" required>
                 </div>
                 <button type="submit">SIGN IN</button>
-                <p>Belum punya akun? <a href="/regristasi">buat sekarang</a></p>
+                <p>Sudah punya akun? <a href="/regristasi">Login</a></p>
             </form>
         </div>
     </div>
