@@ -35,13 +35,15 @@
         margin: 20px 0;
     }
 
-    .add-catalog button {
+    .add-catalog a.button-link {
+        display: inline-block;
         padding: 10px 20px;
         background-color: #4682B4;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        text-decoration: none;
     }
 
     .catalog-container {
@@ -74,33 +76,33 @@
         cursor: pointer;
         margin: 10px;
     }
+
     .reviews {
-    display: flex; /* Mengubah tata letak reviews menjadi flex */
-    flex-wrap: wrap; /* Mengatur agar item-item di dalam flex container dapat wrap (jika perlu) */
-}
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-.review-card {
-    flex: 1 0 45%; /* Mengatur flex untuk memanfaatkan ruang dan memberi jarak antar kartu */
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px; /* Memberi jarak antar kartu */
-    box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
-    display: flex; /* Mengubah tata letak review-card menjadi flex */
-}
+    .review-card {
+        flex: 1 0 45%;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        box-sizing: border-box;
+        display: flex;
+    }
 
-.review-card img {
-    width: 100px; /* Mengatur lebar gambar */
-    height: 100px; /* Mengatur tinggi gambar */
-    object-fit: cover;
-    border-radius: 10px;
-    margin-right: 10px; /* Memberi jarak antara gambar dan teks */
-}
+    .review-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
 
-.review-card > div {
-    flex: 1; /* Memanfaatkan ruang tersedia di dalam flex container */
-}
-
+    .review-card > div {
+        flex: 1;
+    }
 </style>
 
 <div class="content">
@@ -113,7 +115,7 @@
 
     <div class="add-catalog">
         <h4><strong>Tambah Katalog Anda Sekarang!</strong></h4>
-        <button>Tambah Katalog</button>
+        <a href="/tambah_katalog" class="button-link">Tambah Katalog</a>
     </div>
 
     <div class="catalog-container">

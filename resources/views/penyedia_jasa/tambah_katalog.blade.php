@@ -55,10 +55,17 @@
         .top-bar img {
             max-height: 50px;
         }
-        .btn-block{
-            background-color : #365B80;
-            color : #ffff;
+        .btn-block {
+            background-color: #365B80;
+            color: #ffff;
             padding: 10px 0;
+        }
+        .btn-back {
+            background-color: #6c757d;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -69,63 +76,53 @@
         <img src="path/to/profile-picture.jpg" alt="Profile Picture" class="profile-picture rounded-circle">
     </div>
 
+    <div class="container">
+        <a href="javascript:history.back()" class="btn-back mb-3">Kembali</a>
+    </div>
+
     <h2 class="form-title">Tambah Katalog</h2>
     <div class="form-container">
-        <form>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <form action="{{ route('catalog.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label for="judul-jasa">Judul jasa</label>
-                <input type="text" class="form-control" id="judul-jasa" placeholder="Judul jasa">
+                <input type="text" class="form-control" id="judul-jasa" name="judul_jasa" placeholder="Judul jasa">
             </div>
             <div class="form-group">
                 <label for="deskripsi-jasa">Deskripsi jasa</label>
-                <input type="text" class="form-control" id="deskripsi-jasa" placeholder="Deskripsi jasa">
+                <input type="text" class="form-control" id="deskripsi_jasa" name="deskripsi_jasa" placeholder="Deskripsi jasa">
             </div>
             <div class="form-group">
                 <label for="kategori-jasa">Kategori jasa</label>
-                <input type="text" class="form-control" id="kategori-jasa" placeholder="Kategori jasa">
+                <input type="text" class="form-control" id="kategori_jasa" name="kategori_jasa" placeholder="Kategori jasa">
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" id="alamat" placeholder="Alamat">
+                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
             </div>
             <div class="form-group">
                 <label for="nomor-telepon">Nomor telepon</label>
-                <input type="text" class="form-control" id="nomor-telepon" placeholder="Nomor telepon">
+                <input type="text" class="form-control" id="nomor-telepon" name="nomor_telepon" placeholder="Nomor telepon">
             </div>
             <div class="form-group">
                 <label for="gambar-katalog">Gambar katalog jasa</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="gambar-katalog">
+                    <input type="file" class="custom-file-input" id="gambar-katalog" name="gambar_katalog">
                     <label class="custom-file-label" for="gambar-katalog">Choose file</label>
                 </div>
             </div>
             <div class="form-group">
-                <label>Jasa yang ditawarkan:</label>
-                <div class="form-row align-items-center">
-                    <div class="col">
-                        <input type="text" class="form-control mb-2" placeholder="Judul Jasa">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control mb-2" placeholder="Biaya">
-                    </div>
-                    <div class="col">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="gambar-jasa">
-                            <label class="custom-file-label" for="gambar-jasa">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <button type="button" class="btn">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="metode-pembayaran">Metode pembayaran</label>
-                <input type="text" class="form-control" id="metode-pembayaran" placeholder="Metode pembayaran">
+                <input type="text" class="form-control" id="metode-pembayaran" name="metode_pembayaran" placeholder="Metode pembayaran">
             </div>
             <div class="form-group">
                 <label for="nomor-rekening">Nomor rekening</label>
-                <input type="text" class="form-control" id="nomor-rekening" placeholder="Nomor rekening">
+                <input type="text" class="form-control" id="nomor-rekening" name="nomor_rekening" placeholder="Nomor rekening">
             </div>
             <button type="submit" class="btn btn-block">KIRIM</button>
         </form>
