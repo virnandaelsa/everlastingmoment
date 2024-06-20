@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container">
         <div class="left-panel">
             <div class="logo">
@@ -32,7 +32,7 @@
                     <input type="password" placeholder="password" required>
                 </div>
                 <button type="submit">SIGN IN</button>
-                <p>Belum punya akun? <a href="#">buat sekarang</a></p>
+                <p>Sudah punya akun? <a href="/login">Login?</a></p>
             </form>
         </div>
     </div>
