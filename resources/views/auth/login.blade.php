@@ -24,12 +24,12 @@
         </div>
         <div class="right-panel">
             <h2>Welcome!</h2>
-            <form>
+            <form method="POST" action="/login">
                 <div class="input-group">
-                    <input type="text" placeholder="username" required>
+                    <input name="username" type="text" placeholder="username" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="password" required>
+                    <input name="password" type="password" placeholder="password" required>
                 </div>
                 <button type="submit">SIGN IN</button>
                 <p>Sudah punya akun? <a href="/login">Login?</a></p>

@@ -14,6 +14,18 @@
     </style>
 </head>
 <body>
+<div class="d-">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+</div>
+
 <div class="container">
         <div class="left-panel">
             <div class="logo">
@@ -22,28 +34,33 @@
             </div>
         </div>
         <div class="right-panel">
+
             <h2>Welcome!</h2>
-            <form>
+            <form method="POST" action="/registrasi">
+                @csrf
                 <div class="input-group">
-                    <input type="nama" placeholder="Nama" required>
+                    <input value="{{ old('nama') }}" type="text" name="nama" placeholder="nama" required>
                 </div>
                 <div class="input-group">
-                    <input type="no_tlp" placeholder="No Telepon" required>
+                    <input type="nama" placeholder="nama" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="Email" required>
+                    <input type="no_tlp" placeholder="no. telepon" required>
                 </div>
                 <div class="input-group">
-                    <input type="username" placeholder="Username" required>
+                    <input type="email" placeholder="email" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" required>
+                    <input type="username" placeholder="username" required>
                 </div>
                 <div class="input-group">
-                    <input type="konfirmasi_password" placeholder="Konfirmasi Password" required>
+                    <input type="password" placeholder="password" required>
+                </div>
+                <div class="input-group">
+                    <input type="konfirmasi_password" placeholder="konfirmasi password" required>
                 </div>
                 <button type="submit">SIGN IN</button>
-                <p>Belum punya akun? <a href="/regristasi">buat sekarang</a></p>
+                <p>Sudah punya akun? <a href="/login">Login</a></p>
             </form>
         </div>
     </div>
