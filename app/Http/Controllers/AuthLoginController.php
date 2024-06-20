@@ -64,23 +64,13 @@ class AuthLoginController extends Controller
     public function auth(Request $request)
     {
         $credential = $request->validate([
-            'nik'=>'required',
+            'username'=>'required',
             'password'=>'required'
         ]);
 
         if(Auth::Attempt($credential)){
-            if (Auth::user()->role == 1){
-                $request->session()->regenerate();
-                return redirect("/dashboard");
-            }
-            elseif (Auth::user()->role == 2 ){
-                $request->session()->regenerate();
-                return redirect("/dashboard");
-            }
-            elseif (Auth::user()->role == 3 ){
-                $request->session()->regenerate();
-                return redirect("/karyawan");
-            }
+            $request->session()->regenerate();
+            return redirect("/dashboard");
         }
 
         return back()->with('loginError', 'Belum Berhasil, nih!');
