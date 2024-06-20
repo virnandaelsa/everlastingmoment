@@ -42,7 +42,7 @@
                 <div class="input-group">
                     <input type="konfirmasi_password" placeholder="konfirmasi password" required>
                 </div>
-                <button type="submit">SIGN IN</button>
+                <button type="submit">SIGN UP</button>
                 <p>Sudah punya akun? <a href="/login">Login</a></p>
             </form>
         </div>
