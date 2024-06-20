@@ -46,7 +46,7 @@
                         <h5 class="card-title">Wedding Make Up Paket</h5>
                         <p class="card-text">Rp. 5.000.000,00</p>
                         <div class="move-right">
-                            <a href="#" class="">Lihat detail</a>
+                            <a href="/lihatjasa" class="">Lihat detail</a>
                         </div>
                     </div>
                 </div>

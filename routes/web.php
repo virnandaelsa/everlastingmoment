@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KatalogCustomerController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -12,6 +13,7 @@ Route::get('/pesan', [App\Http\Controllers\KatalogCustomerController::class, 'pe
 Route::get('/login', [App\Http\Controllers\KatalogCustomerController::class, 'login']);
 Route::get('/registrasi', [App\Http\Controllers\KatalogCustomerController::class, 'registrasi']);
 Route::get('/tambah_katalog', [App\Http\Controllers\KatalogCustomerController::class, 'tambah_katalog']);
+Route::post('/tambah-katalog', [KatalogCustomerController::class, 'store_catalogs'])->name('catalog.store');
 Route::get('/administrasi', [App\Http\Controllers\KatalogCustomerController::class, 'lengkapi_administrasi']);
 Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 Route::get('/dp', [App\Http\Controllers\KatalogCustomerController::class, 'dp']);
