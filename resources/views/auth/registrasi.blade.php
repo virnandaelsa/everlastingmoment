@@ -42,24 +42,24 @@
                     <input value="{{ old('nama') }}" type="text" name="nama" placeholder="nama" required>
                 </div>
                 <div class="input-group">
-                    <input type="nama" placeholder="nama" required>
+                    <input value="{{ old('no_hp') }}" type="tel" name="no_hp" placeholder="no. telepon" required>
                 </div>
                 <div class="input-group">
-                    <input type="no_tlp" placeholder="no. telepon" required>
+                    <input value="{{ old('alamat') }}" type="text" name="alamat" placeholder="alamat" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="email" required>
+                    <input value="{{ old('email') }}" type="email" name="email" placeholder="email" required>
                 </div>
                 <div class="input-group">
-                    <input type="username" placeholder="username" required>
+                    <input value="{{ old('username') }}" type="text" name="username" placeholder="username" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="password" required>
+                    <input type="password" name="password" placeholder="password" required>
                 </div>
                 <div class="input-group">
-                    <input type="konfirmasi_password" placeholder="konfirmasi password" required>
+                    <input type="password" name="re-type" placeholder="konfirmasi password" required>
                 </div>
-                <button type="submit">SIGN IN</button>
+                <button type="submit">SIGN UP</button>
                 <p>Sudah punya akun? <a href="/login">Login</a></p>
             </form>
         </div>
