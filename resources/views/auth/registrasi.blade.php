@@ -25,25 +25,25 @@
             <h2>Welcome!</h2>
             <form>
                 <div class="input-group">
-                    <input type="nama" placeholder="nama" required>
+                    <input type="nama" placeholder="Nama" required>
                 </div>
                 <div class="input-group">
-                    <input type="no_tlp" placeholder="no. telepon" required>
+                    <input type="no_tlp" placeholder="No Telepon" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="email" required>
+                    <input type="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="username" placeholder="username" required>
+                    <input type="username" placeholder="Username" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="password" required>
+                    <input type="password" placeholder="Password" required>
                 </div>
                 <div class="input-group">
-                    <input type="konfirmasi_password" placeholder="konfirmasi password" required>
+                    <input type="konfirmasi_password" placeholder="Konfirmasi Password" required>
                 </div>
-                <button type="submit">SIGN IN</button>
-                <p>Belum punya akun? <a href="#">buat sekarang</a></p>
+                <button type="submit">SIGN UP</button>
+                <p>Sudah punya akun? <a href="/login">Login</a></p>
             </form>
         </div>
     </div>

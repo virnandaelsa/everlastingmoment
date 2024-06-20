@@ -32,7 +32,7 @@
                     <input type="password" placeholder="password" required>
                 </div>
                 <button type="submit">SIGN IN</button>
-                <p>Sudah punya akun? <a href="/login">Login?</a></p>
+                <p>Belum punya akun? <a href="/registrasi">Daftar</a></p>
             </form>
         </div>
     </div>
