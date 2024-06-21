@@ -25,6 +25,7 @@
         <div class="right-panel">
             <h2>Welcome!</h2>
             <form method="POST" action="/login">
+                @csrf
                 <div class="input-group">
                     <input name="username" type="text" placeholder="username" required>
                 </div>
