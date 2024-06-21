@@ -4,12 +4,12 @@
 
 <style>
         /* Opsional: Tambahkan beberapa gaya pada tombol */
-        /* .tombol-gambar {
+        .tombol-gambar {
             display: inline-block;
             border: none;
             cursor: pointer;
             text-decoration: none;
-        } */
+        }
 
         .gambar img {
             display: block;
@@ -43,29 +43,70 @@
         }
         .filter-section {
             margin-bottom: 20px;
-            background-color: #6E9FC1; /* Warna latar belakang */
-            color: white; /* Warna teks */
-            padding: 15px;
             border-radius: 5px;
         }
         .filter-section h3 {
             margin: 10px 0;
         }
-        .filter-section .button-group {
+    
+        .filter-section .checkbox-group,
+        .filter-section .checkbox2,
+        .filter-section .range-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        .filter-section .button-group button {
-            flex: 1;
+
+        .filter-section .checkbox-group label,
+        .filter-section .checkbox2 label,
+        .filter-section .range-buttons label {
+            flex: 1 1 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 10px;
+            background: #4d8fba;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .filter-section .checkbox-group input[type="checkbox"],
+        .filter-section .checkbox2 input[type="checkbox"],
+        .filter-section .range-buttons input[type="checkbox"] {
+            display: none;
+        }
+
+        .filter-section .checkbox-group input[type="checkbox"]:checked + label,
+        .filter-section .checkbox2 input[type="checkbox"]:checked + label,
+        .filter-section .range-buttons input[type="checkbox"]:checked + label {
+            background: white;
+            color: #4d8fba;
+            border: 1px solid #2a5f8e;
+        }
+
+        .filter-section button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
             background: #4d8fba;
             border: none;
             color: white;
             cursor: pointer;
         }
+
+        
         .filter-section input {
-            width: calc(50% - 10px);
+            width: calc(50% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .filter-section1 input {
+            width: calc(100% - 10px);
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
@@ -83,14 +124,26 @@
         .filter-section .range-buttons button {
             flex: 1;
         }
+
+       
         .apply-button {
             text-align: center;
         }
         .apply-button button {
             padding: 10px 20px;
-            background: #6E9FC1;
+            background: white;
             border: none;
-            color: white;
+            color: #4d8fba;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
             cursor: pointer;
         }
     </style>
@@ -104,9 +157,7 @@
                 <button onclick="showPopup()">
                     <img src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
                 </button>
-                <!-- <a href="showPopup()"class="gambar">
-                    <img src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
-                </a> -->
+                
                 {{-- <button class="btn-signup">SIGN UP</button>
                 <button class="btn-signin">SIGN IN</button> --}}
             </div>
@@ -157,16 +208,24 @@
 
 <div class="overlay" id="filterPopup">
     <div class="popup">
-        <h2>Filter</h2>
+        <button class="close-button" onclick="hidePopup()">&times;</button>
         <div class="filter-section">
             <h3>Lokasi</h3>
-            <button>Jabodetabek</button>
-            <button>DKI Jakarta</button>
-            <button>Jawa Barat</button>
-            <button>Jawa Timur</button>
+            <div class="filter-section1">
+                <input type="text" placeholder="Provinsi/Kota">
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="jabodetabek" name="lokasi" value="Jabodetabek">
+                <label for="jabodetabek">Jabodetabek</label>
+                <input type="checkbox" id="jakarta" name="lokasi" value="DKI Jakarta">
+                <label for="jakarta">DKI Jakarta</label>
+                <input type="checkbox" id="jabar" name="lokasi" value="Jawa Barat">
+                <label for="jabar">Jawa Barat</label>
+                <input type="checkbox" id="jatim" name="lokasi" value="Jawa Timur">
+                <label for="jatim">Jawa Timur</label>
+            </div>
         </div>
-        <div class="filter-section">
-            <h3>Lain - Lain</h3>
+        <div class="filter-section1">
             <input type="text" placeholder="Lain - Lain">
         </div>
         <div class="filter-section">
@@ -174,18 +233,28 @@
             <input type="text" placeholder="MIN"> -
             <input type="text" placeholder="MAX">
             <div class="range-buttons">
-                <button>0-75RB</button>
-                <button>75RB-150RB</button>
-                <button>150RB-200RB</button>
+                <input type="checkbox" id="range1" name="harga" value="0-75RB">
+                <label for="range1">0-75RB</label>
+                <input type="checkbox" id="range2" name="harga" value="75RB-150RB">
+                <label for="range2">75RB-150RB</label>
+                <input type="checkbox" id="range3" name="harga" value="150RB-200RB">
+                <label for="range3">150RB-200RB</label>
             </div>
         </div>
         <div class="filter-section">
             <h3>Bintang</h3>
-            <button>Bintang 5</button>
-            <button>Bintang 4</button>
-            <button>Bintang 3</button>
-            <button>Bintang 2</button>
-            <button>Bintang 1</button>
+            <div class="checkbox2">
+                <input type="checkbox" id="star5" name="bintang" value="5">
+                <label for="star5">Bintang 5</label>
+                <input type="checkbox" id="star4" name="bintang" value="4">
+                <label for="star4">Bintang 4</label>
+                <input type="checkbox" id="star3" name="bintang" value="3">
+                <label for="star3">Bintang 3</label>
+                <input type="checkbox" id="star2" name="bintang" value="2">
+                <label for="star2">Bintang 2</label>
+                <input type="checkbox" id="star1" name="bintang" value="1">
+                <label for="star1">Bintang 1</label>
+            </div>
         </div>
         <div class="apply-button">
             <button onclick="hidePopup()">Pakai</button>
