@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catalogs', function (Blueprint $table) {
-            $table->id();
-            $table->string('judul_jasa');
-            $table->text('deskripsi_jasa');
-            $table->string('kategori_jasa');
-            $table->string('alamat');
-            $table->string('nomor_telepon');
-            $table->string('gambar_katalog')->nullable();
-            $table->string('metode_pembayaran');
-            $table->string('nomor_rekening');
-            $table->timestamps();
-        });
+//         Schema::create('catalogs', function (Blueprint $table) {
+//             $table->id();
+//             $table->string('judul_jasa');
+//             $table->text('deskripsi_jasa');
+//             $table->string('kategori_jasa');
+//             $table->string('alamat');
+//             $table->string('nomor_telepon');
+//             $table->string('gambar_katalog')->nullable();
+//             $table->string('metode_pembayaran');
+//             $table->string('nomor_rekening');
+//             $table->timestamps();
+//         });
     }
 
     /**
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalogs');
+        // Schema::dropIfExists('catalogs');
     }
 };
