@@ -95,5 +95,7 @@ class KatalogCustomerController extends Controller
     {
         return view('penyedia_jasa.dashboard');
     }
+
+    
 }
 
