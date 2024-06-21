@@ -89,9 +89,9 @@
         <div class="info"> <!-- Perbaiki kesalahan penulisan class -->
             <ul>
                 <li><a href="#">Informasi Akun</a></li>
-                <li><a href="#">Pesanan Saya</a></li>
-                <li><a href="#">Wishlist</a></li>
-                <li><a href="#">Daftar Sebagai Penyedia Jasa</a></li>
+                <li><a href="/status_pemesanan">Pesanan Saya</a></li>
+                <li><a href="/wishlist">Wishlist</a></li>
+                <li><a href="/administrasi">Daftar Sebagai Penyedia Jasa</a></li>
                 <li><a href="#">Keluar</a></li>
             </ul>
         </div>
