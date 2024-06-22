@@ -69,7 +69,7 @@ class KatalogCustomerController extends Controller
         $catalog->kategori_jasa = $request->kategori_jasa;
         $catalog->alamat = $request->alamat;
         $catalog->nomor_telepon = $request->nomor_telepon;
-        
+
         if ($request->hasFile('gambar_katalog')) {
             $image = $request->file('gambar_katalog');
             $name = time().'.'.$image->getClientOriginalExtension();
@@ -77,7 +77,7 @@ class KatalogCustomerController extends Controller
             $image->move($destinationPath, $name);
             $catalog->gambar_katalog = $name;
         }
-        
+
         $catalog->metode_pembayaran = $request->metode_pembayaran;
         $catalog->nomor_rekening = $request->nomor_rekening;
         $catalog->save();
@@ -133,6 +133,6 @@ class KatalogCustomerController extends Controller
         return view('penyedia_jasa.dashboard');
     }
 
-    
+
 }
 
