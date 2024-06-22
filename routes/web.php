@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\KatalogCustomerController;
+use App\Http\Middleware\AuthLogin;
 use Illuminate\Support\Facades\Route;
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -20,7 +20,7 @@ Route::get('/status_pemesanan', [App\Http\Controllers\KatalogCustomerController:
 Route::get('/reviewcustomer', [App\Http\Controllers\KatalogCustomerController::class, 'review_customer']);
 Route::get('/lihatjasa_pj', [App\Http\Controllers\KatalogCustomerController::class, 'lihatjasa_pj']);
 
-Route::get('/dashboard', [App\Http\Controllers\KatalogCustomerController::class, 'dashboard'])->middleware('auth');
+Route::get('/dashboard', [App\Http\Controllers\KatalogCustomerController::class, 'dashboard']);
 Route::get('/wishlist', [App\Http\Controllers\KatalogCustomerController::class, 'wishlist']);
 
 Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class, 'profilcust']);
@@ -30,10 +30,11 @@ Route::get('/helpcenter', [App\Http\Controllers\KatalogCustomerController::class
 Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class, 'notifikasi']);
 
 // login - regirster
-Route::get('/login', [App\Http\Controllers\KatalogCustomerController::class, 'login'])->name('login');
+Route::get('/login', [App\Http\Controllers\KatalogCustomerController::class, 'login'])->middleware("guest")->name('login');
 Route::post('/login', [App\Http\Controllers\AuthLoginController::class,'auth']);
 Route::get('/registrasi', [App\Http\Controllers\KatalogCustomerController::class, 'registrasi']);
 Route::post('/registrasi', [App\Http\Controllers\AuthLoginController::class,'create']);
+Route::post('/logout', [App\Http\Controllers\AuthLoginController::class,'logout']);
 
 Route::get('/t1', [App\Http\Controllers\TestingController::class, 't1']);
 Route::get('/t2', [App\Http\Controllers\TestingController::class, 't2']);

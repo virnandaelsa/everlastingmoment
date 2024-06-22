@@ -45,7 +45,7 @@
                     <input value="{{ old('no_hp') }}" type="tel" name="no_hp" placeholder="no. telepon" required>
                 </div>
                 <div class="input-group">
-                    <input value="{{ old('alamat') }}" type="text" name="alamat" placeholder="alamat" required>
+                    <input value="{{ old('alamat') }}" type="text" name="alamat" placeholder="alamat Kota Saja" required>
                 </div>
                 <div class="input-group">
                     <input value="{{ old('email') }}" type="email" name="email" placeholder="email" required>

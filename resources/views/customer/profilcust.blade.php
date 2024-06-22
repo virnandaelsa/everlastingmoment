@@ -92,10 +92,15 @@
                 <li><a href="/status_pemesanan">Pesanan Saya</a></li>
                 <li><a href="/wishlist">Wishlist</a></li>
                 <li><a href="/administrasi">Daftar Sebagai Penyedia Jasa</a></li>
-                <li><a href="#">Keluar</a></li>
+                <li>
+                    <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Keluar</button>
+                    </form>
+                </li>
             </ul>
         </div>
-        
+
     </div>
 </div>
 @endsection
