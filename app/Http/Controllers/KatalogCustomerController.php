@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Models\detailPJ;
 
 
 class KatalogCustomerController extends Controller
@@ -84,6 +85,64 @@ class KatalogCustomerController extends Controller
 
         return redirect()->route('catalog.create')->with('success', 'Catalog added successfully.');
     }
+
+    public function store_administrasi(Request $request)
+    {
+
+        $request->validate([
+            'namaToko' => 'required|string|max:255',
+            'alamat' => 'required',
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'kategori' => 'required',
+            'namaBank' => 'required',
+            'fotoProfil' => 'required',
+            'fotoSampul' => 'required',
+            'no_rek' => 'required|string|unique:detailPJ',
+        ],[
+            'namaToko.required' => 'Nama harus diisi',
+            'provinsi.required' => 'Email harus diisi',
+            'alamat.required' => 'Alamat bekerja harus diisi',
+            'kota.required' => 'No_tlp harus diisi',
+            'namaBank.required' => 'Nama Bank harus diisi',
+            'fotoProfil.required' => 'Foto Profil harus diisi',
+            'fotoSampul.required' => 'Foto Sampul harus diisi',
+            'no_rek.unique' => 'No Rekening sudah pernah di tambahkan',
+            'kategori.required' => 'kategori harus diisi',
+        ]);
+
+
+        $administrasi = new detailPJ();
+        $administrasi->id_user = auth()->user()->id_user;
+        $administrasi->nama_toko = $request->namaToko;
+        $administrasi->alamat = $request->alamat . " " . $request->kota . ", " . $request->provinsi;
+        $administrasi->kategori = $request->kategori;
+        $administrasi->bank = $request->namaBank;
+        $administrasi->no_rek = $request->noRekening;
+        $administrasi->profil_tk = $request->fotoProfil;
+        $administrasi->sampul_tk = $request->fotoSampul;
+
+        if ($request->hasFile("fotoProfil") || $request->hasFile("fotoSampul")) {
+            $image = $request->file("fotoProfil");
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/penyedia_jasa');
+            $image->move($destinationPath, $name);
+            $administrasi->profil_tk = $name;
+
+            $image = $request->file("fotoSampul");
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/penyedia_jasa');
+            $image->move($destinationPath, $name);
+            $administrasi->sampul_tk = $name;
+
+        }
+
+        $administrasi->save();
+
+        return redirect("/dashboard")->with('success', 'Berhasil Menambah Penyedia Jasa.');
+    }
+
+
     public function lengkapi_administrasi()
     {
         return view('penyedia_jasa.lengkapi_administrasi');

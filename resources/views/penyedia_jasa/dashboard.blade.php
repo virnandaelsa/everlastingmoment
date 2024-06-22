@@ -106,6 +106,14 @@
 </style>
 
 <div class="content">
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <i class="material-icons">close</i>
+      </button>
+    </div>
+    @endif
     <div class="top-bar">
         <div class="search-bar">
             <input type="text" placeholder="Jasa Make Up Pengantin">
@@ -152,16 +160,16 @@
     const nextBtn = document.querySelector('.next-btn');
 
     nextBtn.addEventListener('click', () => {
-        catalog.scrollBy({ 
+        catalog.scrollBy({
             left: 160, // 150px width + 10px margin
-            behavior: 'smooth' 
+            behavior: 'smooth'
         });
     });
 
     prevBtn.addEventListener('click', () => {
-        catalog.scrollBy({ 
-            left: -160, 
-            behavior: 'smooth' 
+        catalog.scrollBy({
+            left: -160,
+            behavior: 'smooth'
         });
     });
 </script>

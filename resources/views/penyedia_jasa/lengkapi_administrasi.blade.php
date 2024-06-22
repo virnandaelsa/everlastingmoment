@@ -12,26 +12,39 @@
         <img src="{{ asset('images/logoevmo.png') }}" alt="Logo">
 </div>
     <div class="container">
+        <div class="d-">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li style="color:red">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </div>
+
         <h1>FORM ADMINISTRASI</h1>
-        <form>
+        <form method="POST" enctype="multipart/form-data" action="{{ route('sfa') }}">
+            @csrf
             <label for="namaToko">Nama Toko:</label>
             <input type="text" id="namaToko" name="namaToko" required>
-            
+
             <label for="alamat">Alamat:</label>
             <textarea id="alamat" name="alamat" rows="2" required></textarea>
-            
+
             <label for="provinsi">Provinsi:</label>
             <select id="provinsi" name="provinsi" required>
-                <option value="">Pilih Provinsi</option>
+                <option value="Jawa Timur">Pilih Provinsi</option>
             </select>
-            
+
             <label for="kota">Kota / Kabupaten:</label>
             <select id="kota" name="kota" required>
-                <option value="">Pilih Kota / Kabupaten</option>
+                <option value="Kediri">Pilih Kota / Kabupaten</option>
             </select>
-            
+
             <label>Kategori:</label>
-            <div class="kategori">
+            <div class="kategori" req>
                 <div>
                     <input type="radio" id="makeUpArtist" name="kategori" value="Make Up Artist" required>
                     <label for="makeUpArtist">Make Up Artist</label>
@@ -65,7 +78,7 @@
                     <label for="weddingOrganizer">Wedding Organizer</label>
                 </div>
             </div>
-            
+
             <label for="namaBank">Nama Bank:</label>
             <select id="namaBank" name="namaBank" required>
                 <option value="">Pilih Nama Bank</option>
@@ -74,22 +87,22 @@
                 <option value="BCA">BANK BCA</option>
                 <option value="BNI">BANK BNI</option>
             </select>
-            
+
             <label for="noRekening">No Rekening:</label>
-            <input type="text" id="noRekening" name="noRekening" required>
-            
+            <input type="text" id="noRekening" name="no_rek" required>
+
             <label for="fotoProfil">Upload Foto Profil Toko:</label>
             <div class="file-upload">
                 <input type="file" id="fotoProfil" name="fotoProfil" accept="image/*" required>
                 <label for="fotoProfil">Choose file</label>
             </div>
-            
-            <label for="fotoSampul">Upload Foto Sampul Toko:</label>
+
+            <label for="fotoProfil">Upload Foto Sampul Toko:</label>
             <div class="file-upload">
-                <input type="file" id="fotoProfil" name="fotoSampul" accept="image/*" required>
-                <label for="fotoProfilSampul">Choose file</label>
+                <input type="file" id="fotoSampul" name="fotoSampul" accept="image/*" required>
+                <label for="fotoSampul">Choose file</label>
             </div>
-            
+
             <button type="submit">SUBMIT</button>
             <button type="button" onclick="goBack()">KEMBALI</button>
         </form>
