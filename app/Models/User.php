@@ -48,10 +48,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-
-    public function detailPJ(): HasMany
+    public function detailPJ()
     {
-        return $this->hasMany(detailPJ::class,'id_detailPJ');
+        return $this->belongsTo(detailPJ::class,'id_user','id_user');
     }
 }

@@ -11,8 +11,8 @@ class detailPJ extends Model
     protected $table='detailPJ';
     protected $primaryKey='id_detailPJ';
 
-    public function pengguna(): BelongsTo
+    public function pengguna()
     {
-        return $this->belongsTo(User::class,'id_user');
+        return $this->hasOne(User::class,'id_user','id_user');
     }
 }
