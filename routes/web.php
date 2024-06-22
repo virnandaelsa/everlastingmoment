@@ -35,3 +35,7 @@ Route::post('/login', [App\Http\Controllers\AuthLoginController::class,'auth']);
 Route::get('/registrasi', [App\Http\Controllers\KatalogCustomerController::class, 'registrasi']);
 Route::post('/registrasi', [App\Http\Controllers\AuthLoginController::class,'create']);
 Route::post('/logout', [App\Http\Controllers\AuthLoginController::class,'logout']);
+
+Route::get('/t1', [App\Http\Controllers\TestingController::class, 't1']);
+Route::get('/t2', [App\Http\Controllers\TestingController::class, 't2']);
+Route::get('/t3', [App\Http\Controllers\TestingController::class, 't3']);
