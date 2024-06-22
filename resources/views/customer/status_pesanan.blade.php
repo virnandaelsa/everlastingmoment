@@ -76,9 +76,12 @@
                 <p>Rp. 6.000.000.00</p>
                 <p>SeMUA Evelyn</p>
             </div>
-            <button class="order-button">Pelunasan</button>
+            <a href="/pelunasan" class="order-button-link">
+                <button class="order-button">Pelunasan</button>
+            </a>
         </div>
     </div>
+    
     <div class="order-section">
         <h3>Dikonfirmasi</h3>
         <div class="order-item">
@@ -88,7 +91,9 @@
                 <p>Rp. 17.000.000.00</p>
                 <p>Dekorasi UtamaKita</p>
             </div>
-            <button class="order-button">Upload DP</button>
+            <a href=""class="order-button-link">
+                <button class="order-button">Upload DP</button>
+            </a>
         </div>
     </div>
     <div class="order-section">
@@ -100,7 +105,9 @@
                 <p>Rp. 1.000.000</p>
                 <p>Sayanda wedding</p>
             </div>
-            <button class="order-button">Review</button>
+            <a href=""class="order-button-link">
+                <button class="order-button">Review</button>
+            </a>
         </div>
     </div>
     <div class="order-section">
