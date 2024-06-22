@@ -15,12 +15,18 @@ class TestingController extends Controller
 {
     public function t1()
     {
-        $user = User::with('detailPJ');
-        return view('testing.t1', compact('user'));
+        $user = detailPJ::with('pengguna')->get();
+        return view('testing.t1', [
+            'user' => $user
+            ] );
     }
     public function t2()
     {
-        return view('testing.t2');
+        // $user = User::all();
+        $user = User::with('detailPJ')->get();
+        return view('testing.t2', [
+            'user' => $user
+            ] );
     }
     public function t3()
     {

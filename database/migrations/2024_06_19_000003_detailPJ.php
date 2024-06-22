@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             $table->string('nama_toko');
 
-            // $table->string('alamat')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('kategori')->nullable();
             $table->string('bank')->nullable();
             $table->string('no_rek')->unique()->nullable();

@@ -13,6 +13,6 @@ class detailPJ extends Model
 
     public function pengguna()
     {
-        return $this->belongsTo(User::class,'id_detailPJ');
+        return $this->hasOne(User::class,'id_user','id_user');
     }
 }
