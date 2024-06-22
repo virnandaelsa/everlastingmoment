@@ -70,7 +70,7 @@ class AuthLoginController extends Controller
 
         if(Auth::Attempt($credential)){
             $request->session()->regenerate();
-            return redirect("/dashboard");
+            return redirect("/");
         }
 
         return back()->with('loginError', 'Belum Berhasil, nih!');
