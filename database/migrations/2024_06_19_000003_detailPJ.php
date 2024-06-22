@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('profil_tk')->nullable();
             $table->string('sampul_tk')->nullable();
 
+            $table->timestamps();
+
+
             $table->foreign('id_user')->references('id_user')->on('pengguna');
 
         });

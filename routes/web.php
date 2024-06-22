@@ -12,13 +12,15 @@ Route::get('/lihatjasa', [App\Http\Controllers\KatalogCustomerController::class,
 Route::get('/pesan', [App\Http\Controllers\KatalogCustomerController::class, 'pesan']);
 Route::get('/tambah_katalog', [App\Http\Controllers\KatalogCustomerController::class, 'tambah_katalog'])->name('catalog.create');
 Route::post('/tambah-katalog', [KatalogCustomerController::class, 'store_catalogs'])->name('catalog.store');
-Route::get('/administrasi', [App\Http\Controllers\KatalogCustomerController::class, 'lengkapi_administrasi']);
 Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 Route::get('/dp', [App\Http\Controllers\KatalogCustomerController::class, 'dp']);
 Route::get('/pelunasan', [App\Http\Controllers\KatalogCustomerController::class, 'pelunasan']);
 Route::get('/status_pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'status_pesanan']);
 Route::get('/reviewcustomer', [App\Http\Controllers\KatalogCustomerController::class, 'review_customer']);
 Route::get('/lihatjasa_pj', [App\Http\Controllers\KatalogCustomerController::class, 'lihatjasa_pj']);
+
+Route::get('/administrasi', [App\Http\Controllers\KatalogCustomerController::class, 'lengkapi_administrasi'])->middleware("auth");
+Route::post('/administrasi', [App\Http\Controllers\KatalogCustomerController::class, 'store_administrasi'])->name('sfa');
 
 Route::get('/dashboard', [App\Http\Controllers\KatalogCustomerController::class, 'dashboard'])->middleware("auth");
 Route::get('/wishlist', [App\Http\Controllers\KatalogCustomerController::class, 'wishlist']);
