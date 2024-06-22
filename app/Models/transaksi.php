@@ -11,12 +11,20 @@ class transaksi extends Model
     protected $table='transaksi';
     protected $primaryKey='id_transaksi';
 
-    public function pengguna(): BelongsTo
+    public function pengguna()
     {
-        return $this->belongsTo(User::class,'id_user');
+        return $this->belongsTo(User::class,'id_user','id_user');
     }
-    public function katalog(): BelongsTo
+    public function katalog()
     {
-        return $this->belongsTo(katalog::class,'id_katalog');
+        return $this->belongsTo(katalog::class,'id_katalog','id_katalog');
+    }
+    public function dt_transaksi()
+    {
+        return $this->hasMany(dt_transaksi::class,'id_transaksi','id_transaksi');
+    }
+    public function review()
+    {
+        return $this->hasMany(review::class,'id_transaksi','id_transaksi');
     }
 }

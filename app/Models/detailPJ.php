@@ -15,4 +15,8 @@ class detailPJ extends Model
     {
         return $this->hasOne(User::class,'id_user','id_user');
     }
+    public function katalog()
+    {
+        return $this->belongsTo(katalog::class,'id_detailPJ','id_detailPJ');
+    }
 }
