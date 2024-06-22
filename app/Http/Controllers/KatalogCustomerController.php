@@ -125,13 +125,13 @@ class KatalogCustomerController extends Controller
         if ($request->hasFile("fotoProfil") || $request->hasFile("fotoSampul")) {
             $image = $request->file("fotoProfil");
             $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/penyedia_jasa');
+            $destinationPath = public_path('/images/penyedia_jasa/profil');
             $image->move($destinationPath, $name);
             $administrasi->profil_tk = $name;
 
             $image = $request->file("fotoSampul");
             $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/penyedia_jasa');
+            $destinationPath = public_path('/images/penyedia_jasa/sampult');
             $image->move($destinationPath, $name);
             $administrasi->sampul_tk = $name;
 
