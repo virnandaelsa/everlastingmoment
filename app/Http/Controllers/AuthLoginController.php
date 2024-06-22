@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AuthLoginController extends Controller
@@ -37,7 +38,6 @@ class AuthLoginController extends Controller
             'password.min' => 'Password minimal 8',
         ]);
 
-
         // Hash password
         $validatedData['password'] = bcrypt($validatedData['password']);
 
@@ -70,7 +70,8 @@ class AuthLoginController extends Controller
 
         if(Auth::Attempt($credential)){
             $request->session()->regenerate();
-            return redirect("/dashboard");
+
+            return redirect()->intended('dashboard');
         }
 
         return back()->with('loginError', 'Belum Berhasil, nih!');
@@ -79,9 +80,15 @@ class AuthLoginController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function logout(Request $request): RedirectResponse
     {
-        //
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     /**
