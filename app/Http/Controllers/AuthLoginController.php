@@ -24,10 +24,10 @@ class AuthLoginController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
-            'email' => 'required',
+            'email' => 'required|unique:pengguna',
             'alamat' => 'required|string|max:255',
             'no_hp' => 'required||max:14',
-            'username' => 'required|string',
+            'username' => 'required|string|unique:pengguna',
             'password' => 'required|string|min:8',
         ], [
             'nama.required' => 'Nama harus diisi',
