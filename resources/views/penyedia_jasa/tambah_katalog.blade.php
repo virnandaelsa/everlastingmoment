@@ -141,6 +141,11 @@
                 </div>
             </div>
 
+            <div class="tax-warning" id="tax-warning" >
+                * Setiap transaksi dikenakan pajak Rp.100.000,00 silahkan tambahkan harga pokok produk jasa anda <br>
+                  Transaksi minimal Rp.1.000.000,00
+            </div>
+
             <div id="service-details-container">
                 <div class="service-detail-group">
                     <div class="form-group">
@@ -219,6 +224,14 @@
             const serviceDetailGroup = element.closest('.service-detail-group');
             serviceDetailGroup.remove();
         }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('tax-warning').innerHTML += '!';
+        });
+
+        
     </script>
+
+    
 </body>
 </html>
