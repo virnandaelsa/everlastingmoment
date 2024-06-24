@@ -29,7 +29,7 @@
     <h4 class="bold-text">Rekomendasi</h4>
     <div class="d-flex flex-wrap">
         <div class="card">
-            <img src="{{ asset('images/mua.jpg') }}" class="card-img-top" alt="MUA">
+            <img src="{{ asset('images/categories/Beautician.png') }}" class="card-img-top" alt="MUA">
             <div class="card-body">
                 <h5 class="card-title">Wedding Make Up Paket</h5>
                 <p class="card-text">Rp. 5.000.000,00</p>

@@ -5,8 +5,11 @@
         <div class="top-bar">
             <div class="search-bar">
                 <input type="text" placeholder="Jasa Make Up Pengantin">
-                <button class="btn-signup">SIGN UP</button>
-                <button class="btn-signin">SIGN IN</button>
+                @auth
+                @else
+                <a href="/registrasi" class="btn-signup">SIGN UP</a>
+                <a href="/login" class="btn-signin">SIGN IN</a>
+                @endauth
             </div>
         </div>
             <div class="package">
@@ -84,7 +87,7 @@
             <button class="order">Pesan</button>
         </div>
     </div>
-    
+
     <script>
         function changeSlide(image) {
             document.getElementById('slide-img').src = image;
