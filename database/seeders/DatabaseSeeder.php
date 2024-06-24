@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             [
                 [
                     'id_katalog' => '333',
-                    'id_detail_pj' => '222',
+                    'id_detailPJ' => '222',
                     'judul' => 'Paket Make Up Arabian Look',
                     'deskripsi' => 'Arabian look identic dengan riasan di bagian mata dengan ciri bulu mata yang tebal dan menggunakan smokey eyes. ...',
                     // 'kategori' => 'sama pj',

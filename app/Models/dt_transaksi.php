@@ -11,8 +11,8 @@ class dt_transaksi extends Model
     protected $table='dt_transaksi';
     protected $primaryKey='id_dt_transaksi';
 
-    public function transaksi(): BelongsTo
+    public function transaksi()
     {
-        return $this->belongsTo(transaksi::class,'id_transaksi');
+        return $this->belongsTo(transaksi::class,'id_transaksi','id_transaksi');
     }
 }

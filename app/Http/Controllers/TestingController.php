@@ -30,6 +30,13 @@ class TestingController extends Controller
     }
     public function t3()
     {
-        return view('testing.t3');
+        $data1 = katalog::with('detailPJ')->get();
+        $data2 = dt_katalog::with('katalog')->get();
+        $data3 = katalog::with('dt_katalog')->get();
+        return view('testing.t3', [
+            'data1' => $data1,
+            'data2' => $data2,
+            'data3' => $data3
+            ] );
     }
 }

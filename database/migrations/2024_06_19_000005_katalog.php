@@ -14,7 +14,7 @@ return new class extends Migration
         //
         Schema::create('katalog', function (Blueprint $table) {
             $table->id('id_katalog');
-            $table->unsignedBigInteger('id_detail_pj');
+            $table->unsignedBigInteger('id_detailPJ');
             $table->string('judul');
             // $table->unsignedBigInteger('id_detail_katalog');
 
@@ -28,7 +28,7 @@ return new class extends Migration
             // $table->string('no_rek')->unique()->nullable();
 
             // $table->foreign('id_detail_katalog')->references('id_detail_katalog')->on('detail_katalog');
-            $table->foreign('id_detail_pj')->references('id_detailPJ')->on('detailPJ');
+            $table->foreign('id_detailPJ')->references('id_detailPJ')->on('detailPJ');
         });
     }
 
