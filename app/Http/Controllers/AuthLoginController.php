@@ -45,7 +45,7 @@ class AuthLoginController extends Controller
         $user->nama = $validatedData['nama'];
         $user->email = $validatedData['email'];
         $user->alamat = $validatedData['alamat'];
-        $user->no_hp = $validatedData['no_hp'];
+        $user->no_telp = $validatedData['no_hp'];
         $user->username = $validatedData['username'];
         $user->password = $validatedData['password'];
         $succ = $user->save();
