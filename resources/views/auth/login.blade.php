@@ -23,6 +23,12 @@
             </div>
         </div>
         <div class="right-panel">
+            @if (session('loginError'))
+            <div class="alert alert-success" style="color: red">
+                {{session('loginError')}}
+              </button>
+            </div>
+            @endif
             <h2>Welcome!</h2>
             <form method="POST" action="/login">
                 @csrf
