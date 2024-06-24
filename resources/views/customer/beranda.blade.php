@@ -201,6 +201,9 @@
             </div>
         </div>
         <div class="filter-section1">
+            <input type="text" placeholder="">
+        </div>
+        <div class="filter-section1">
             <input type="text" placeholder="Lain - Lain">
         </div>
         <div class="filter-section">
@@ -209,15 +212,15 @@
             <input type="text" placeholder="MAX">
             <div class="range-buttons">
                 <input type="checkbox" id="range1" name="harga" value="0-75RB">
-                <label for="range1">0-75RB</label>
+                <label for="range1">1jt-5jt</label>
                 <input type="checkbox" id="range2" name="harga" value="75RB-150RB">
-                <label for="range2">75RB-150RB</label>
+                <label for="range2">5jt-10jt</label>
                 <input type="checkbox" id="range3" name="harga" value="150RB-200RB">
-                <label for="range3">150RB-200RB</label>
+                <label for="range3">10jt-20jt</label>
             </div>
         </div>
         <div class="filter-section">
-            <h3>Bintang</h3>
+            <h3>Rating</h3>
             <div class="checkbox2">
                 <input type="checkbox" id="star5" name="bintang" value="5">
                 <label for="star5">Bintang 5</label>
