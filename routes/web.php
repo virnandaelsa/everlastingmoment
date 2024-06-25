@@ -41,3 +41,7 @@ Route::post('/logout', [App\Http\Controllers\AuthLoginController::class,'logout'
 Route::get('/t1', [App\Http\Controllers\TestingController::class, 't1']);
 Route::get('/t2', [App\Http\Controllers\TestingController::class, 't2']);
 Route::get('/t3', [App\Http\Controllers\TestingController::class, 't3']);
+Route::get('/t4', [App\Http\Controllers\TestingController::class, 't4']);
+Route::get('/t5', [App\Http\Controllers\TestingController::class, 't5']);
+Route::get('/t6', [App\Http\Controllers\TestingController::class, 't6']);
+Route::get('/t7', [App\Http\Controllers\TestingController::class, 't7']);
