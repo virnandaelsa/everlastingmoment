@@ -100,6 +100,7 @@
                 <th>Paket Pesanan</th>
                 <th>Waktu</th>
                 <th>Status</th>
+                <th>Pembayaran</th>
                 <th>Action</th>
             </tr>
             <tr>
@@ -108,6 +109,7 @@
                 <td>Paket A</td>
                 <td>2024-06-16 10:00</td>
                 <td>On Process</td>
+                <td>Lunas</td>
                 <td><a href="#"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
             </tr>
             
