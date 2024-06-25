@@ -14,7 +14,7 @@ class KatalogCustomerController extends Controller
     public function index()
     {
         $data = kategori::all();
-        $data2 = katalog::all();
+        $data2 = katalog::with("dt_katalog")->get();
         return view('customer.beranda', [
             'data' => $data,
             'data2' => $data2,

@@ -42,5 +42,18 @@
                 </div>
             </div>
         </div>
+        @foreach($data2 as $katalog)
+        <div class="card">
+            <?php $gambar = $katalog->dt_katalog[0]->gambar ?>
+            <img src="{{filter_var(asset("images/catalogs/$gambar"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gambar }}';" class="card-img-top" alt="{{$katalog->dt_katalog[0]->gambar}}">
+            <div class="card-body">
+                <h5 class="card-title">{{$katalog['judul']}}</h5>
+                <p class="card-text">{{$katalog->dt_katalog[0]->harga}}</p>
+                <div class="move-right">
+                    <a href="/lihatjasa" class="">Lihat detail</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 </div>
