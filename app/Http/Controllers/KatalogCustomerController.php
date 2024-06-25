@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Models\katalog;
 use App\Models\detailPJ;
+use App\Models\kategori;
 
 
 class KatalogCustomerController extends Controller
 {
     public function index()
     {
-        return view('customer.beranda');
+        $data = kategori::all();
+        $data2 = katalog::all();
+        return view('customer.beranda', [
+            'data' => $data,
+            'data2' => $data2,
+            ] );
     }
     public function lihatjasa()
     {

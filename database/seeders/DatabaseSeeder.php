@@ -22,6 +22,42 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        DB::table('kategori')->insert(
+            [
+                [
+                    'judul_kategori' => 'MUA',
+                    'gambar_kategori' => 'Beautician.png'
+                ],
+                [
+                    'judul_kategori' => 'Dekorasi',
+                    'gambar_kategori' => 'Beautiful Wedding Ribbon.png'
+                ],
+                [
+                    'judul_kategori' => 'Sound Systems',
+                    'gambar_kategori' => 'Subwoofer.png'
+                ],
+                [
+                    'judul_kategori' => 'Cathering',
+                    'gambar_kategori' => 'Buffet Breakfast.png'
+                ],
+                [
+                    'judul_kategori' => 'Wedding Organizer',
+                    'gambar_kategori' => 'Tasklist.png'
+                ],
+                [
+                    'judul_kategori' => 'Photography',
+                    'gambar_kategori' => 'SLR Camera.png'
+                ],
+                [
+                    'judul_kategori' => 'Undangan',
+                    'gambar_kategori' => 'Letter.png'
+                ],
+                [
+                    'judul_kategori' => 'Souvenir',
+                    'gambar_kategori' => 'Favorite Package.png'
+                ]
+            ]
+            );
         DB::table('pengguna')->insert(
             [
                 [
