@@ -1,10 +1,10 @@
     <div class="penawaran my-4">
         @auth @if (auth()->user()->role==1)
         <h4 class="bold-text">Tambah Katalog Anda Sekarang!</h4>
-        <button>TAMBAH KATALOG</button>            
+        <a href="/tambah_katalog" class="btn btn-primary">TAMBAH KATALOG</a>
         @endif @endauth
     </div>
-    
+
     @auth @if (auth()->user()->role==1)
     <div class="recommendations my-4">
         <h4 class="bold-text">KATALOG SAYA</h4>

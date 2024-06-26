@@ -35,12 +35,19 @@
 
             <label for="provinsi">Provinsi:</label>
             <select id="provinsi" name="provinsi" required>
-                <option value="Jawa Timur">Pilih Provinsi</option>
+                <option value="">Pilih Provinsi</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="DKI Jakarta">DKI Jakarta</option>
+                <option value="Jabodetabek">Jabodetabek</option>
             </select>
 
             <label for="kota">Kota / Kabupaten:</label>
             <select id="kota" name="kota" required>
-                <option value="Kediri">Pilih Kota / Kabupaten</option>
+                <option value="">Pilih Kota / Kabupaten</option>
+                <option value="Kediri">Kediri</option>
+                <option value="Tulungagung">Tulungagung</option>
+                <option value="Surabaya">Surabaya</option>
             </select>
 
             <label>Kategori:</label>
