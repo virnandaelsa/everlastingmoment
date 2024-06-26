@@ -100,6 +100,17 @@ class DatabaseSeeder extends Seeder
                     'role' => '1',
                     'alamat' => 'Kab. Kediri',
                 ],
+                [
+                    'id_user' => '999',
+                    'nama' => 'Savira Ciliania',
+                    'no_telp' => '087605243654',
+                    'email' => 'satirasilla@gmail.com',
+                    'username' => 'uu1',
+                    'password' => Hash::make('1'),
+                    'foto' => '-.png',
+                    'role' => '1',
+                    'alamat' => 'Kab. Kediri',
+                ]
             ]
             );
         DB::table('detailPJ')->insert(

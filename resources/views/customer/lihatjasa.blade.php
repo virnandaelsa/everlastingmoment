@@ -12,7 +12,7 @@
                 @endauth
             </div>
         </div>
-            <div class="package">
+            <div class="package col-lg-12 col-sm-8">
             <div class="package row">
             <div class="col-md-6">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -22,15 +22,14 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="makeup1.jpg" alt="Makeup Package 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="makeup2.jpg" alt="Makeup Package 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="makeup3.jpg" alt="Makeup Package 3">
-                        </div>
+                    <?php $i=0?>
+                        @foreach ($data1->dt_katalog as $gambar )
+                        <?php $img=$gambar->gambar; ?>
+                            <div class="carousel-item {{$i==0?'active':''}}">
+                                <img class="d-block w-100" style="height:200px;" src='{{ asset("images/catalogs/$img") }}' alt="{{$img}}">
+                            </div>
+                        <?php $i++ ?>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -42,15 +41,21 @@
                     </a>
                 </div>
                 <div class="thumbnails mt-3">
-                    <img src="makeup1.jpg" alt="Makeup 1" class="thumbnail active" data-target="#carouselExampleIndicators" data-slide-to="0">
-                    <img src="makeup2.jpg" alt="Makeup 2" class="thumbnail" data-target="#carouselExampleIndicators" data-slide-to="1">
-                    <img src="makeup3.jpg" alt="Makeup 3" class="thumbnail" data-target="#carouselExampleIndicators" data-slide-to="2">
+                    <?php $i=0?>
+                        @foreach ($data1->dt_katalog as $gambar )
+                        <?php $img=$gambar->gambar; ?>
+                    <img src='{{ asset("images/catalogs/$img") }}' alt="{{$img}}" class="thumbnail {{$i==0?'active':''}}" data-target="#carouselExampleIndicators" data-slide-to="{{$i}}">
+                        <?php $i++ ?>
+                        @endforeach
                 </div>
             </div>
             <div class="col-md-6 package-info">
-                <h1>Paket Make Up Arabian Look</h1>
-                <p>SeMUA Evelyn</p>
-                <p>Rp. 3.000.000,00 - Rp. 6.000.000,00</p>
+                <h1>{{$data2->judul}}</h1>
+                <p>{{($data2->detailPJ->nama_toko)}}</p>
+                <p>{{($data2->detailPJ->kategori)}}</p>
+                @foreach ($data1->dt_katalog as $data)
+                    <p class="text-dark">{{$data->judul_variasi}} : Rp {{$data->harga}},- </p>
+                @endforeach
                 <div class="rating">
                     <span>⭐ 4.7 / 5</span>
                     <span>45 terpakai</span>
@@ -60,8 +65,9 @@
         <hr>
         <div class="description">
             <h2>Deskripsi</h2>
-            <p>Arabian look identik dengan riasan di bagian mata dengan ciri penggunaan bulu mata yang tebal dan menggunakan model smokey eyes. Arabian makeup menggunakan eyeshadow yang lebih dari satu warna karena memanfaatkan style bold make up.</p>
-            <p>Paket 1:</p>
+            <p>{{$data1->deskripsi}}</p>
+            {{-- <p>Arabian look identik dengan riasan di bagian mata dengan ciri penggunaan bulu mata yang tebal dan menggunakan model smokey eyes. Arabian makeup menggunakan eyeshadow yang lebih dari satu warna karena memanfaatkan style bold make up.</p> --}}
+            {{-- <p>Paket 1:</p>
             <ul>
                 <li>Make up pengantin wanita (beserta hairdo/hijabdo) dan pengantin pria</li>
                 <li>Make up 4 orang tua (2 wanita dan 2 pria)</li>
@@ -75,12 +81,12 @@
             <p>Paket 3:</p>
             <ul>
                 <li>Make up pengantin wanita (beserta hairdo/hijabdo) dan pengantin pria</li>
-            </ul>
+            </ul> --}}
         </div>
         <hr>
         <div class="categories">
             <h2>Kategori :</h2>
-            <p>Make Up Artist</p>
+            <p>{{$data2->detailPJ->kategori}}</p>
     </div>
         <div class="footer">
             <button class="chat">Chat</button>

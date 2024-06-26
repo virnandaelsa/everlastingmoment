@@ -146,6 +146,33 @@
             font-size: 20px;
             cursor: pointer;
         }
+
+    /* Media query untuk hp */
+@media (max-width: 480px) {
+    .popup {
+        width: 95%; /* Sesuaikan width untuk hp */
+    }
+    .filter-section .checkbox-group label,
+    .filter-section .checkbox2 label,
+    .filter-section .range-buttons label {
+        flex: 1 1 100%; /* Sesuaikan lebar label untuk hp */
+    }
+    .gambar img {
+        width: 30px; /* Sesuaikan lebar gambar untuk hp */
+    }
+}
+
+/* Media query untuk laptop */
+@media (min-width: 769px) {
+    .popup {
+        width: 550px; /* Kembali ke ukuran asli untuk laptop */
+    }
+    .filter-section .checkbox-group label,
+    .filter-section .checkbox2 label,
+    .filter-section .range-buttons label {
+        flex: 1 1 15%; /* Kembali ke ukuran asli untuk laptop */
+    }
+}
 </style>
 
     <div class="content">

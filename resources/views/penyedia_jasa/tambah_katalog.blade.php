@@ -1,3 +1,4 @@
+{{-- @dd($user) --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,6 +100,18 @@
 
     <h2 class="form-title">Tambah Katalog</h2>
     <div class="form-container">
+        <div class="d-">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </div>
+
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -108,35 +121,29 @@
             @csrf
             <div class="form-group">
                 <label for="judul-jasa">Judul jasa</label>
-                <input type="text" class="form-control" id="judul-jasa" name="judul_jasa" placeholder="Judul jasa">
+                <input type="text" class="form-control" id="judul-jasa" name="judul_jasa" required placeholder="Judul jasa">
             </div>
             <div class="form-group">
                 <label for="deskripsi-jasa">Deskripsi jasa</label>
-                <input type="text" class="form-control" id="deskripsi_jasa" name="deskripsi_jasa" placeholder="Deskripsi jasa">
+                <input type="text" class="form-control" id="deskripsi_jasa" name="deskripsi_jasa" required placeholder="Deskripsi jasa">
             </div>
             <div class="form-group">
                 <label for="kategori-jasa">Kategori jasa</label>
-                <select class="form-control" id="kategori-jasa" name="kategori_jasa">
-                    <option value="">MUA</option>
-                    <option value="kategori1">Sound System</option>
-                    <option value="kategori2">Dekorasi</option>
-                    <option value="kategori3">Catering</option>
-                    <!-- Tambahkan opsi lain sesuai kebutuhan -->
-                </select>
+                <input class="form-control" id="kategori-jasa" name="kategori_jasa" value="{{ $data[0]->kategori }}" readonly></input>
             </div>
 
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
+                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $data[0]->alamat }}" placeholder="Alamat" readonly>
             </div>
             <div class="form-group">
                 <label for="nomor-telepon">Nomor telepon</label>
-                <input type="text" class="form-control" id="nomor-telepon" name="nomor_telepon" placeholder="Nomor telepon">
+                <input type="text" class="form-control" id="nomor-telepon" value="{{ $user[0]->no_telp }}" name="nomor_telepon"  readonly placeholder="Nomor telepon">
             </div>
             <div class="form-group">
                 <label for="gambar-katalog">Gambar katalog jasa</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="gambar-katalog" name="gambar_katalog">
+                    <input type="file" class="custom-file-input" id="gambar-katalog" name="gambar_katalog" required>
                     <label class="custom-file-label" for="gambar-katalog">Choose file</label>
                 </div>
             </div>
@@ -149,7 +156,7 @@
             <div id="service-details-container">
                 <div class="service-detail-group">
                     <div class="form-group">
-                        <label for="judul-jasa-tawaran">Judul Jasa</label>
+                        <label for="judul-jasa-tawaran">Judul variasi</label>
                         <input type="text" class="form-control" id="judul-jasa-tawaran" name="judul_jasa_tawaran[]" placeholder="Judul Jasa">
                     </div>
                     <div class="form-group">
@@ -159,7 +166,7 @@
                     <div class="form-group">
                         <label for="gambar-jasa">Gambar jasa</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="gambar-jasa" name="gambar_jasa[]">
+                            <input type="file" class="custom-file-input" id="gambar-jasa" name="gambar_jasa[]" max="5" >
                             <label class="custom-file-label" for="gambar-jasa">Choose file</label>
                         </div>
                     </div>
@@ -174,20 +181,16 @@
                 Tambah Variasi
                 <img src="{{ asset('images/plus.png') }}" alt="Tambah Icon">
             </div>
-            
+
             <div class="form-group">
                 <label for="kategori-jasa">BANK</label>
-                <select class="form-control" id="kategori-jasa" name="kategori_jasa">
-                    <option value="">BRI</option>
-                    <option value="kategori1">BNI</option>
-                    <option value="kategori2">Mandiri</option>
-                    <option value="kategori3">BCA</option>
+                <input class="form-control" id="kategori-jasa" value="{{ $data[0]->bank }}" name="kategori_jasa" readonly>
                     <!-- Tambahkan opsi lain sesuai kebutuhan -->
-                </select>
+                </input>
             </div>
             <div class="form-group">
                 <label for="nomor-rekening">Nomor rekening</label>
-                <input type="text" class="form-control" id="nomor-rekening" name="nomor_rekening" placeholder="Nomor rekening">
+                <input type="text" value="{{ $data[0]->no_rek }}" class="form-control" id="nomor-rekening" name="nomor_rekening" placeholder="Nomor rekening" readonly>
             </div>
             <button type="submit" class="btn btn-block">KIRIM</button>
         </form>
@@ -229,9 +232,9 @@
         document.getElementById('tax-warning').innerHTML += '!';
         });
 
-        
+
     </script>
 
-    
+
 </body>
 </html>

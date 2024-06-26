@@ -79,7 +79,7 @@
                 <h5 class="card-title">{{$katalog['judul']}}</h5>
                 <p class="card-text">{{$harga}}</p>
                 <div class="move-right">
-                    <a href="/lihatjasa" class="">Lihat detail</a>
+                    <a href="/lihatjasa/{{$katalog->id_katalog}}" class="">Lihat detail</a>
                 </div>
             </div>
         </div>

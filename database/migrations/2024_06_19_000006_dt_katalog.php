@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_dt_katalog');
             $table->string('judul_variasi');
             $table->unsignedBigInteger('id_katalog');
+            $table->timestamps();
 
             $table->integer('harga');
             $table->string('gambar')->nullable();
