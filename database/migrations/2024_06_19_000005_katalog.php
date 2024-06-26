@@ -26,6 +26,7 @@ return new class extends Migration
             // $table->string('id_review')->unique()->nullable();
             $table->integer('metode_bayar');//1. TF 50%, 2. TF 100%, 3. DST
             // $table->string('no_rek')->unique()->nullable();
+            $table->timestamps();
 
             // $table->foreign('id_detail_katalog')->references('id_detail_katalog')->on('detail_katalog');
             $table->foreign('id_detail_pj')->references('id_detailPJ')->on('detailPJ');
