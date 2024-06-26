@@ -23,9 +23,17 @@ class KatalogCustomerController extends Controller
             'data2' => $data2,
             ] );
     }
-    public function lihatjasa()
+    public function lihatjasa($id)
     {
-        return view('customer.lihatjasa');
+        $data1 = katalog::with('dt_katalog')->find($id);
+        $data2 = katalog::with('detailPJ')->find($id);
+        // dd($data2);
+        return view('customer.lihatjasa',
+            [
+            'data1' => $data1,
+            'data2' => $data2,
+            ]
+        );
     }
     public function pesan()
     {
