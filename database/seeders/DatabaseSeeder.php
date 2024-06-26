@@ -22,6 +22,42 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        DB::table('kategori')->insert(
+            [
+                [
+                    'judul_kategori' => 'Make Up Artist',
+                    'gambar_kategori' => 'Beautician.png'
+                ],
+                [
+                    'judul_kategori' => 'Dekorasi',
+                    'gambar_kategori' => 'Beautiful Wedding Ribbon.png'
+                ],
+                [
+                    'judul_kategori' => 'Sound Systems',
+                    'gambar_kategori' => 'Subwoofer.png'
+                ],
+                [
+                    'judul_kategori' => 'Cathering',
+                    'gambar_kategori' => 'Buffet Breakfast.png'
+                ],
+                [
+                    'judul_kategori' => 'Wedding Organizer',
+                    'gambar_kategori' => 'Tasklist.png'
+                ],
+                [
+                    'judul_kategori' => 'Photography',
+                    'gambar_kategori' => 'SLR Camera.png'
+                ],
+                [
+                    'judul_kategori' => 'Undangan',
+                    'gambar_kategori' => 'Letter.png'
+                ],
+                [
+                    'judul_kategori' => 'Souvenir',
+                    'gambar_kategori' => 'Favorite Package.png'
+                ]
+            ]
+            );
         DB::table('pengguna')->insert(
             [
                 [
@@ -69,6 +105,26 @@ class DatabaseSeeder extends Seeder
         DB::table('detailPJ')->insert(
             [
                 [
+                    'id_detailPJ' => '1',
+                    'id_user' => '1',
+                    'nama_toko' => 'Iyain Wedding',
+                    'kategori' => 'Make Up Artis',
+                    'bank' => 'BRI',
+                    'no_rek' => '7289108273391721',
+                    'profil_tk' => '-.png',
+                    'sampul_tk' => '-.png',
+                ],
+                [
+                    'id_detailPJ' => '2',
+                    'id_user' => '2',
+                    'nama_toko' => 'Okelah Wedding',
+                    'kategori' => 'Dekorasi',
+                    'bank' => 'BRI',
+                    'no_rek' => '7289108273391722',
+                    'profil_tk' => '-.png',
+                    'sampul_tk' => '-.png',
+                ],
+                [
                     'id_detailPJ' => '222',
                     'id_user' => '111',
                     'nama_toko' => 'Savira Wedding',
@@ -84,7 +140,7 @@ class DatabaseSeeder extends Seeder
             [
                 [
                     'id_katalog' => '333',
-                    'id_detail_pj' => '222',
+                    'id_detailPJ' => '222',
                     'judul' => 'Paket Make Up Arabian Look',
                     'deskripsi' => 'Arabian look identic dengan riasan di bagian mata dengan ciri bulu mata yang tebal dan menggunakan smokey eyes. ...',
                     // 'kategori' => 'sama pj',

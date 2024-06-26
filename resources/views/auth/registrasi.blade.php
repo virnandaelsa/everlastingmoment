@@ -42,7 +42,7 @@
                     <input value="{{ old('nama') }}" type="text" name="nama" placeholder="nama" required>
                 </div>
                 <div class="input-group">
-                    <input value="{{ old('no_hp') }}" type="tel" name="no_hp" placeholder="no. telepon" required>
+                    <input value="{{ old('no_telp') }}" type="tel" name="no_telp" placeholder="no. telepon" required>
                 </div>
                 <div class="input-group">
                     <input value="{{ old('alamat') }}" type="text" name="alamat" placeholder="alamat Kota Saja" required>
@@ -55,9 +55,6 @@
                 </div>
                 <div class="input-group">
                     <input type="password" name="password" placeholder="password" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" name="re-type" placeholder="konfirmasi password" required>
                 </div>
                 <button type="submit">SIGN UP</button>
                 <p>Sudah punya akun? <a href="/login">Login</a></p>

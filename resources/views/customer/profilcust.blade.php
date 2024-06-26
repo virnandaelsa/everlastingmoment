@@ -1,3 +1,5 @@
+{{-- @dd() --}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -89,9 +91,15 @@
         <div class="info"> <!-- Perbaiki kesalahan penulisan class -->
             <ul>
                 <li><a href="#">Informasi Akun</a></li>
-                <li><a href="/status_pemesanan">Pesanan Saya</a></li>
-                <li><a href="/wishlist">Wishlist</a></li>
-                <li><a href="/administrasi">Daftar Sebagai Penyedia Jasa</a></li>
+                @if (auth()->user()->role == 0)
+                    <li><a href="/status_pemesanan">Pesanan Saya</a></li>
+                    <li><a href="/wishlist">Wishlist</a></li>
+                    <li><a href="/administrasi">Daftar Sebagai Penyedia Jasa</a></li>
+                @elseif (auth()->user()->role == 1)
+                <li><a href="/status_pemesanan">Data Pemesanan</a></li>
+                    <li><a href="/wishlist">Tambah Katalog</a></li>
+                    <li><a href="/administrasi">Katalog Saya</a></li>
+                @endif
                 <li>
                     <form action="/logout" method="post">
                     @csrf

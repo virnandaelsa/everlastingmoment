@@ -11,8 +11,8 @@ class dt_katalog extends Model
     protected $table='dt_katalog';
     protected $primaryKey='id_dt_katalog';
 
-    public function katalog(): BelongsTo
+    public function katalog()
     {
-        return $this->belongsTo(detailPJ::class,'id_katalog');
+        return $this->hasMany(katalog::class,'id_katalog','id_katalog');
     }
 }

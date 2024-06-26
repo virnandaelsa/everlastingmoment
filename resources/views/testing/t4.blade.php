@@ -1,4 +1,9 @@
-t3 KATALOG</br>
+{{ $pageTitle ?? 'HEHE' }}
+
+<br><br>
+DETAIL APA SAJA
+
+</br>
 </br>
 @foreach ($data1 as $data)
     print_r {{$data}}
@@ -7,7 +12,7 @@ t3 KATALOG</br>
 <br>
 <br>
 <br>
-@foreach ($data2 as $data)
+{{-- @foreach ($data2 as $data)
     print_r {{$data}}
     <br>
     <br>
@@ -19,5 +24,4 @@ t3 KATALOG</br>
     <br>
     <br>
 @endforeach
-{{-- {{print_r($data1[0])}}</br></br></br> --}}
-{{dd($data2)}}</br></br></br>
+{{dd($data2)}}</br></br></br> --}}

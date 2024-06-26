@@ -67,6 +67,23 @@
             border-radius: 5px;
             text-decoration: none;
         }
+        .service-detail-group {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .remove-service-btn {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #dc3545;
+            margin-top: 10px;
+        }
+        .remove-service-btn img {
+            max-width: 20px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -99,8 +116,15 @@
             </div>
             <div class="form-group">
                 <label for="kategori-jasa">Kategori jasa</label>
-                <input type="text" class="form-control" id="kategori_jasa" name="kategori_jasa" placeholder="Kategori jasa">
+                <select class="form-control" id="kategori-jasa" name="kategori_jasa">
+                    <option value="">MUA</option>
+                    <option value="kategori1">Sound System</option>
+                    <option value="kategori2">Dekorasi</option>
+                    <option value="kategori3">Catering</option>
+                    <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                </select>
             </div>
+
             <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
@@ -116,9 +140,50 @@
                     <label class="custom-file-label" for="gambar-katalog">Choose file</label>
                 </div>
             </div>
+
+            <div class="tax-warning" id="tax-warning" >
+                * Setiap transaksi dikenakan pajak Rp.100.000,00 silahkan tambahkan harga pokok produk jasa anda <br>
+                  Transaksi minimal Rp.1.000.000,00
+            </div>
+
+            <div id="service-details-container">
+                <div class="service-detail-group">
+                    <div class="form-group">
+                        <label for="judul-jasa-tawaran">Judul Jasa</label>
+                        <input type="text" class="form-control" id="judul-jasa-tawaran" name="judul_jasa_tawaran[]" placeholder="Judul Jasa">
+                    </div>
+                    <div class="form-group">
+                        <label for="biaya">Harga</label>
+                        <input type="text" class="form-control" id="biaya" name="biaya[]" placeholder="Harga">
+                    </div>
+                    <div class="form-group">
+                        <label for="gambar-jasa">Gambar jasa</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="gambar-jasa" name="gambar_jasa[]">
+                            <label class="custom-file-label" for="gambar-jasa">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="remove-service-btn" onclick="removeServiceDetailGroup(this)">
+                        Hapus Variasi
+                        <img src="{{ asset('images/hps.png') }}" alt="Hapus Icon">
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="add-service-btn" onclick="addServiceDetailGroup()">
+                Tambah Variasi
+                <img src="{{ asset('images/plus.png') }}" alt="Tambah Icon">
+            </div>
+            
             <div class="form-group">
-                <label for="metode-pembayaran">Metode pembayaran</label>
-                <input type="text" class="form-control" id="metode-pembayaran" name="metode_pembayaran" placeholder="Metode pembayaran">
+                <label for="kategori-jasa">BANK</label>
+                <select class="form-control" id="kategori-jasa" name="kategori_jasa">
+                    <option value="">BRI</option>
+                    <option value="kategori1">BNI</option>
+                    <option value="kategori2">Mandiri</option>
+                    <option value="kategori3">BCA</option>
+                    <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                </select>
             </div>
             <div class="form-group">
                 <label for="nomor-rekening">Nomor rekening</label>
@@ -131,11 +196,42 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
     <script>
         $(document).ready(function () {
             bsCustomFileInput.init();
         });
+
+        function addServiceDetailGroup() {
+            const serviceDetailGroup = document.querySelector('.service-detail-group');
+            const newServiceDetailGroup = serviceDetailGroup.cloneNode(true);
+
+            // Kosongkan nilai input pada grup yang dikloning
+            newServiceDetailGroup.querySelectorAll('input').forEach(input => {
+                input.value = '';
+            });
+
+            // Hapus tombol hapus pada grup pertama jika hanya ada satu grup
+            if (document.querySelectorAll('.service-detail-group').length === 1) {
+                serviceDetailGroup.querySelector('.remove-service-btn').remove();
+            }
+
+            document.getElementById('service-details-container').appendChild(newServiceDetailGroup);
+            bsCustomFileInput.init();
+        }
+
+        function removeServiceDetailGroup(element) {
+            const serviceDetailGroup = element.closest('.service-detail-group');
+            serviceDetailGroup.remove();
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('tax-warning').innerHTML += '!';
+        });
+
+        
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
+    
 </body>
 </html>

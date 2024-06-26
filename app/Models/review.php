@@ -11,8 +11,8 @@ class review extends Model
     protected $table='review';
     protected $primaryKey='id_review';
 
-    public function transaksi(): BelongsTo
+    public function transaksi()
     {
-        return $this->belongsTo(transaksi::class,'id_transaksi');
+        return $this->belongsTo(transaksi::class,'id_transaksi','id_transaksi');
     }
 }

@@ -24,10 +24,10 @@ class AuthLoginController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
-            'email' => 'required',
+            'email' => 'required|unique:pengguna',
             'alamat' => 'required|string|max:255',
-            'no_hp' => 'required||max:14',
-            'username' => 'required|string',
+            'no_telp' => 'required||max:14|unique:pengguna',
+            'username' => 'required|string|unique:pengguna',
             'password' => 'required|string|min:8',
         ], [
             'nama.required' => 'Nama harus diisi',
@@ -45,7 +45,7 @@ class AuthLoginController extends Controller
         $user->nama = $validatedData['nama'];
         $user->email = $validatedData['email'];
         $user->alamat = $validatedData['alamat'];
-        $user->no_hp = $validatedData['no_hp'];
+        $user->no_telp = $validatedData['no_telp'];
         $user->username = $validatedData['username'];
         $user->password = $validatedData['password'];
         $succ = $user->save();
@@ -73,7 +73,7 @@ class AuthLoginController extends Controller
             return redirect("/");
         }
 
-        return back()->with('loginError', 'Belum Berhasil, nih!');
+        return back()->with('loginError', 'Login Gagal');
     }
 
     /**
