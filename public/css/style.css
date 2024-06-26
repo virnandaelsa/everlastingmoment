@@ -26,7 +26,6 @@ body {
     padding-top: 50px;
     display: block;
     width: 50px;
-    /* padding: 16px; */
     text-decoration: none;
     margin: auto;
 }
@@ -36,9 +35,9 @@ body {
 }
 
 .content {
-    margin-left: 100px; /* Adjust according to the sidebar width */
+    margin-left: 100px;
     padding: 20px;
-    background: linear-gradient(to bottom, #6E9FC1,#ffffff, #ffffff); /* Gradient background for main content */
+    background: linear-gradient(to bottom, #6E9FC1, #ffffff, #ffffff); /* Gradient background for main content */
     min-height: 100vh;
     border-radius: 10px;
 }
@@ -131,6 +130,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
 
 .category-item div {
     background-color: #FFBD59;
@@ -271,4 +271,124 @@ body {
 
 .upload-section button:hover {
     background-color: #0056b3;
+}
+
+
+/* Ukuran layar besar (desktop) */
+@media (max-width: 1200px) {
+    .sidebar{
+        width: 250px;
+    }
+    .content{
+        margin-left: 100px;
+    }
+    .category-item {
+        flex: 1 1 25%;  /* 4 items per row */
+        max-width: 25%;
+    }
+}
+
+/* Ukuran layar menengah (tablet) */
+@media (max-width: 992px) {
+    .sidebar{
+        width: 200px;
+    }
+    .sidebar a{
+        width: 40px;
+    }
+    .content{
+        margin-left: 90px;
+    }
+    .category-item {
+        flex: 1 1 33.33%;  /* 3 items per row */
+        max-width: 33.33%;
+    }
+     .category-item {
+        flex: 1 1 25%;
+        max-width: 25%;
+    }
+
+    .category-item div {
+        width: 60px;
+        height: 60px;
+    }
+
+    .recommendations .card {
+        width: 16rem;
+        margin-right: 2.5%;
+        margin-bottom: 20px;
+    }
+
+    .recommendations .card:nth-child(even) {
+        margin-right: 0;
+    }
+}
+
+/* Ukuran layar kecil (landscape phone) */
+@media (max-width: 768px) {
+    .sidebar{
+        width: 150px;
+    }
+    .sidebar a{
+        width: 30px;
+    }
+    .content{
+        margin-left: 60px;
+    }
+    .category-item {
+        flex: 1 1 50%;  /* 2 items per row */
+        max-width: 50%;
+    }
+    .recommendations .card {
+        width: 48%;
+        margin-right: 2%;
+        margin-bottom: 20px;
+    }
+
+    .recommendations .card:nth-child(even) {
+        margin-right: 0;
+    }
+}
+
+/* Ukuran layar sangat kecil (portrait phone) */
+@media (max-width: 576px) {
+    .sidebar{
+        width: 100px;
+    }
+    .sidebar a{
+        width: 20px;
+    }
+    .content{
+        margin-left: 40px;
+    }
+    .recommendations .card {
+        width: 40%;
+        margin-right: 1%;
+        margin-bottom: 20px;
+    }
+
+    .recommendations .card:nth-child(even) {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar{
+        width: 100px;
+    }
+    .sidebar a{
+        width: 20px;
+    }
+    .content{
+        margin-left: 40px;
+    }
+    .recommendations .card {
+        width: 40%;
+        margin-right: 1%;
+        margin-bottom: 20px;
+    }
+
+    .recommendations .card:nth-child(even) {
+        margin-right: 0;
+    }
 }

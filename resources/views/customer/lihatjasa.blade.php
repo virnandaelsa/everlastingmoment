@@ -12,7 +12,7 @@
                 @endauth
             </div>
         </div>
-            <div class="package">
+            <div class="package col-lg-12 col-sm-8">
             <div class="package row">
             <div class="col-md-6">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
