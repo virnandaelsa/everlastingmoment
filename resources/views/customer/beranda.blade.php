@@ -11,7 +11,7 @@
             text-decoration: none;
         }
 
-        .img {
+        .gambar img {
             display: block;
             width: 50px; /* Sesuaikan lebar sesuai kebutuhan */
             height: auto;
@@ -146,23 +146,8 @@
             font-size: 20px;
             cursor: pointer;
         }
-    
-        /* Media query untuk tablet */
-@media (max-width: 768px) {
-    .popup {
-        width: 95%; /* Sesuaikan width untuk tablet */
-    }
-    .filter-section .checkbox-group label,
-    .filter-section .checkbox2 label,
-    .filter-section .range-buttons label {
-        flex: 1 1 45%; /* Sesuaikan lebar label untuk tablet */
-    }
-    .img {
-        width: 40px; /* Sesuaikan lebar gambar untuk tablet */
-    }
-}
 
-/* Media query untuk hp */
+    /* Media query untuk hp */
 @media (max-width: 480px) {
     .popup {
         width: 95%; /* Sesuaikan width untuk hp */
@@ -172,7 +157,7 @@
     .filter-section .range-buttons label {
         flex: 1 1 100%; /* Sesuaikan lebar label untuk hp */
     }
-    .img {
+    .gambar img {
         width: 30px; /* Sesuaikan lebar gambar untuk hp */
     }
 }
@@ -188,10 +173,9 @@
         flex: 1 1 15%; /* Kembali ke ukuran asli untuk laptop */
     }
 }
-        
 </style>
 
-    <div class="content col-lg-11 col-md-10 col-sm-8">
+    <div class="content">
         <div class="top-bar">
             <div class="search-bar">
                 <input type="text" placeholder="Jasa Make Up Pengantin">
@@ -201,7 +185,7 @@
                 <a href="/login" class="btn-signin">SIGN IN</a>
                 @endauth
                 <button onclick="showPopup()">
-                    <img class ="img" src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
+                    <img src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
                 </button>
                 
                 {{-- <button class="btn-signup">SIGN UP</button>
@@ -224,7 +208,7 @@
     </div>
 {{-- </div> --}}
 
-<div class="overlay col-lg-11 col-md-10 col-sm-8" id="filterPopup">
+<div class="overlay" id="filterPopup">
     <div class="popup">
         <button class="close-button" onclick="hidePopup()">&times;</button>
         <div class="filter-section">
