@@ -45,7 +45,7 @@
     <h4 class="bold-text">Rekomendasi</h4>
     <div class="d-flex flex-wrap">
         <div class="card">
-            <img src="{{ asset('images/categories/Beautician.png') }}" class="card-img-top" alt="MUA">
+            <img style="width: 300px; height:150px" src="{{ asset('images/categories/Beautician.png') }}" class="card-img-top" alt="MUA">
             <div class="card-body">
                 <h5 class="card-title">Wedding Make Up Paket</h5>
                 <p class="card-text">Rp. 5.000.000,00</p>
@@ -56,11 +56,28 @@
         </div>
         @foreach($data2 as $katalog)
         <div class="card">
-            <?php $gambar = $katalog->dt_katalog[0]->gambar ?>
-            <img src="{{filter_var(asset("images/catalogs/$gambar"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gambar }}';" class="card-img-top" alt="{{$katalog->dt_katalog[0]->gambar}}">
+            <?php 
+                if (isset($katalog->dt_katalog[0]->gambar)) {
+                    # code...
+                    $gambar = $katalog->dt_katalog[0]->gambar; 
+                }
+                else {
+                    $gambar=asset("images/logoevmo.png");
+                }
+                if (isset($katalog->dt_katalog[0]->harga)) {
+                    # code...
+                    $harga = $katalog->dt_katalog[0]->harga;
+                }
+                else {
+                    # code...
+                    $harga='';
+                }
+            ?>
+            <img src="{{filter_var(asset("images/catalogs/$gambar"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gambar }}';" 
+                class="card-img-top" alt="{{$gambar}}" style="width: 300px; height:150px">
             <div class="card-body">
                 <h5 class="card-title">{{$katalog['judul']}}</h5>
-                <p class="card-text">{{$katalog->dt_katalog[0]->harga}}</p>
+                <p class="card-text">{{$harga}}</p>
                 <div class="move-right">
                     <a href="/lihatjasa" class="">Lihat detail</a>
                 </div>

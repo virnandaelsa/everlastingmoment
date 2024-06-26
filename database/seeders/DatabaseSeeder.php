@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         DB::table('kategori')->insert(
             [
                 [
-                    'judul_kategori' => 'MUA',
+                    'judul_kategori' => 'Make Up Artist',
                     'gambar_kategori' => 'Beautician.png'
                 ],
                 [
@@ -104,6 +104,26 @@ class DatabaseSeeder extends Seeder
             );
         DB::table('detailPJ')->insert(
             [
+                [
+                    'id_detailPJ' => '1',
+                    'id_user' => '1',
+                    'nama_toko' => 'Iyain Wedding',
+                    'kategori' => 'Make Up Artis',
+                    'bank' => 'BRI',
+                    'no_rek' => '7289108273391721',
+                    'profil_tk' => '-.png',
+                    'sampul_tk' => '-.png',
+                ],
+                [
+                    'id_detailPJ' => '2',
+                    'id_user' => '2',
+                    'nama_toko' => 'Okelah Wedding',
+                    'kategori' => 'Dekorasi',
+                    'bank' => 'BRI',
+                    'no_rek' => '7289108273391722',
+                    'profil_tk' => '-.png',
+                    'sampul_tk' => '-.png',
+                ],
                 [
                     'id_detailPJ' => '222',
                     'id_user' => '111',
