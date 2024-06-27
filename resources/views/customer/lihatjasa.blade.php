@@ -94,6 +94,11 @@
     @endphp
     @auth
         @if (auth()->user()->role==1)   
+        @else
+        <div class="footer">
+            <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
+            <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
+        </div>
         @endif
     @else
     <div class="footer">
