@@ -88,10 +88,16 @@
             <h2>Kategori :</h2>
             <p>{{$data2->detailPJ->kategori}}</p>
     </div>
-        <div class="footer">
-            <button class="chat">Chat</button>
-            <button class="order">Pesan</button>
-        </div>
+    @php
+        $url = explode('/', "$_SERVER[REQUEST_URI]");
+        $url = end($url);
+    @endphp
+    @if (auth()->user()->role==0)
+    <div class="footer">
+        <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
+        <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
+    </div>
+    @endif
     </div>
 
     <script>

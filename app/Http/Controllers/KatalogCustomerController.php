@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Models\User;
 use App\Models\katalog;
 use App\Models\detailPJ;
 use App\Models\kategori;
@@ -17,16 +18,26 @@ class KatalogCustomerController extends Controller
     public function index()
     {
         $data = kategori::all();
+        $a=auth()->user()->role; $b=auth()->user()->id_user;
+        // dd(auth()->user());
+        $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
+        if($a==1){
+            $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
+        }
+        else{
+            $data1=[];
+        }
         $data2 = katalog::with("dt_katalog")->get();
         return view('customer.beranda', [
             'data' => $data,
+            'data1' => $data1,
             'data2' => $data2,
             ] );
     }
     public function lihatjasa($id)
     {
         $data1 = katalog::with('dt_katalog')->find($id);
-        $data2 = katalog::with('detailPJ')->find($id);
+        $data2 = katalog::with('detailPJ.pengguna')->find($id);
         // dd($data2);
         return view('customer.lihatjasa',
             [
@@ -35,9 +46,17 @@ class KatalogCustomerController extends Controller
             ]
         );
     }
-    public function pesan()
+    public function pesan($id)
     {
-        return view('customer.pesan');
+        $data1 = katalog::with('dt_katalog')->find($id);
+        $data2 = katalog::with('detailPJ.pengguna')->find($id);
+        // dd($data2);
+        return view('customer.pesan',
+            [
+            'data1' => $data1,
+            'data2' => $data2,
+            ]
+        );
     }
     public function dp()
     {
@@ -85,7 +104,7 @@ class KatalogCustomerController extends Controller
             'kategori_jasa' => 'required|string',
             'alamat' => 'required|string',
             'nomor_telepon' => 'required|string',
-            'gambar_katalog' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'gambar_katalog' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'metode_pembayaran' => 'required|string',
             'nomor_rekening' => 'required|string',
         ]);
@@ -109,15 +128,15 @@ class KatalogCustomerController extends Controller
         // $catalog->alamat = $request->alamat;
         // $catalog->nomor_telepon = $request->nomor_telepon;
 
-        if ($request->hasFile('gambar_katalog')) {
-            $image = $request->file('gambar_katalog');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/catalogs');
-            $image->move($destinationPath, $name);
+        if ($request->hasFile('gambar_jasa')) {
+            // $image = $request->file('gambar_katalog');
+            // $name = time().'.'.$image->getClientOriginalExtension();
+            // $destinationPath = public_path('/images/catalogs');
+            // $image->move($destinationPath, $name);
 
             $image = $request->file('gambar_jasa')[0];
             $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/catalogs_jasa');
+            $destinationPath = public_path('/images/catalogs');
             $image->move($destinationPath, $name);
 
 

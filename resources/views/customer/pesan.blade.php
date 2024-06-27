@@ -4,15 +4,19 @@
 <div class="main-content">
             <div class="header">
                 <h1>Detail Pesanan</h1>
-                <img src="user-profile.jpg" alt="User Profile" class="profile-pic">
+                @php
+                    $pp=$data2->detailPJ->pengguna->foto;
+                    $gpaket=$data1->dt_katalog[0]->gambar;
+                @endphp
+                <img src='{{asset("/images/avatar/$pp")}}' alt="User Profile" class="profile-pic">
             </div>
             <div class="order-detail">
                 <div class="order-header">
-                    <img src="makeup-package.jpg" alt="Paket Make Up Arabian Look" class="package-img">
+                    <img src='{{asset("/images/avatar/$gpaket")}}' alt="Paket Make Up Arabian Look" class="package-img">
                     <div class="package-info">
-                    <div class="vendor-info">SeMUA Evelyn</div>
-                        <h2>Paket Make Up Arabian Look (paket 1)</h2>
-                        <p>Rp. 6.000.000.00</p>
+                    <div class="vendor-info">{{$data2->detailPJ->nama_toko}}</div>
+                        <h2>{{$data2->judul}}</h2>
+                        <p>{{$data1->dt_katalog[0]->harga}}</p>
                         <div class="rating">
                             <span>⭐ 4.7 / 5</span>
                             <span>45 terpakai</span>
@@ -21,7 +25,7 @@
                 </div>
                 <div class="order-details">
                     <div class="order-item">
-                        <span class="label">Tanggal/Jam:</span>
+                        <span class="label">Tanggal pelaksanaan acara:</span>
                         <input type="datetime-local" class="value datetime">
                     </div>
                     <hr>
@@ -47,16 +51,18 @@
                     <div class="order-item">
                         <span class="label">Rincian Pesanan</span>
                         <div class="value">
-                            <p>Biaya lengkap pengantin</p>
+                            <p>{{$data2->deskripsi}}</p>
+                            {{-- <p>Biaya lengkap pengantin</p>
                             <p>Biaya Jasa</p>
                             <p>Down Payment</p>
-                            <p>Total Pembayaran</p>
+                            <p>Total Pembayaran</p> --}}
                         </div>
                     </div>
                     <hr>
                     <div class="order-item">
-                        <span class="label">Alamat</span>
-                        <span class="value">Cila Anastasya | (+62) 851-2345-6789<br>Desa Tales, Dusun Karanglo, Kecamatan Ngadiluwih, Kabupaten Kediri<br>Jalan Kenanga Nomor 256</span>
+                        <span class="label">Alamat Pemesan</span>
+                        <span class="value">{{auth()->user()->nama}} | {{auth()->user()->no_telp}}<br>{{auth()->user()->alamat}}</span>
+                        {{-- {{dd(auth()->user())}} --}}
                     </div>
                 </div>
             </div>

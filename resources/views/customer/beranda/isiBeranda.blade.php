@@ -1,6 +1,6 @@
 <div class="penawaran my-4">
-    <h4 class="bold-text">Penawaran hari Ini!!!</h4>
-    <p>Diskon 50%</p>
+    {{-- <h4 class="bold-text">Penawaran hari Ini!!!</h4>
+    <p>Diskon 50%</p> --}}
     {{-- <div class="d-flex flex-wrap">
         <div class="card">
             <img style="width:50px" src="{{ asset('images/categories/Beautician.png') }}" class="card-img-top" alt="MUA">
@@ -44,7 +44,7 @@
 <div class="recommendations my-4">
     <h4 class="bold-text">Rekomendasi</h4>
     <div class="d-flex flex-wrap">
-        <div class="card">
+        {{-- <div class="card">
             <img style="width: 300px; height:150px" src="{{ asset('images/categories/Beautician.png') }}" class="card-img-top" alt="MUA">
             <div class="card-body">
                 <h5 class="card-title">Wedding Make Up Paket</h5>
@@ -53,7 +53,7 @@
                     <a href="/lihatjasa" class="">Lihat detail</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
         @foreach($data2 as $katalog)
         <div class="card">
             <?php 

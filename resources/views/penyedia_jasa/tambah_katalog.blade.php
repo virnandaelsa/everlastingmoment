@@ -134,19 +134,19 @@
 
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $data[0]->alamat }}" placeholder="Alamat" readonly>
+                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ auth()->user()->alamat }}" placeholder="Alamat" readonly>
             </div>
             <div class="form-group">
                 <label for="nomor-telepon">Nomor telepon</label>
                 <input type="text" class="form-control" id="nomor-telepon" value="{{ $user[0]->no_telp }}" name="nomor_telepon"  readonly placeholder="Nomor telepon">
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="gambar-katalog">Gambar katalog jasa</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="gambar-katalog" name="gambar_katalog" required>
                     <label class="custom-file-label" for="gambar-katalog">Choose file</label>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="tax-warning" id="tax-warning" >
                 * Setiap transaksi dikenakan pajak Rp.100.000,00 silahkan tambahkan harga pokok produk jasa anda <br>
