@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="main-content">
+<div class="main-content col-sm-9 col-md-10 col-lg-11">
             <div class="header">
                 <h1>Detail Pesanan</h1>
                 <img src="user-profile.jpg" alt="User Profile" class="profile-pic">
