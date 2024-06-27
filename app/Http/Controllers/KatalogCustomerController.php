@@ -22,8 +22,8 @@ class KatalogCustomerController extends Controller
         if (auth()->check()) {
             $a=auth()->user()->role; $b=auth()->user()->id_user;
             // dd(auth()->user());
-            $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
             if($a==1){
+                $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
                 $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
             }
             }
