@@ -18,23 +18,21 @@ class KatalogCustomerController extends Controller
     public function index()
     {
         $data = kategori::all();
+        $data1=[];
         if (auth()->check()) {
-        $a=auth()->user()->role; $b=auth()->user()->id_user;
-        // dd(auth()->user());
-        $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
-        if($a==1){
-            $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
-        }
-        }
-        else{
-            $data1=[];
-        }
-        $data2 = katalog::with("dt_katalog")->get();
-        return view('customer.beranda', [
-            'data' => $data,
-            'data1' => $data1,
-            'data2' => $data2,
-            ] );
+            $a=auth()->user()->role; $b=auth()->user()->id_user;
+            // dd(auth()->user());
+            $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
+            if($a==1){
+                $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
+            }
+            }
+            $data2 = katalog::with("dt_katalog")->get();
+            return view('customer.beranda', [
+                'data' => $data,
+                'data1' => $data1,
+                'data2' => $data2,
+                ] );
     }
     public function lihatjasa($id)
     {

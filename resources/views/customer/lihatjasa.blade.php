@@ -92,12 +92,15 @@
         $url = explode('/', "$_SERVER[REQUEST_URI]");
         $url = end($url);
     @endphp
-    @if (auth()->user()->role==0)
+    @auth
+        @if (auth()->user()->role==1)   
+        @endif
+    @else
     <div class="footer">
         <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
         <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
     </div>
-    @endif
+    @endauth
     </div>
 
     <script>
