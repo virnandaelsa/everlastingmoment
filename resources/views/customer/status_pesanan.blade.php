@@ -65,7 +65,7 @@
 <div class="container">
     <div class="header">
         <h2>Pesanan Saya</h2>
-        <img src="{{ asset('images/user_profile.png') }}" alt="User Profile">
+        <img src="{{ asset('images/avatar/3.jpg') }}" alt="User Profile">
     </div>
     <div class="order-section">
         <h3>Aktif</h3>
@@ -81,7 +81,6 @@
             </a>
         </div>
     </div>
-    
     <div class="order-section">
         <h3>Dikonfirmasi</h3>
         <div class="order-item">

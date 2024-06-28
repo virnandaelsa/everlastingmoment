@@ -40,19 +40,15 @@
 
         <div class="form-group">
             <label for="provinsi">Provinsi:</label>
-            <select class="form-control" id="provinsi" name="provinsi" required>
-                <option value="Jawa Timur">Jawa Timur</option>
+            <select id="provinsi" name="provinsi" required>
+                <option value="Jawa Timur">Pilih Provinsi</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="kota">Kota / Kabupaten:</label>
-            <select class="form-control" id="kota" name="kota" required>
-                <option value="">Pilih Kota / Kabupaten</option>
-                <option value="Kediri">Kediri</option>
-                <option value="Malang">Malang</option>
-                <option value="Surabaya">Surabaya</option>
-                <option value="Jombang">Jombang</option>
+            <select id="kota" name="kota" required>
+                <option value="Kediri">Pilih Kota / Kabupaten</option>
             </select>
         </div>
 

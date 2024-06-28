@@ -83,8 +83,8 @@
             <div class="profile">
                 <img class="profile-pic" src="profile.jpg" alt="Profile Picture">
                 <div class="user-info">
-                    <div class="username">Username</div>
-                    <div class="name">Name</div>
+                    <div class="username">{{ auth()->user()->username }}</div>
+                    <div class="name">{{ auth()->user()->nama }}</div>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     <li><a href="/administrasi">Daftar Sebagai Penyedia Jasa</a></li>
                 @elseif (auth()->user()->role == 1)
                 <li><a href="/status_pemesanan">Data Pemesanan</a></li>
-                    <li><a href="/wishlist">Tambah Katalog</a></li>
+                    <li><a href="/tambah_katalog">Tambah Katalog</a></li>
                     <li><a href="/administrasi">Katalog Saya</a></li>
                 @endif
                 <li>

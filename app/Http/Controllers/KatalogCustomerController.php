@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Models\User;
 use App\Models\katalog;
 use App\Models\detailPJ;
 use App\Models\kategori;
+use App\Models\dt_katalog;
+
 
 
 class KatalogCustomerController extends Controller
@@ -14,19 +18,45 @@ class KatalogCustomerController extends Controller
     public function index()
     {
         $data = kategori::all();
-        $data2 = katalog::with("dt_katalog")->get();
-        return view('customer.beranda', [
-            'data' => $data,
+        $data1=[];
+        if (auth()->check()) {
+            $a=auth()->user()->role; $b=auth()->user()->id_user;
+            // dd(auth()->user());
+            if($a==1){
+                $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
+                $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
+            }
+            }
+            $data2 = katalog::with("dt_katalog")->get();
+            return view('customer.beranda', [
+                'data' => $data,
+                'data1' => $data1,
+                'data2' => $data2,
+                ] );
+    }
+    public function lihatjasa($id)
+    {
+        $data1 = katalog::with('dt_katalog')->find($id);
+        $data2 = katalog::with('detailPJ.pengguna')->find($id);
+        // dd($data2);
+        return view('customer.lihatjasa',
+            [
+            'data1' => $data1,
             'data2' => $data2,
-            ] );
+            ]
+        );
     }
-    public function lihatjasa()
+    public function pesan($id)
     {
-        return view('customer.lihatjasa');
-    }
-    public function pesan()
-    {
-        return view('customer.pesan');
+        $data1 = katalog::with('dt_katalog')->find($id);
+        $data2 = katalog::with('detailPJ.pengguna')->find($id);
+        // dd($data2);
+        return view('customer.pesan',
+            [
+            'data1' => $data1,
+            'data2' => $data2,
+            ]
+        );
     }
     public function dp()
     {
@@ -55,7 +85,15 @@ class KatalogCustomerController extends Controller
     }
     public function tambah_katalog()
     {
-        return view('penyedia_jasa.tambah_katalog');
+        $hehe = auth()->user()->id_user;
+        $data = DB::table('detailPJ')->where('id_user','=',$hehe)->get();
+        $user = DB::table('pengguna')->where('id_user','=',$hehe)->get();
+        // dd($data);
+
+        return view('penyedia_jasa.tambah_katalog',[
+            'data' => $data,
+            'user' => $user
+        ]);
     }
 
     public function store_catalogs(Request $request)
@@ -66,29 +104,52 @@ class KatalogCustomerController extends Controller
             'kategori_jasa' => 'required|string',
             'alamat' => 'required|string',
             'nomor_telepon' => 'required|string',
-            'gambar_katalog' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'metode_pembayaran' => 'required|string',
+            // 'gambar_katalog' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'metode_pembayaran' => 'required|string',
             'nomor_rekening' => 'required|string',
         ]);
 
-        $catalog = new Catalog();
-        $catalog->judul_jasa = $request->judul_jasa;
-        $catalog->deskripsi_jasa = $request->deskripsi_jasa;
-        $catalog->kategori_jasa = $request->kategori_jasa;
-        $catalog->alamat = $request->alamat;
-        $catalog->nomor_telepon = $request->nomor_telepon;
+        $user = auth()->user()->id_user;
+        $id_pj = DB::select("select * from detailPJ where id_user = $user");
+        $user = DB::table('detailPJ')->where('id_user',$user)->get();
+        $user = $user[0]->id_detailPJ;
 
-        if ($request->hasFile('gambar_katalog')) {
-            $image = $request->file('gambar_katalog');
+        $catalog = new Catalog();
+        $catalog->id_detailPJ = $id_pj[0]->id_detailPJ;
+        $catalog->judul = $request->judul_jasa;
+        $catalog->deskripsi = $request->deskripsi_jasa;
+        $catalog->save();
+
+        $dt_katalog = new dt_katalog();
+        $id_dt_katalog = DB::select("select id_katalog from katalog where id_detailPJ = $user order by created_at desc limit 1");
+        // dd($id_dt_katalog[0]);
+
+        // $catalog->kategori_jasa = $request->kategori_jasa;
+        // $catalog->alamat = $request->alamat;
+        // $catalog->nomor_telepon = $request->nomor_telepon;
+
+        if ($request->hasFile('gambar_jasa')) {
+            // $image = $request->file('gambar_katalog');
+            // $name = time().'.'.$image->getClientOriginalExtension();
+            // $destinationPath = public_path('/images/catalogs');
+            // $image->move($destinationPath, $name);
+
+            $image = $request->file('gambar_jasa')[0];
             $name = time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/images/catalogs');
             $image->move($destinationPath, $name);
-            $catalog->gambar_katalog = $name;
+
+
+            $dt_katalog->gambar = $name;
+            $dt_katalog->judul_variasi = $request->judul_jasa_tawaran[0];
+            $dt_katalog->harga = $request->biaya[0];
+            $dt_katalog->id_katalog = $id_dt_katalog[0]->id_katalog;
+
+            $dt_katalog->save();
         }
 
-        $catalog->metode_pembayaran = $request->metode_pembayaran;
-        $catalog->nomor_rekening = $request->nomor_rekening;
-        $catalog->save();
+        // $catalog->metode_pembayaran = $request->metode_pembayaran;
+        // $catalog->nomor_rekening = $request->nomor_rekening;
 
         return redirect()->route('catalog.create')->with('success', 'Catalog added successfully.');
     }
@@ -125,7 +186,7 @@ class KatalogCustomerController extends Controller
         $administrasi->alamat = $request->alamat . " " . $request->kota . ", " . $request->provinsi;
         $administrasi->kategori = $request->kategori;
         $administrasi->bank = $request->namaBank;
-        $administrasi->no_rek = $request->noRekening;
+        $administrasi->no_rek = $request->no_rek;
         $administrasi->profil_tk = $request->fotoProfil;
         $administrasi->sampul_tk = $request->fotoSampul;
 
@@ -145,6 +206,9 @@ class KatalogCustomerController extends Controller
         }
 
         $administrasi->save();
+
+        $id = auth()->user()->id_user;
+        DB::update("update pengguna set role = 1 where id_user = $id");
 
         return redirect("/dashboard")->with('success', 'Berhasil Menambah Penyedia Jasa.');
     }
