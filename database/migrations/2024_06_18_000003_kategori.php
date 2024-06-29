@@ -15,6 +15,8 @@ return new class extends Migration
              $table->id('id_kategori');
              $table->string('judul_kategori');
              $table->string('gambar_kategori')->nullable();
+             $table->timestamps();
+
         });
 //         Schema::create('catalogs', function (Blueprint $table) {
 //             $table->id();

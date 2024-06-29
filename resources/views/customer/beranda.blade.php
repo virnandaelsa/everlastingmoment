@@ -48,7 +48,7 @@
         .filter-section h3 {
             margin: 10px 0;
         }
-    
+
         .filter-section .checkbox-group,
         .filter-section .checkbox2,
         .filter-section .range-buttons {
@@ -97,7 +97,7 @@
             cursor: pointer;
         }
 
-        
+
         .filter-section input {
             width: calc(50% - 20px);
             padding: 10px;
@@ -119,13 +119,13 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            
+
         }
         .filter-section .range-buttons button {
             flex: 1;
         }
 
-       
+
         .apply-button {
             text-align: center;
         }
@@ -176,6 +176,14 @@
 </style>
 
     <div class="content">
+        @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{session('success')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <i class="material-icons">close</i>
+          </button>
+        </div>
+        @endif
         <div class="top-bar">
             <div class="search-bar">
                 <input type="text" placeholder="Jasa Make Up Pengantin">
@@ -187,7 +195,7 @@
                 <button onclick="showPopup()">
                     <img src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
                 </button>
-                
+
                 {{-- <button class="btn-signup">SIGN UP</button>
                 <button class="btn-signin">SIGN IN</button> --}}
             </div>

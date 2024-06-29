@@ -103,15 +103,22 @@
                 <th>Pembayaran</th>
                 <th>Action</th>
             </tr>
+            {{-- {{dd($data2)}} --}}
+            @php
+                $i = 0
+            @endphp
+            @foreach ($data as $item)
+
             <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>Paket A</td>
-                <td>2024-06-16 10:00</td>
-                <td>On Process</td>
+                <td>{{ $i+=1 }}</td>
+                <td>{{ $item->pengguna->nama }}</td>
+                <td>{{ ($item->dt_katalog) }}</td>
+                <td>{{ $item->tanggal }}</td>
+                <td>{{ $item->status == 1 ? 'Pengajuan' : ($item->status == 2 ? 'Diterima' : 'Ditolak') }}</td>
                 <td>Lunas</td>
                 <td><a href="/pemesanan"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
             </tr>
+            @endforeach
 
         </table>
         <!-- Container untuk tombol kembali -->

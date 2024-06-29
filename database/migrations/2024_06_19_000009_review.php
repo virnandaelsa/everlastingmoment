@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('id_review');
             // $table->unsignedBigInteger('id_pengguna');
             // $table->unsignedBigInteger('id_katalog');
-            $table->unsignedBigInteger('id_transaksi');// if status 2 baru bisa 
-            
+            $table->unsignedBigInteger('id_transaksi');// if status 2 baru bisa
+
             $table->integer('kualitas');
             $table->integer('ketepatan');
             $table->integer('pelayanan');
@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('deskripsi_ketepatan')->nullable();
             $table->string('deskripsi_pelayanan')->nullable();
             $table->string('ft_review')->nullable();
+            $table->timestamps();
+
 
             $table->foreign('id_transaksi')->references('id_transaksi')->on('transaksi');
 

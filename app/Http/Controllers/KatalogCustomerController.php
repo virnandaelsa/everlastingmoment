@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-use App\Models\Catalog;
 use App\Models\User;
+use App\Models\Catalog;
 use App\Models\katalog;
 use App\Models\detailPJ;
 use App\Models\kategori;
+use App\Models\transaksi;
 use App\Models\dt_katalog;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -59,6 +60,19 @@ class KatalogCustomerController extends Controller
             ]
         );
     }
+
+    public function store_trx(Request $request,$id)
+    {
+        $trx = new transaksi();
+        $trx->id_user = $request->id_user;
+        $trx->id_katalog = $id;
+        $trx->tanggal = $request->waktu;
+        $trx->status = 1;
+        $trx->save();
+
+        return view('customer.status_pesanan')->with('success', 'Berhasil Pesan.');
+    }
+
     public function dp()
     {
         return view('customer.bukti_dp');
@@ -69,7 +83,14 @@ class KatalogCustomerController extends Controller
     }
     public function status_pesanan()
     {
-        return view('customer.status_pesanan');
+        $id = auth()->user()->id_user;
+        $data = transaksi::with('pengguna')->where('id_user',$id)->get();
+        $data2 = transaksi::with('katalog')->where('id_user',$id)->get();
+        // dd($data2);
+        return view('customer.status_pesanan',[
+            'data' => $data,
+            'data2' => $data2,
+        ]);
     }
     public function wishlist()
     {
@@ -211,7 +232,7 @@ class KatalogCustomerController extends Controller
         $id = auth()->user()->id_user;
         DB::update("update pengguna set role = 1 where id_user = $id");
 
-        return redirect("/dashboard")->with('success', 'Berhasil Menambah Penyedia Jasa.');
+        return redirect("/")->with('success', 'Berhasil Menjadi Penyedia Jasa.');
     }
 
 
@@ -232,7 +253,10 @@ class KatalogCustomerController extends Controller
 
     public function datapesanan()
     {
-        return view('penyedia_jasa.data_pesanan');
+        $data = transaksi::with('pengguna', 'katalog.detailPJ', 'katalog.dt_katalog')->get();
+        return view('penyedia_jasa.data_pesanan',[
+            'data' => $data,
+        ]);
     }
 
     public function review()

@@ -12,7 +12,7 @@
             </div>
             <div class="order-detail">
                 <div class="order-header">
-                    <img src='{{asset("/images/avatar/$gpaket")}}' alt="Paket Make Up Arabian Look" class="package-img">
+                    <img src='{{asset("/images/catalogs/$gpaket")}}' alt="Paket Make Up Arabian Look" class="package-img">
                     <div class="package-info">
                     <div class="vendor-info">{{$data2->detailPJ->nama_toko}}</div>
                         <h2>{{$data2->judul}}</h2>
@@ -24,28 +24,26 @@
                     </div>
                 </div>
                 <div class="order-details">
+
+                <form action="{{ route("trx", $data2->id_katalog) }}" method="post">
+                    @csrf
+                <div class="order-details">
                     <div class="order-item">
                         <span class="label">Tanggal pelaksanaan acara:</span>
-                        <input type="datetime-local" class="value datetime">
+                        <input type="datetime-local" class="value datetime" name="waktu">
                     </div>
                     <hr>
+                    <input type="text" class="" name="id_user" value="{{auth()->user()->id_user}}" hidden>
                     <div class="order-item">
                         <span class="label">Keterangan:</span>
-                        <input type="text" class="value" placeholder="Tolong segera dikonfirmasi">
+                        <input type="text" class="value" placeholder="Tolong segera dikonfirmasi" name="keterangan">
                     </div>
                     <hr>
                     <div class="order-item">
                         <span class="label">Metode Pembayaran</span>
                         <span class="value">Segera lakukan DP apabila pesanan telah di validasi</span>
-                        <span class="value">No. Rekening : </span>
-                        <span class="value bank">
-                            <select name="bank" id="bank">
-                                <option value="BRI">BANK BRI</option>
-                                <option value="Mandiri">BANK Mandiri</option>
-                                <option value="BCA">BANK BCA</option>
-                                <option value="BNI">BANK BNI</option>
-                            </select>
-                        </span>
+                        <span class="value">No. Rekening : {{ $data2->detailPJ->no_rek }}</span>
+                        <input type="text" class="form-control" value="{{ $data2->detailPJ->bank }}" readonly></input>
                     </div>
                     <hr>
                     <div class="order-item">
@@ -66,6 +64,7 @@
                     </div>
                 </div>
             </div>
-            <button class="order-button">Buat Pesanan</button>
+            <button class="order-button" type="submit">Buat Pesanan</button>
+        </form>
         </div>
 @endsection
