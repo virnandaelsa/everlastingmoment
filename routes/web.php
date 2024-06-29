@@ -26,10 +26,11 @@ Route::get('/dashboard', [App\Http\Controllers\KatalogCustomerController::class,
 Route::get('/wishlist', [App\Http\Controllers\KatalogCustomerController::class, 'wishlist']);
 
 Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class, 'profilcust']);
-Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
 Route::get('/review', [App\Http\Controllers\KatalogCustomerController::class, 'review']);
 Route::get('/helpcenter', [App\Http\Controllers\KatalogCustomerController::class, 'helpcenter']);
 Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class, 'notifikasi']);
+
+Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
 
 // login - regirster
 Route::get('/login', [App\Http\Controllers\KatalogCustomerController::class, 'login'])->middleware("guest")->name('login');

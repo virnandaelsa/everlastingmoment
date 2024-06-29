@@ -85,12 +85,12 @@
         </div>
         <hr>
         <div class="categories">
-            <h2>Kategori :</h2>
+            <h2>Kategori : </h2>
             <p>{{$data2->detailPJ->kategori}}</p>
     </div>
         <div class="footer">
             <button class="chat">Chat</button>
-            <button class="order">Pesan</button>
+            <a href="/pesan/{{ $data1->id_katalog }}" class="btn btn-primary">Pesan</a>
         </div>
     </div>
 

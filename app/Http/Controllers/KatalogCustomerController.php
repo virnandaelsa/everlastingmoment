@@ -35,8 +35,12 @@ class KatalogCustomerController extends Controller
             ]
         );
     }
-    public function pesan()
+    public function pesan($id)
     {
+        // $data1 = katalog::with('detailPJ')->find($id);
+        // $data2 = katalog::with('dt_katalog')->find($id);
+        $data1 = dt_katalog::with('katalog');
+        dd($data1);
         return view('customer.pesan');
     }
     public function dp()
