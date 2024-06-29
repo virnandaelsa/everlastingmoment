@@ -95,7 +95,7 @@
     </div>
 
     <div class="container">
-        <a href="/dashboard" class="btn-back mb-3">Kembali</a>
+        <a href="/" class="btn-back mb-3">Kembali</a>
     </div>
 
     <h2 class="form-title">Tambah Katalog</h2>

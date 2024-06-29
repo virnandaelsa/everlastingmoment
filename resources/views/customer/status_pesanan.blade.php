@@ -69,6 +69,7 @@
     </div>
     <div class="order-section">
         <h3>Aktif</h3>
+        @foreach ($data1 as $data)
         <div class="order-item">
             <img src="{{ asset('images/makeup_arabian_look.png') }}" alt="Paket Make Up">
             <div class="order-details">
@@ -80,6 +81,7 @@
                 <button class="order-button">Pelunasan</button>
             </a>
         </div>
+        @endforeach
     </div>
     <div class="order-section">
         <h3>Dikonfirmasi</h3>

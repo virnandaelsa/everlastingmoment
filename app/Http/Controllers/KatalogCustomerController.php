@@ -10,7 +10,10 @@ use App\Models\katalog;
 use App\Models\detailPJ;
 use App\Models\kategori;
 use App\Models\dt_katalog;
+use App\Models\transaksi;
+use App\Models\dt_transaksi;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -49,13 +52,51 @@ class KatalogCustomerController extends Controller
     }
     public function pesan($id)
     {
-        $data1 = katalog::with('dt_katalog')->find($id);
-        $data2 = katalog::with('detailPJ.pengguna')->find($id);
+        $data1 = dt_katalog::with('katalog')->find($id);
+        $data2 = dt_katalog::with('katalog.detailPJ.pengguna')->find($id);
         // dd($data2);
         return view('customer.pesan',
             [
             'data1' => $data1,
             'data2' => $data2,
+            ]
+        );
+    }
+    public function store_pesan(request $request)
+    {
+        $request->validate(
+            [
+                'tanggal' => 'required',
+                'keterangan' => 'required|string',
+            ]
+        );
+        // dd($request->tanggal.$request->keterangan);
+        // return redirect()->back();
+        // dd($request);
+            // Menambahkan data ke tabel transaksi dan mendapatkan ID yang baru
+            $transaksiId = DB::table('transaksi')->insertGetId([
+                'id_user' => $request->id_user,
+                'id_katalog' => $request->id_katalog,
+                'tanggal' => $request->tanggal,
+            ]);
+        
+            // Menambahkan data ke tabel detail_transaksi dengan ID dari tabel transaksi
+            DB::table('dt_transaksi')->insert([
+                'id_transaksi' => $transaksiId,
+                'ket' => $request->keterangan,
+                'bukti_tfDP'=>'',
+                'bukti_tfPelunasan'=>'',
+                'status_pembayaran'=>'1'
+            ]);
+        return redirect("/pesan/$request->id_dt_katalog")->with('success', 'Transaksi telah ditambahkan silahkan menunggu konfirmasi penyedia jasa.');
+
+        // $data1 = katalog::with('dt_katalog')->find($id);
+        // $data2 = katalog::with('detailPJ.pengguna')->find($id);
+        // dd($data2);
+        return view('customer.pesan',
+            [
+            // 'data1' => $data1,
+            // 'data2' => $data2,
             ]
         );
     }
@@ -69,7 +110,26 @@ class KatalogCustomerController extends Controller
     }
     public function status_pesanan()
     {
-        return view('customer.status_pesanan');
+        $data1 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
+                                                        ->where('status','=',1);
+        $data2 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
+                                                        ->where('status','=',2);
+        $data3 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
+                                                        ->where('status','=',3);
+        $data4 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
+                                                        ->where('status','=',4);
+        // dd($data4);
+        // $data2;
+        foreach ($data1 as $data) {
+            $eloq[]=1;
+        }
+        // dd($eloq);
+        return view('customer.status_pesanan',
+        [
+            'data1' => $data1,
+            // 'data2' => $data2,
+            ]
+        );
     }
     public function wishlist()
     {
@@ -211,7 +271,7 @@ class KatalogCustomerController extends Controller
         $id = auth()->user()->id_user;
         DB::update("update pengguna set role = 1 where id_user = $id");
 
-        return redirect("/dashboard")->with('success', 'Berhasil Menambah Penyedia Jasa.');
+        return redirect("/")->with('success', 'Berhasil Menambah Penyedia Jasa.');
     }
 
 
