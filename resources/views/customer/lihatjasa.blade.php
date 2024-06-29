@@ -88,10 +88,24 @@
             <h2>Kategori : </h2>
             <p>{{$data2->detailPJ->kategori}}</p>
     </div>
+    @php
+        $url = explode('/', "$_SERVER[REQUEST_URI]");
+        $url = end($url);
+    @endphp
+    @auth
+        @if (auth()->user()->role==1)
+        @else
         <div class="footer">
-            <button class="chat">Chat</button>
-            <a href="/pesan/{{ $data1->id_katalog }}" class="btn btn-primary">Pesan</a>
+            <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
+            <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
         </div>
+        @endif
+    @else
+    <div class="footer">
+        <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
+        <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
+    </div>
+    @endauth
     </div>
 
     <script>
