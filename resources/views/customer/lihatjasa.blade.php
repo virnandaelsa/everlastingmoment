@@ -17,16 +17,19 @@
             <div class="col-md-6">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <?php $i=0?>
+                        @foreach ($data1->dt_katalog as $gambar )
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class=" {{$i==0?'active':''}}"></li>
+                        <?php $i++ ?>
+                        @endforeach
                     </ol>
                     <div class="carousel-inner">
                     <?php $i=0?>
                         @foreach ($data1->dt_katalog as $gambar )
                         <?php $img=$gambar->gambar; ?>
                             <div class="carousel-item {{$i==0?'active':''}}">
-                                <img class="d-block w-100" style="height:200px;" src='{{ asset("images/catalogs/$img") }}' alt="{{$img}}">
+                                <img class="d-block w-100" style="height:200px;" 
+                                    src='{{ asset("images/catalogs/$img") }}' alt="{{"image"}}">
                             </div>
                         <?php $i++ ?>
                         @endforeach
@@ -44,7 +47,8 @@
                     <?php $i=0?>
                         @foreach ($data1->dt_katalog as $gambar )
                         <?php $img=$gambar->gambar; ?>
-                    <img src='{{ asset("images/catalogs/$img") }}' alt="{{$img}}" class="thumbnail {{$i==0?'active':''}}" data-target="#carouselExampleIndicators" data-slide-to="{{$i}}">
+                            <img src='{{ asset("images/catalogs/$img") }}' alt="{{"gambar"}}" class="thumbnail {{$i==0?'':''}}" 
+                                    data-target="#carouselExampleIndicators" data-slide-to="{{$i}}">
                         <?php $i++ ?>
                         @endforeach
                 </div>
@@ -97,13 +101,15 @@
         @else
         <div class="footer">
             <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
-            <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
+            @foreach ($data1->dt_katalog as $data)
+                <a href="/pesan/{{$data->id_dt_katalog}}"><button class="order">Pesan ({{$data->judul_variasi}})</button></a>
+            @endforeach
         </div>
         @endif
     @else
     <div class="footer">
         <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>
-        <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>
+        <a href="/pesan/{{$url}}"><button class="order">Pesan</button></a>        
     </div>
     @endauth
     </div>

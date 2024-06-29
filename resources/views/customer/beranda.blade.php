@@ -174,15 +174,14 @@
     }
 }
 </style>
-
     <div class="content">
         @if (session('success'))
-        <div class="alert alert-success" role="alert">
-            {{session('success')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <i class="material-icons">close</i>
-          </button>
-        </div>
+            <div class="alert alert-success" role="alert">
+                {{session('success')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <i class="material-icons">close</i>
+              </button>
+            </div>
         @endif
         <div class="top-bar">
             <div class="search-bar">

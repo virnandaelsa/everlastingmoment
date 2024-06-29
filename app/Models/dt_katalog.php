@@ -13,6 +13,6 @@ class dt_katalog extends Model
 
     public function katalog()
     {
-        return $this->hasMany(katalog::class,'id_katalog','id_katalog');
+        return $this->hasOne(katalog::class,'id_katalog','id_katalog');
     }
 }
