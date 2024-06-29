@@ -32,6 +32,9 @@ Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class
 Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
 Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 
+Route::get('/account', [KatalogCustomerController::class, 'info_akun'])->name('account');
+
+
 // login - regirster
 Route::get('/login', [App\Http\Controllers\KatalogCustomerController::class, 'login'])->middleware("guest")->name('login');
 Route::post('/login', [App\Http\Controllers\AuthLoginController::class,'auth']);

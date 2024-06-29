@@ -10,6 +10,7 @@ use App\Models\katalog;
 use App\Models\detailPJ;
 use App\Models\kategori;
 use App\Models\dt_katalog;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -263,6 +264,10 @@ class KatalogCustomerController extends Controller
         return view('penyedia_jasa.dashboard');
     }
 
-
+    public function info_akun()
+    {
+        $user = Auth::user();
+        return view('penyedia_jasa.profile', compact('user'));
+    }
 }
 
