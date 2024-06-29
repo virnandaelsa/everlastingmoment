@@ -21,7 +21,7 @@
 
 
         .data-table {
-            
+
             padding: 10px;
             border-radius: 8px;
             margin-top: 70px;
@@ -88,7 +88,7 @@
 
 <div class="content">
     <div class="data-table">
-        <h1>DATA PESANAN</h1>
+        <h1>DATA PESANAN MASUK</h1>
          <!-- Container untuk input pencarian -->
          <div class="search-container">
             <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Cari...">
@@ -110,9 +110,9 @@
                 <td>2024-06-16 10:00</td>
                 <td>On Process</td>
                 <td>Lunas</td>
-                <td><a href="#"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
+                <td><a href="/pemesanan"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
             </tr>
-            
+
         </table>
         <!-- Container untuk tombol kembali -->
         <div class="button-container">

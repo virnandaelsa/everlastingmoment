@@ -85,7 +85,7 @@
         </div>
         <hr>
         <div class="categories">
-            <h2>Kategori :</h2>
+            <h2>Kategori : </h2>
             <p>{{$data2->detailPJ->kategori}}</p>
     </div>
     @php
@@ -93,7 +93,7 @@
         $url = end($url);
     @endphp
     @auth
-        @if (auth()->user()->role==1)   
+        @if (auth()->user()->role==1)
         @else
         <div class="footer">
             <a href="https://wa.me/{{$data2->detailPJ->pengguna->no_telp}}"><button class="chat">Chat</button></a>

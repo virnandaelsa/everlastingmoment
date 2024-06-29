@@ -12,7 +12,6 @@ Route::get('/lihatjasa/{id}', [App\Http\Controllers\KatalogCustomerController::c
 Route::get('/pesan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pesan'])->middleware("auth");
 Route::get('/tambah_katalog', [App\Http\Controllers\KatalogCustomerController::class, 'tambah_katalog'])->name('catalog.create');
 Route::post('/tambah-katalog', [KatalogCustomerController::class, 'store_catalogs'])->name('catalog.store');
-Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 Route::get('/dp', [App\Http\Controllers\KatalogCustomerController::class, 'dp']);
 Route::get('/pelunasan', [App\Http\Controllers\KatalogCustomerController::class, 'pelunasan']);
 Route::get('/status_pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'status_pesanan']);
@@ -26,10 +25,12 @@ Route::get('/dashboard', [App\Http\Controllers\KatalogCustomerController::class,
 Route::get('/wishlist', [App\Http\Controllers\KatalogCustomerController::class, 'wishlist']);
 
 Route::get('/profilcust', [App\Http\Controllers\KatalogCustomerController::class, 'profilcust']);
-Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
 Route::get('/review', [App\Http\Controllers\KatalogCustomerController::class, 'review']);
 Route::get('/helpcenter', [App\Http\Controllers\KatalogCustomerController::class, 'helpcenter']);
 Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class, 'notifikasi']);
+
+Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
+Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 
 // login - regirster
 Route::get('/login', [App\Http\Controllers\KatalogCustomerController::class, 'login'])->middleware("guest")->name('login');

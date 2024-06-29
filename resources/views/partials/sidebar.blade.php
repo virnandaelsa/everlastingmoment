@@ -12,12 +12,18 @@
             <div class="p-2">
                 <a href="/"><img src="{{ asset('icon/bxs_home.png') }}" alt="home" class="img-fluid" style="width: 30px;"></a>
             </div>
+            @if (auth()->user()->role == 1)
+                <div class="p-2">
+                    <a href="/datapesanan"><img src="{{ asset('icon/icon-park-solid_transaction.png') }}" alt="Detail Pesanan" class="img-fluid" style="width: 30px;"></a>
+                </div>
+            @else
             <div class="p-2">
                 <a href="/status_pemesanan"><img src="{{ asset('icon/icon-park-solid_transaction.png') }}" alt="Detail Pesanan" class="img-fluid" style="width: 30px;"></a>
             </div>
-            <div class="p-2">
+            @endif
+            {{-- <div class="p-2">
                 <a href="/notifikasi"><img src="{{ asset('icon/iconamoon_notification-fill.png') }}" alt="Notification" class="img-fluid" style="width: 30px;"></a>
-            </div>
+            </div> --}}
             <div class="p-2">
                 <a href="/profilcust"><img src="{{ asset('icon/iconamoon_profile-fill.png') }}" alt="Profil" class="img-fluid" style="width: 30px;"></a>
             </div>
