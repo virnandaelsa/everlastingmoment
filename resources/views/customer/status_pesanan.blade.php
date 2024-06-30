@@ -71,14 +71,15 @@
         {{-- @dd($data) --}}
         <h3>Aktif</h3>
         @foreach ($data1 as $data)
+        {{-- {{dd($data)}} --}}
         <div class="order-item">
             <img src="{{ asset('images/makeup_arabian_look.png') }}" alt="Paket Make Up">
             <div class="order-details">
-                <p><strong>{{$data->katalog->judul}}</strong></p>
-                <p>Rp 6.000.000</p>
-                <p>{{($data->katalog->id_detailPJ)}}</p>
+                <p><strong>{{$data->dt_katalog->katalog->judul}}</strong></p>
+                <p>{{$data->dt_katalog->harga}}</p>
+                <p>{{($data->dt_katalog->katalog->id_detailPJ)}}</p>
             </div>
-            <a href="/pelunasan" class="order-button-link">
+            <a href="/pelunasan/{{$data->id_transaksi}}" class="order-button-link">
                 <button class="order-button">Pelunasan</button>
             </a>
         </div>

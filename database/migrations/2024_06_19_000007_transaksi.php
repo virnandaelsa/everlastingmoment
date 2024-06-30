@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id('id_transaksi');
             $table->unsignedBigInteger('id_user');//nama
-            $table->unsignedBigInteger('id_katalog');//katalog
+            $table->unsignedBigInteger('id_dt_katalog');//dt_katalog
 
             $table->date('tanggal');
             $table->integer('status')->default('1');//1. Pengajuan, 2. Diterima, 3. Ditolak
@@ -23,7 +23,7 @@ return new class extends Migration
 
 
             $table->foreign('id_user')->references('id_user')->on('pengguna');
-            $table->foreign('id_katalog')->references('id_katalog')->on('katalog');
+            $table->foreign('id_dt_katalog')->references('id_dt_katalog')->on('dt_katalog');
         });
     }
 

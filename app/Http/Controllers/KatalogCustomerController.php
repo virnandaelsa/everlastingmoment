@@ -76,7 +76,7 @@ class KatalogCustomerController extends Controller
             // Menambahkan data ke tabel transaksi dan mendapatkan ID yang baru
             $transaksiId = DB::table('transaksi')->insertGetId([
                 'id_user' => $request->id_user,
-                'id_katalog' => $request->id_katalog,
+                'id_dt_katalog' => $request->id_dt_katalog,
                 'tanggal' => $request->tanggal,
             ]);
 
@@ -104,23 +104,26 @@ class KatalogCustomerController extends Controller
     {
         return view('customer.bukti_dp');
     }
-    public function pelunasan()
+    public function pelunasan($id)
     {
-        return view('customer.pelunasan');
+        $dataLengkap = transaksi::with('dt_katalog.katalog.detailPJ.pengguna')->find($id);
+        $dt_transaksi = transaksi::with('dt_transaksi')->find($id);
+        // dd($dataLengkap);
+        // dd($dt_transaksi);
+        return view('customer.pelunasan',
+            [
+            'dataLengkap' => $dataLengkap,
+            'dt_transaksi'=>$dt_transaksi
+            ]
+        );
     }
     public function status_pesanan()
     {
-        $data1 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
-                                                        ->where('status','=',1);
+        $data1 = transaksi::with('dt_katalog.katalog')->get()->where('id_user','=',auth()->user()->id_user);
         $data2 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
-                                                        ->where('status','=',2);
-        $data3 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
-                                                        ->where('status','=',3);
-        $data4 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
-                                                        ->where('status','=',4);
-        // dd($data4);
-        // $data2;
-        foreach ($data1 as $data) {
+                                                        ->where('status','=',1);
+        // dd($data1);
+        foreach ($data2 as $data) {
             $eloq[]=1;
         }
         // dd($eloq);

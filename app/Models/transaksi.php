@@ -15,13 +15,13 @@ class transaksi extends Model
     {
         return $this->belongsTo(User::class,'id_user','id_user');
     }
-    public function katalog()
+    public function dt_katalog()
     {
-        return $this->belongsTo(katalog::class,'id_katalog','id_katalog');
+        return $this->belongsTo(dt_katalog::class,'id_dt_katalog','id_dt_katalog');
     }
     public function dt_transaksi()
     {
-        return $this->hasMany(dt_transaksi::class,'id_transaksi','id_transaksi');
+        return $this->hasOne(dt_transaksi::class,'id_transaksi','id_transaksi');
     }
     public function review()
     {

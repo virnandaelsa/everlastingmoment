@@ -194,7 +194,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'id_transaksi' => '555',
                     'id_user' => '111',
-                    'id_katalog' => '333',
+                    'id_dt_katalog' => '777',
 
                     'tanggal' => '2002/02/02',
                     'status' => '1',

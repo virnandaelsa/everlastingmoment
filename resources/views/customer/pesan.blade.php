@@ -49,13 +49,13 @@
                         <div class="order-item">
                             <span class="label">Tanggal pelaksanaan acara:</span>
                             <input type="datetime-local" class="value datetime" name="tanggal">
-                            @if($errors->has('tanggal')) {{($messages[0])}} @endif
+                            @if($errors->has('tanggal')) <p style="color: red">{{($messages[0])}}</p> @endif
                         </div>
                         <hr>
                         <div class="order-item">
                             <span class="label">Keterangan:</span>
                             <input type="text" class="value datetime" placeholder="Detail Pemesananan" name="keterangan" style="width:100%;">
-                            @if($errors->has('tanggal')) {{($messages[1])}} @endif
+                            @if($errors->has('tanggal')) <p style="color: red">{{($messages[1])}}</p> @endif
                         </div>
                         <hr>
                         <div class="order-item">
