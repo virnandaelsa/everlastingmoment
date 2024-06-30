@@ -123,7 +123,8 @@ class KatalogCustomerController extends Controller
         $dt_transaksi = transaksi::with('dt_transaksi')->find($request->id_transaksi);
         // dd($dt_transaksi);
         $id_dt=$dt_transaksi->dt_transaksi->id_dt_transaksi;
-        if ($dt_transaksi->status==2)
+        $id_tr=$dt_transaksi->id_transaksi;
+        if ($dt_transaksi->status==2 && $dt_transaksi->dt_transaksi->status_pembayaran==1)
         {
             $request->validate(
             [
@@ -138,10 +139,12 @@ class KatalogCustomerController extends Controller
                     'upload-bukti_pelunasan' => 'required',
                 ]
             );
+            DB::update("update dt_transaksi set status_pembayaran = 3 where id_dt_transaksi = $id_dt");
+            DB::update("update transaksi set status = 4 where id_transaksi = $id_tr");
         }
-        dd($request);
+        // dd($request);
 
-        $dataLengkap = transaksi::with('dt_katalog.katalog.detailPJ.pengguna')->find($id);
+        $dataLengkap = transaksi::with('dt_katalog.katalog.detailPJ.pengguna')->find($id_tr);
 
         // dd($dataLengkap);
         // dd($dt_transaksi);

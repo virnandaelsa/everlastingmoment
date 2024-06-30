@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="main-content">
-    <form action="/pelunasan" method="POST">
+    <form action="/pelunasan" method="POST" enctype="multipart/form-data">
         @csrf
         @php
         foreach ($errors->all() as $message) {
@@ -89,7 +89,7 @@
                             {{-- {{dd(auth()->user())}} --}}
                         </div>
                         <hr>
-                        @if ($dt_transaksi->status==2)
+                        @if ($dt_transaksi->status==2 && $dt_transaksi->dt_transaksi->status_pembayaran==1)
                         <div class="upload-section">
                             <label for="upload-bukti">Upload bukti DP:
                                 <br> <input class="mt-2" type="file" id="upload-bukti" name="upload-bukti_dp"> </label>
@@ -97,6 +97,9 @@
                             </div> 
                         <hr>
                         @endif
+                        {{-- @if (isset($messages))
+                        @dd($messages)
+                        @endif --}}
                         @if ($dt_transaksi->dt_transaksi->status_pembayaran==2)
                         <div class="upload-section">
                             <label for="upload-bukti">Upload bukti Pelunasan: 
