@@ -116,7 +116,7 @@
                 <td>{{ $item->tanggal }}</td>
                 <td>{{ $item->status == 1 ? 'Pengajuan' : ($item->status == 2 ? 'Diterima' : 'Ditolak') }}</td>
                 <td>Lunas</td>
-                <td><a href="/pemesanan"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
+                <td><a href="/pemesanan/{{ $item->id_transaksi }}"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
             </tr>
             @endforeach
 

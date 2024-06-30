@@ -279,9 +279,12 @@ class KatalogCustomerController extends Controller
     {
         return view('penyedia_jasa.lengkapi_administrasi');
     }
-    public function pemesanan()
+    public function pemesanan($id)
     {
-        return view('penyedia_jasa.detail_pemesanan');
+        $data = transaksi::with('pengguna', 'katalog.detailPJ', 'katalog.dt_katalog','dt_transaksi')->where('id_transaksi',$id)->get();
+        return view('penyedia_jasa.detail_pemesanan',[
+            'data' => $data
+        ]);
     }
 
 

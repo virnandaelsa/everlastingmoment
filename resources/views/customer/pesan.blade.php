@@ -91,12 +91,6 @@
                     </div>
             </div>
             <button class="order-button" type="submit">Buat Pesanan</button>
-<<<<<<< HEAD
-        </form>
-        </div>
-@endsection
-=======
         </div>
     </form>
 @endsection
->>>>>>> 8eae0a69ec8298aaac16cf350b18a8572848d15f

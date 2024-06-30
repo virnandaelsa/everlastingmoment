@@ -32,7 +32,7 @@ Route::get('/helpcenter', [App\Http\Controllers\KatalogCustomerController::class
 Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class, 'notifikasi']);
 
 Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
-Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
+Route::get('/pemesanan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 
 Route::get('/account', [KatalogCustomerController::class, 'info_akun'])->name('account');
 

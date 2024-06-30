@@ -75,8 +75,8 @@
             <img src="{{ asset('images/makeup_arabian_look.png') }}" alt="Paket Make Up">
             <div class="order-details">
                 <p><strong>{{$data->katalog->judul}}</strong></p>
-                <p>Rp. 6.000.000.00</p>
-                <p>SeMUA Evelyn</p>
+                <p>Rp 6.000.000</p>
+                <p>{{($data->katalog->id_detailPJ)}}</p>
             </div>
             <a href="/pelunasan" class="order-button-link">
                 <button class="order-button">Pelunasan</button>

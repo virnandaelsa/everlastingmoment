@@ -12,17 +12,17 @@
         <h2>DETAIL PEMESANAN</h2>
     </div>
     <div class="container">
-        <div class="detail"><span>Nama Customer:</span> Virnanda</div>
-        <div class="detail"><span>Alamat:</span> Banaran, Pesantren, Kota Kediri</div>
-        <div class="detail"><span>Tanggal:</span> 25 Mei 2025</div>
-        <div class="detail"><span>Jam:</span> 10.00 am</div>
-        <div class="detail"><span>Paket Pemesanan:</span> Paket Wedding Siger Sunda</div>
-        <div class="detail"><span>Keterangan:</span> Akad, Resepsi</div>
-        <div class="detail"><span>Deskripsi:</span> Paket Lengkap orang tua dan pager ayu</div>
+        <div class="detail"><span>Nama Customer:</span> {{ $data[0]->pengguna->nama }}</div>
+        <div class="detail"><span>Alamat:</span> {{ $data[0]->pengguna->alamat }}</div>
+        <div class="detail"><span>Tanggal:</span> {{ $data[0]->tanggal }}</div>
+        <div class="detail"><span>Jam:</span> 10.00 am (BELUM ADMBIL DARI DB BINGUNG)</div>
+        <div class="detail"><span>Paket Pemesanan:</span> {{ $data[0]->katalog->judul }}</div>
+        <div class="detail"><span>Deskripsi:</span> {{ $data[0]->katalog->deskripsi }}</div>
+        <div class="detail"><span>Keterangan:</span> {{ $data[0]->dt_transaksi[0]->ket }}</div>
         <div class="detail"><span>Total Biaya:</span> Rp 20.000.000</div>
         <div class="detail"><span>Uang DP:</span> Rp 10.000.000</div>
         <div class="detail transfer-proof">
-            <span>Bukti Transfer:</span> 
+            <span>Bukti Transfer:</span>
             <img src="{{ asset('icon/icon _image_.png') }}" alt="Bukti Transfer">
             <a href="#">Lihat Bukti Transfer</a>
         </div>
@@ -34,5 +34,6 @@
             <button class="reject">TOLAK</button>
         </div>
     </div>
+    @dd($data)
 </body>
 </html>
