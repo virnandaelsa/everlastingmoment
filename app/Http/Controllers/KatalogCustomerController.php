@@ -289,6 +289,13 @@ class KatalogCustomerController extends Controller
             'data' => $data
         ]);
     }
+    public function detail_pemesanan($id_trx,$id_sts)
+    {
+        // dd($id_sts);
+        DB::update("update transaksi set status = $id_sts where id_transaksi = $id_trx");
+
+        return redirect('/datapesanan')->with('success', 'Berhasil memperbaharui status');
+    }
 
 
     public function profilcust()

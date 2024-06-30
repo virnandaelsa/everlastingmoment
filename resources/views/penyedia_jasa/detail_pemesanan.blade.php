@@ -16,25 +16,25 @@
         <div class="detail"><span>Nama Customer:</span> {{ $data[0]->transaksi->pengguna->nama }}</div>
         <div class="detail"><span>Alamat:</span> {{ $data[0]->transaksi->pengguna->alamat }}</div>
         <div class="detail"><span>Tanggal:</span> {{ $data[0]->transaksi->tanggal }}</div>
-        <div class="detail"><span>Jam:</span> 10.00 am (BELUM ADMBIL DARI DB BINGUNG)</div>
+        <div class="detail"><span>Jam:</span> --:--</div>
         <div class="detail"><span>Paket Pemesanan:</span> {{ $data[0]->transaksi->dt_katalog->katalog->judul }}</div>
         <div class="detail"><span>Deskripsi:</span> {{ $data[0]->transaksi->dt_katalog->katalog->deskripsi }}</div>
         <div class="detail"><span>Keterangan:</span> {{ $data[0]->ket }}</div>
-        <div class="detail"><span>Total Biaya:</span> Rp 20.000.000</div>
-        <div class="detail"><span>Uang DP:</span> Rp 10.000.000</div>
-        <div class="detail transfer-proof">
+        <div class="detail"><span>Total Biaya:</span> Rp {{ $data[0]->transaksi->dt_katalog->harga }}</div>
+        <div class="detail"><span>Uang DP:</span> Rp {{ $data[0]->transaksi->dt_katalog->harga / 2 }}</div>
+        {{-- <div class="detail transfer-proof">
             <span>Bukti Transfer:</span>
             <img src="{{ asset('icon/icon _image_.png') }}" alt="Bukti Transfer">
             <a href="#">Lihat Bukti Transfer</a>
-        </div>
+        </div> --}}
     </div>
     <div class="actions">
-        <a href="#" class="back">Kembali</a>
+        <a href="/datapesanan" class="back">Kembali</a>
         <div class="center-buttons">
-            <button class="accept">TERIMA</button>
-            <button class="reject">TOLAK</button>
+            <button class="accept"><a href="/pemesanan/{{ $data[0]->id_transaksi }}/2" style="text-decoration: none;color:white">TERIMA</a></button>
+            <button class="reject"><a href="/pemesanan/{{ $data[0]->id_transaksi }}/3" style="text-decoration: none;color:white">TOLAK </a></button>
         </div>
     </div>
-    @dd($data)
+    {{-- @dd($data) --}}
 </body>
 </html>
