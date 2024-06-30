@@ -166,7 +166,7 @@ class KatalogCustomerController extends Controller
         // dd($dt_transaksi);
         $data1 = transaksi::with('dt_katalog.katalog')->where('id_user','=',auth()->user()->id_user)->orderBy('id_transaksi','desc')->get();
 
-        return redirect("/pesan/$id_tr"
+        return redirect("/pelunasan/$id_tr"
         )->with('success', 'Pengiriman Gambar Telah Berhasil');
     }
     public function status_pesanan()
