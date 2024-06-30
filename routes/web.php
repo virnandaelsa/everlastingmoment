@@ -15,8 +15,6 @@ Route::get('/tambah_katalog', [App\Http\Controllers\KatalogCustomerController::c
 Route::post('/tambah-katalog', [KatalogCustomerController::class, 'store_catalogs'])->name('catalog.store');
 Route::get('/pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
 Route::get('/dp', [App\Http\Controllers\KatalogCustomerController::class, 'dp']);
-Route::get('/pelunasan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pelunasan']);
-Route::post('/pelunasan', [App\Http\Controllers\KatalogCustomerController::class, 'store_pelunasan']);
 Route::get('/status_pemesanan', [App\Http\Controllers\KatalogCustomerController::class, 'status_pesanan']);
 Route::get('/reviewcustomer', [App\Http\Controllers\KatalogCustomerController::class, 'review_customer']);
 Route::get('/lihatjasa_pj', [App\Http\Controllers\KatalogCustomerController::class, 'lihatjasa_pj']);
@@ -41,6 +39,8 @@ Route::get('/account', [KatalogCustomerController::class, 'info_akun'])->name('a
 Route::get('/pesan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pesan'])->middleware("auth");
 Route::post('/pesan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'store_trx'])->middleware("auth")->name('trx');
 
+Route::get('/pelunasan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pelunasan']);
+Route::post('/pelunasan', [App\Http\Controllers\KatalogCustomerController::class, 'store_pelunasan']);
 
 
 // login - regirster

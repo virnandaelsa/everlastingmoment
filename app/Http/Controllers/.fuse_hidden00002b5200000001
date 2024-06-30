@@ -117,60 +117,6 @@ class KatalogCustomerController extends Controller
             ]
         );
     }
-    public function store_pelunasan(request $request)
-    {
-        // dd($request->id_katalog);
-        $dt_transaksi = transaksi::with('dt_transaksi')->find($request->id_transaksi);
-        $id_dt=$dt_transaksi->dt_transaksi->id_dt_transaksi;
-        $id_tr=$dt_transaksi->id_transaksi;
-        if ($dt_transaksi->status==2 && $dt_transaksi->dt_transaksi->status_pembayaran==1)
-        {
-            $request->validate(
-            [
-                'upload-bukti_dp' => 'required',
-            ]
-            );
-            $image = $request->file("upload-bukti_dp");
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/pembayaran/');
-            $image->move($destinationPath, $name);
-            // $administrasi->sampul_tk = $name;
-            // dd($name);
-
-            DB::update("update dt_transaksi set status_pembayaran = 2 where id_dt_transaksi = $id_dt");
-            DB::update("update dt_transaksi set bukti_tfDP = '$name' where id_dt_transaksi = $id_dt");
-        }
-
-        if ($dt_transaksi->dt_transaksi->status_pembayaran==2){
-            $request->validate(
-                [
-                    'upload-bukti_pelunasan' => 'required',
-                ]
-            );
-
-            $image = $request->file("upload-bukti_pelunasan");
-            // dd($image);
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/pembayaran/');
-            $image->move($destinationPath, $name);
-
-            DB::update("update dt_transaksi set status_pembayaran = 3 where id_dt_transaksi = $id_dt");
-            DB::update("update dt_transaksi set bukti_tfPelunasan = '$name' where id_dt_transaksi = $id_dt");
-            DB::update("update transaksi set status = 4 where id_transaksi = $id_tr");
-        }
-        // dd($request);
-
-        $dataLengkap = transaksi::with('dt_katalog.katalog.detailPJ.pengguna')->find($id_tr);
-
-        // dd($dataLengkap);
-        // dd($dt_transaksi);
-        return view('customer.pelunasan',
-            [
-            'dataLengkap' => $dataLengkap,
-            'dt_transaksi'=>$dt_transaksi
-            ]
-        );
-    }
     public function status_pesanan()
     {
         $data1 = transaksi::with('dt_katalog.katalog')->get()->where('id_user','=',auth()->user()->id_user);
