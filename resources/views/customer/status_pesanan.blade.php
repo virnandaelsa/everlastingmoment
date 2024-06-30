@@ -67,55 +67,90 @@
         <h2>Pesanan Saya</h2>
         <img src="{{ asset('images/avatar/3.jpg') }}" alt="User Profile">
     </div>
+    {{-- {{dd(session())}} --}}
+    @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{session('success')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <i class="material-icons">close</i>
+              </button>
+            </div>
+        @endif
+@foreach ($data1 as $data)
+    @php
+        $gpaket=$data->dt_katalog->gambar
+    @endphp
+    @if($data->status==1)
     <div class="order-section">
         {{-- @dd($data) --}}
-        <h3>Aktif</h3>
-        @foreach ($data1 as $data)
+        @php
+            // dd($data)
+        @endphp
+        <h3>PENGAJUAN</h3>
         {{-- {{dd($data)}} --}}
         <div class="order-item">
-            <img src="{{ asset('images/makeup_arabian_look.png') }}" alt="Paket Make Up">
+            <img src="{{filter_var(asset("images/catalogs/$gpaket"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gpaket }}';">
+            <div class="order-details">
+                <p><strong>{{$data->dt_katalog->katalog->judul}}</strong></p>
+                <p>{{$data->dt_katalog->harga}}</p>
+                <p>{{($data->dt_katalog->katalog->detailPJ->nama_toko)}}</p>
+            </div>
+                <button class="order-button">PROSES KONFIRMASI</button>
+        </div>
+    </div>
+    @endif
+    @if($data->status==2)
+    <div class="order-section">
+        <h3>Dikonfirmasi</h3>
+        <div class="order-item">
+            <img src="{{filter_var(asset("images/catalogs/$gpaket"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gpaket }}';">
             <div class="order-details">
                 <p><strong>{{$data->dt_katalog->katalog->judul}}</strong></p>
                 <p>{{$data->dt_katalog->harga}}</p>
                 <p>{{($data->dt_katalog->katalog->id_detailPJ)}}</p>
             </div>
+            {{-- {{dd($data)}} --}}
+            @if ($data->dt_transaksi->status_pembayaran==1)
             <a href="/pelunasan/{{$data->id_transaksi}}" class="order-button-link">
-                <button class="order-button">Pelunasan</button>
-            </a>
-        </div>
-        @endforeach
-    </div>
-    <div class="order-section">
-        <h3>Dikonfirmasi</h3>
-        <div class="order-item">
-            <img src="{{ asset('images/paket_dekorasi.png') }}" alt="Paket Dekorasi">
-            <div class="order-details">
-                <p><strong>Paket Dekorasi (gedung 2)</strong></p>
-                <p>Rp. 17.000.000.00</p>
-                <p>Dekorasi UtamaKita</p>
-            </div>
-            <a href=""class="order-button-link">
-                <button class="order-button">Upload DP</button>
-            </a>
+                <button class="order-button">BAYAR DP</button>
+                </a>
+            @endif
+            @if ($data->dt_transaksi->status_pembayaran==2)
+            <a href="/pelunasan/{{$data->id_transaksi}}" class="order-button-link">
+                <button class="order-button">PELUNASAN</button>
+                </a>
+            @endif
         </div>
     </div>
+    @endif
+    @if($data->status==4)
     <div class="order-section">
         <h3>Selesai</h3>
         <div class="order-item">
-            <img src="{{ asset('images/undangan_minimalis.png') }}" alt="Undangan Minimalis">
+            <img src="{{filter_var(asset("images/catalogs/$gpaket"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gpaket }}';">
             <div class="order-details">
-                <p><strong>Undangan Minimalis (desain 4)</strong></p>
-                <p>Rp. 1.000.000</p>
-                <p>Sayanda wedding</p>
+                <p><strong>{{$data->dt_katalog->katalog->judul}}</strong></p>
+                <p>{{$data->dt_katalog->harga}}</p>
+                <p>{{($data->dt_katalog->katalog->id_detailPJ)}}</p>
             </div>
-            <a href=""class="order-button-link">
-                <button class="order-button">Review</button>
-            </a>
+                {{-- <button class="order-button">Selesai</button> --}}
         </div>
     </div>
+    @endif
+    @if($data->status==3)
     <div class="order-section">
         <h3>Dibatalkan</h3>
-        <p>-</p>
+        <div class="order-item">
+            <img src="{{filter_var(asset("images/catalogs/$gpaket"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gpaket }}';">
+            <div class="order-details">
+                <p><strong>{{$data->dt_katalog->katalog->judul}}</strong></p>
+                <p>{{$data->dt_katalog->harga}}</p>
+                <p>{{($data->dt_katalog->katalog->id_detailPJ)}}</p>
+            </div>
+                <button class="order-button">DIBATALKAN</button>
+        </div>
     </div>
+    @endif
+    @endforeach
 </div>
 @endsection

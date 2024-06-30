@@ -32,16 +32,18 @@
             </div>
             <div class="order-detail">
                 <div class="order-header">
-                    <img src='{{asset("/images/catalogs/$gpaket")}}' alt="Paket Make Up Arabian Look" class="package-img">
+                    <img src="{{filter_var(asset("images/catalogs/$gpaket"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gpaket }}';"
+                    {{-- <img src='{{asset("/images/catalogs/$gpaket")}}'  --}}
+                    alt="Paket Make Up Arabian Look" class="package-img">
                     <div class="package-info">
                     <div class="vendor-info">{{$data2->katalog->detailPJ->nama_toko}}</div>
                         <h2>{{$data2->katalog->judul}}</h2>
                         <span>{{$data1->judul_variasi." | Biaya : Rp ".$data1->harga}},-</span>
-                        <br><span>{{"PEMBAYARAN DP 50% -> Biaya : Rp ".$data1->harga/2}},-</span>
-                        <div class="rating">
+                        <br><span>{{"PEMBAYARAN DP 50% -> Rp ".$data1->harga/2}},-</span>
+                        {{-- <div class="rating">
                             <p>⭐ 4.7 / 5</p>
                             <p>45 terpakai</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

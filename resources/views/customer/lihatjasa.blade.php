@@ -28,8 +28,9 @@
                         @foreach ($data1->dt_katalog as $gambar )
                         <?php $img=$gambar->gambar; ?>
                             <div class="carousel-item {{$i==0?'active':''}}">
-                                <img class="d-block w-100" style="height:200px;" 
-                                    src='{{ asset("images/catalogs/$img") }}' alt="{{"image"}}">
+                                <img class="d-block w-100" style="height:360px;" 
+                                    {{-- src='{{ asset("images/catalogs/$img") }}' alt="{{"image"}}"> --}}
+                                    src="{{filter_var(asset("images/catalogs/$img"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $img }}';">
                             </div>
                         <?php $i++ ?>
                         @endforeach
@@ -47,7 +48,9 @@
                     <?php $i=0?>
                         @foreach ($data1->dt_katalog as $gambar )
                         <?php $img=$gambar->gambar; ?>
-                            <img src='{{ asset("images/catalogs/$img") }}' alt="{{"gambar"}}" class="thumbnail {{$i==0?'':''}}" 
+                        <img src="{{filter_var(asset("images/catalogs/$img"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $img }}';"
+                            {{-- <img src='{{ asset("images/catalogs/$img") }}' alt="{{"gambar"}}"  --}}
+                            class="thumbnail {{$i==0?'':''}}" 
                                     data-target="#carouselExampleIndicators" data-slide-to="{{$i}}">
                         <?php $i++ ?>
                         @endforeach

@@ -164,16 +164,14 @@ class KatalogCustomerController extends Controller
 
         // dd($dataLengkap);
         // dd($dt_transaksi);
-        return view('customer.pelunasan',
-            [
-            'dataLengkap' => $dataLengkap,
-            'dt_transaksi'=>$dt_transaksi
-            ]
-        );
+        $data1 = transaksi::with('dt_katalog.katalog')->where('id_user','=',auth()->user()->id_user)->orderBy('id_transaksi','desc')->get();
+
+        return redirect("/pesan/$id_tr"
+        )->with('success', 'Pengiriman Gambar Telah Berhasil');
     }
     public function status_pesanan()
     {
-        $data1 = transaksi::with('dt_katalog.katalog')->get()->where('id_user','=',auth()->user()->id_user);
+        $data1 = transaksi::with('dt_katalog.katalog')->where('id_user','=',auth()->user()->id_user)->orderBy('id_transaksi','desc')->get();
         $data2 = transaksi::with('dt_transaksi')->get()->where('id_user','=',auth()->user()->id_user)
                                                         ->where('status','=',1);
         // dd($data1);
