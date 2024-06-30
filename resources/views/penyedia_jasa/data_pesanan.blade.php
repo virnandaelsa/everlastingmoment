@@ -87,6 +87,14 @@
 
 
 <div class="content">
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <i class="material-icons">close</i>
+      </button>
+    </div>
+    @endif
     <div class="data-table">
         <h1>DATA PESANAN MASUK</h1>
          <!-- Container untuk input pencarian -->

@@ -34,6 +34,7 @@ Route::get('/notifikasi', [App\Http\Controllers\KatalogCustomerController::class
 
 Route::get('/datapesanan', [App\Http\Controllers\KatalogCustomerController::class, 'datapesanan']);
 Route::get('/pemesanan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pemesanan']);
+Route::get('/pemesanan/{id_trx}/{id_sts}', [App\Http\Controllers\KatalogCustomerController::class, 'detail_pemesanan']);
 
 Route::get('/account', [KatalogCustomerController::class, 'info_akun'])->name('account');
 

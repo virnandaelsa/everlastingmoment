@@ -32,7 +32,7 @@
             <label for="namaToko">Nama Toko:</label>
             <input type="text" class="form-control" id="namaToko" name="namaToko" required>
         </div>
-        
+
         <div class="form-group">
             <label for="alamat">Alamat:</label>
             <textarea class="form-control" id="alamat" name="alamat" rows="2" required></textarea>
@@ -41,14 +41,19 @@
         <div class="form-group">
             <label for="provinsi">Provinsi:</label>
             <select id="provinsi" name="provinsi" required>
-                <option value="Jawa Timur">Pilih Provinsi</option>
+                <option value="">Pilih Provinsi</option>
+                <option value="Jawa Timur">Jawa Timur</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="kota">Kota / Kabupaten:</label>
             <select id="kota" name="kota" required>
-                <option value="Kediri">Pilih Kota / Kabupaten</option>
+                <option value="">Pilih Kota / Kabupaten</option>
+                <option value="Kediri">Kediri</option>
+                <option value="Malang">Malang</option>
+                <option value="Surabaya">Surabaya</option>
+                <option value="Jombang">Jombang</option>
             </select>
         </div>
 
