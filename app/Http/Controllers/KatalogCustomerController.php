@@ -117,6 +117,41 @@ class KatalogCustomerController extends Controller
             ]
         );
     }
+    public function store_pelunasan(request $request)
+    {
+        // dd($request->id_katalog);
+        $dt_transaksi = transaksi::with('dt_transaksi')->find($request->id_transaksi);
+        // dd($dt_transaksi);
+        $id_dt=$dt_transaksi->dt_transaksi->id_dt_transaksi;
+        if ($dt_transaksi->status==2)
+        {
+            $request->validate(
+            [
+                'upload-bukti_dp' => 'required',
+            ]
+            );
+            DB::update("update dt_transaksi set status_pembayaran = 2 where id_dt_transaksi = $id_dt");
+        }
+        if ($dt_transaksi->dt_transaksi->status_pembayaran==2){
+            $request->validate(
+                [
+                    'upload-bukti_pelunasan' => 'required',
+                ]
+            );
+        }
+        dd($request);
+
+        $dataLengkap = transaksi::with('dt_katalog.katalog.detailPJ.pengguna')->find($id);
+
+        // dd($dataLengkap);
+        // dd($dt_transaksi);
+        return view('customer.pelunasan',
+            [
+            'dataLengkap' => $dataLengkap,
+            'dt_transaksi'=>$dt_transaksi
+            ]
+        );
+    }
     public function status_pesanan()
     {
         $data1 = transaksi::with('dt_katalog.katalog')->get()->where('id_user','=',auth()->user()->id_user);

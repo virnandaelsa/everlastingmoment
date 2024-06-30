@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 INSERT INTO `pengguna` (`id_user`, `nama`, `no_telp`, `email`, `username`, `password`, `foto`, `role`, `alamat`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'user1', NULL, NULL, 'u1', '$2y$12$fdbY.ssP55lENmjIfbFNJuSTbsZADNG/1xf7PUq1rcaJRC5A8ZJUC', NULL, 1, NULL, NULL, NULL, NULL),
 (2, 'user2', NULL, NULL, 'u2', '$2y$12$x3OFzzVFfljNlVwXR/UHzuJireSAfnnaCQ3vHygmRx9s/NeJ.bN8W', NULL, 0, NULL, NULL, NULL, NULL),
-(3, 'user3', NULL, NULL, 'u3', '$2y$12$bB2cNsXpfY4FD8TSOy2Ru.uYduxnjAgTYocRKAoAqEK.6X/NK4QIC', NULL, 0, NULL, NULL, NULL, NULL),
-(4, 'user4', NULL, NULL, 'u4', '$2y$12$ZRQP1ihiEgHO4GSlRACDaeHav04mLzwmNVtFt0ffP4s1TWKx6xjQe', NULL, 0, NULL, NULL, NULL, NULL),
-(5, 'user5', NULL, NULL, 'u5', '$2y$12$gDozExuWzbjsaZhB0q/jFuyjUZ29RsSYIRQjI.8l3iogkYHLpDeI6', NULL, 0, NULL, NULL, NULL, NULL),
+(3, 'user5', NULL, NULL, 'u5', '$2y$12$gDozExuWzbjsaZhB0q/jFuyjUZ29RsSYIRQjI.8l3iogkYHLpDeI6', NULL, 0, NULL, NULL, NULL, NULL),
+(4, 'Delia Listiana', '089726354635', 'ella10@gmail.com', 'dell', '$2y$12$c1PcI/hRSvGLbFhAa.YuDeEF4HjP8Aps3CkrfhYDIh1gAUM/LrPWW', NULL, 1, 'kediri', NULL, '2024-06-25 16:08:25', '2024-06-25 16:08:25'),
+(5, 'Putri Amelia Agustin', '098726354632', 'putri02@gmail.com', 'put123', '123', NULL, 1, 'ngadiluwih', NULL, NULL, NULL),
 (111, 'Savira Ciliania', '087615243654', 'savirasilla@gmail.com', 'saviraci75', '$2y$12$hOHXLSv9z06RHhkf2nCBwe/HTqk8ASzmw87Dg.gGboNIrYruAsule', '-.png', 1, 'Kab. Kediri', NULL, NULL, NULL),
 (999, 'Savira Ciliania', '087605243654', 'satirasilla@gmail.com', 'uu1', '$2y$12$Jat6lTGbIcl/OguoL9fQqOGDpGhNr5YtL7Hvzk0H/gcn7ne9v4Pbm', '-.png', 1, 'Kab. Kediri', NULL, NULL, NULL),
-(1000, 'Delia Listiana', '089726354635', 'ella10@gmail.com', 'dell', '$2y$12$c1PcI/hRSvGLbFhAa.YuDeEF4HjP8Aps3CkrfhYDIh1gAUM/LrPWW', NULL, 1, 'kediri', NULL, '2024-06-25 16:08:25', '2024-06-25 16:08:25'),
-(1001, 'Putri Amelia Agustin', '098726354632', 'putri02@gmail.com', 'put123', '123', NULL, 1, 'ngadiluwih', NULL, NULL, NULL),
+(1000, 'user3', NULL, NULL, 'u3', '$2y$12$bB2cNsXpfY4FD8TSOy2Ru.uYduxnjAgTYocRKAoAqEK.6X/NK4QIC', NULL, 0, NULL, NULL, NULL, NULL),
+(1001, 'user4', NULL, NULL, 'u4', '$2y$12$ZRQP1ihiEgHO4GSlRACDaeHav04mLzwmNVtFt0ffP4s1TWKx6xjQe', NULL, 0, NULL, NULL, NULL, NULL),
 (1002, 'aruna hanin', '089876738292', 'aruna123@gmail.com', 'aruna', '$2y$12$gKyuLullabHBK/Odnygw5OK3bo5oCdv2nEjJz3D3ecW9Knh6PzRIO', NULL, 0, 'kediri', NULL, '2024-06-27 02:31:28', '2024-06-27 02:31:28'),
 (1003, 'virnanda', '088718291001', 'virnandaelsa29@gmail.com', 'virnanda', '$2y$12$qoD76IYGIK3hPa9SK5dI.e02ET/OjYgXqOaeHHUM/ecWuy/rb.vxm', NULL, 1, 'kediri', NULL, '2024-06-27 02:35:28', '2024-06-27 02:35:28'),
 (1004, 'elsa', '081652445167', 'virnandaelsa@gmail.com', 'elsa', '$2y$12$UP0DeA5oDSWd2U7Coelkwu8pL9tIyREEkSuZkRiJF4egKxFrT1arm', NULL, 0, 'Kediri', NULL, '2024-06-27 02:51:30', '2024-06-27 02:51:30'),
@@ -63,7 +63,6 @@ INSERT INTO `detailPJ` (`id_detailPJ`, `id_user`, `nama_toko`, `alamat`, `katego
 (227, 1007, 'Weralisa Make Up', 'Jl. Letjen Suparto Gg.i JL. Letjend Suprapto No.94,Banjaran, Kec. Kota Kediri, Jawa Timur', 'Make Up Artist', 'BRI', '1234567890', '1719458818.jpg', '1719458818.jpg', '2024-06-27 03:26:58', '2024-06-27 03:26:58'),
 (228, 1008, 'Novanis Kediri', 'Banyakan Kediri Kediri, Jawa Timur', 'Fotografi & Vidografi', 'BNI', '098765432111', '1719459468.png', '1719459468.png', '2024-06-27 03:37:48', '2024-06-27 03:37:48'),
 (229, 1009, 'Adelia Souvenir', 'Jl. Sakura No.37, Tulongrejo, Kec. Pare, Kab. Kediri, Jawa Timur 64212, Indonesia Kediri, Jawa Timur', 'Sovenir', 'BRI', '0017266172', '1719459632.jpg', '1719459632.jpg', '2024-06-27 03:40:32', '2024-06-27 03:40:32'),
-(230, 1, 'ok', 'malang Tulungagung, Jawa Barat', 'Make Up Artist', 'BNI', '77', '1719501954.jpg', '1719501954.jpg', '2024-06-27 15:25:54', '2024-06-27 15:25:54'),
 (231, 1014, 'VAnguard', 'Kediri Tulungagung, Jawa Barat', 'Make Up Artist', 'BRI', '11765177891', '1719679417.jpg', '1719679417.jpg', '2024-06-29 16:43:37', '2024-06-29 16:43:37');
 
 --
