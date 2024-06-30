@@ -284,7 +284,7 @@ class KatalogCustomerController extends Controller
     }
     public function pemesanan($id)
     {
-        $data = transaksi::with('pengguna', 'katalog.detailPJ', 'katalog.dt_katalog','dt_transaksi')->where('id_transaksi',$id)->get();
+        $data = dt_transaksi::with('transaksi.pengguna', 'transaksi.dt_katalog.katalog.detailPJ',)->where('id_dt_transaksi',$id)->get();
         return view('penyedia_jasa.detail_pemesanan',[
             'data' => $data
         ]);
@@ -298,7 +298,7 @@ class KatalogCustomerController extends Controller
 
     public function datapesanan()
     {
-        $data = transaksi::with('pengguna', 'katalog.detailPJ', 'katalog.dt_katalog')->get();
+        $data = dt_transaksi::with('transaksi.pengguna', 'transaksi.dt_katalog.katalog.detailPJ')->get();
         return view('penyedia_jasa.data_pesanan',[
             'data' => $data,
         ]);

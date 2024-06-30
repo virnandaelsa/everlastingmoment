@@ -11,14 +11,15 @@
         <img src="{{ asset('images/logoevmo.png') }}" alt="Logo">
         <h2>DETAIL PEMESANAN</h2>
     </div>
+    {{-- @dd($data) --}}
     <div class="container">
-        <div class="detail"><span>Nama Customer:</span> {{ $data[0]->pengguna->nama }}</div>
-        <div class="detail"><span>Alamat:</span> {{ $data[0]->pengguna->alamat }}</div>
-        <div class="detail"><span>Tanggal:</span> {{ $data[0]->tanggal }}</div>
+        <div class="detail"><span>Nama Customer:</span> {{ $data[0]->transaksi->pengguna->nama }}</div>
+        <div class="detail"><span>Alamat:</span> {{ $data[0]->transaksi->pengguna->alamat }}</div>
+        <div class="detail"><span>Tanggal:</span> {{ $data[0]->transaksi->tanggal }}</div>
         <div class="detail"><span>Jam:</span> 10.00 am (BELUM ADMBIL DARI DB BINGUNG)</div>
-        <div class="detail"><span>Paket Pemesanan:</span> {{ $data[0]->katalog->judul }}</div>
-        <div class="detail"><span>Deskripsi:</span> {{ $data[0]->katalog->deskripsi }}</div>
-        <div class="detail"><span>Keterangan:</span> {{ $data[0]->dt_transaksi[0]->ket }}</div>
+        <div class="detail"><span>Paket Pemesanan:</span> {{ $data[0]->transaksi->dt_katalog->katalog->judul }}</div>
+        <div class="detail"><span>Deskripsi:</span> {{ $data[0]->transaksi->dt_katalog->katalog->deskripsi }}</div>
+        <div class="detail"><span>Keterangan:</span> {{ $data[0]->ket }}</div>
         <div class="detail"><span>Total Biaya:</span> Rp 20.000.000</div>
         <div class="detail"><span>Uang DP:</span> Rp 10.000.000</div>
         <div class="detail transfer-proof">

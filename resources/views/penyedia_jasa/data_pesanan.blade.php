@@ -108,15 +108,15 @@
                 $i = 0
             @endphp
             @foreach ($data as $item)
-
+                {{-- {{dd($item)}} --}}
             <tr>
                 <td>{{ $i+=1 }}</td>
-                <td>{{ $item->pengguna->nama }}</td>
-                <td>{{ ($item->dt_katalog) }}</td>
-                <td>{{ $item->tanggal }}</td>
-                <td>{{ $item->status == 1 ? 'Pengajuan' : ($item->status == 2 ? 'Diterima' : 'Ditolak') }}</td>
-                <td>Lunas</td>
-                <td><a href="/pemesanan/{{ $item->id_transaksi }}"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
+                <td>{{ $item->transaksi->pengguna->nama }}</td>
+                <td>{{ ($item->transaksi->dt_katalog->judul_variasi) }}</td>
+                <td>{{ $item->transaksi->tanggal }}</td>
+                <td>{{ $item->transaksi->status == 1 ? 'Pengajuan' : ($item->transaksi->status == 2 ? 'Diterima' : ($item->transaksi->status == 4 ? 'Selesai' : 'Dibatalkan')) }}</td>
+                <td>{{ $item->status_pembayaran == 1 ? 'Belum dibayar' : ($item->status_pembayaran == 2 ? 'DP' : ($item->status_pembayaran == 3 ? 'Lunas' : 'Ditolak')) }}</td>
+                <td><a href="/pemesanan/{{ $item->id_dt_transaksi }}"><img src="{{ asset('icon/actoin.png') }}" alt="Detail Pesanan" style="width: 30px;"></a></td>
             </tr>
             @endforeach
 
