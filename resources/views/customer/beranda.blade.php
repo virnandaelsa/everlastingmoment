@@ -186,7 +186,7 @@
         <div class="top-bar">
             <div class="search-bar">
                 <input type="text" id="name" placeholder="Type something...">
-                <a id="dynamic-link" href="/">
+                <a id="dynamic-link" href="/cari/">
                     <button id="display" style="width: 100px;height: 40px;">Cari</button>
                 </a>
 
@@ -200,7 +200,7 @@
                             $(document).ready(function() {
                             $('#name').on('input', function() {
                                 let inputValue = $(this).val();
-                                $('#dynamic-link').attr('href', '/' + inputValue);
+                                $('#dynamic-link').attr('href', '/cari/' + inputValue);
                             });
                         });
                 </script>

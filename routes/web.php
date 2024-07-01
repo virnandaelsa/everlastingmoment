@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/{get?}', [App\Http\Controllers\KatalogCustomerController::class, 'index']);
+Route::get('/', [App\Http\Controllers\KatalogCustomerController::class, 'index']);
+Route::get('/cari/{get?}', [App\Http\Controllers\KatalogCustomerController::class, 'index']);
 Route::post('/', [App\Http\Controllers\KatalogCustomerController::class, 'indexFilter']);
 Route::get('/lihatjasa/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'lihatjasa']);
 Route::get('/pesan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pesan'])->middleware("auth");
