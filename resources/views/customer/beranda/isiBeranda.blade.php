@@ -54,12 +54,16 @@
                 </div>
             </div>
         </div> --}}
+        @if ($data2->isEmpty())
+            <p>Belum Ada nihh...</p>
+        @endif
         @foreach($data2 as $katalog)
         <div class="card">
-            <?php 
+
+            <?php
                 if (isset($katalog->dt_katalog[0]->gambar)) {
                     # code...
-                    $gambar = $katalog->dt_katalog[0]->gambar; 
+                    $gambar = $katalog->dt_katalog[0]->gambar;
                 }
                 else {
                     $gambar=asset("images/logoevmo.png");
@@ -73,7 +77,7 @@
                     $harga='';
                 }
             ?>
-            <img src="{{filter_var(asset("images/catalogs/$gambar"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gambar }}';" 
+            <img src="{{filter_var(asset("images/catalogs/$gambar"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gambar }}';"
                 class="card-img-top" alt="{{$gambar}}" style="width: 300px; height:150px">
             <div class="card-body">
                 <h5 class="card-title">{{$katalog['judul']}}</h5>
