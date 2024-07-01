@@ -73,8 +73,8 @@ INSERT INTO `detailPJ` (`id_detailPJ`, `id_user`, `nama_toko`, `alamat`, `katego
 --
 
 INSERT INTO `katalog` (`id_katalog`, `id_detailPJ`, `judul`, `deskripsi`, `metode_bayar`, `created_at`, `updated_at`) VALUES
-(1, 1, 'rias manten singer sunda', 'anti crak natural ', 12345678, NULL, NULL),
-(2, 1, ' solo jawa', 'anti crak tradisional', 12345678, NULL, NULL),
+(1, 1, 'rias manten jawa', 'anti crack natural ', 12345678, NULL, NULL),
+(2, 1, 'solo putri', 'MakeUp Solo Putri', 12345678, NULL, NULL),
 (3, 1, 'arabian look', 'moderen', 12345678, NULL, NULL),
 (4, 1, 'hijab syari', 'lebih natural dan flowles', 12345678, NULL, NULL),
 (5, 2, 'Paket Prasmanan', 'untuk 1000 undangan \r\nset makan inclide', 12345678, NULL, NULL),
@@ -95,18 +95,18 @@ INSERT INTO `katalog` (`id_katalog`, `id_detailPJ`, `judul`, `deskripsi`, `metod
 --
 
 INSERT INTO `dt_katalog` (`id_dt_katalog`, `judul_variasi`, `id_katalog`, `created_at`, `updated_at`, `harga`, `gambar`) VALUES
-(1000, 'last lif', 1, NULL, NULL, 6000000, 'https://asset-2.tstatic.net/tribunnews/foto/bank/images/fira-shehan_20180226_120149.jpg'),
-(1001, 'mahkota', 1, NULL, NULL, 7000000, 'https://asset-a.grid.id/crop/0x0:0x0/x/photo/2022/06/20/jawa-crop-horz-1jpg-20220620111840.jpg'),
-(1002, 'singger jilbab', 1, NULL, NULL, 7500000, 'https://unipasby.ac.id/ckeditor/images-media/1579683173_IMG20200122134532.jpg'),
+(1000, 'sanggul jawa', 1, NULL, NULL, 6000000, 'https://asset-2.tstatic.net/tribunnews/foto/bank/images/fira-shehan_20180226_120149.jpg'),
+(1001, 'hijab solo putri', 1, NULL, NULL, 7000000, 'https://alexandra.bridestory.com/image/upload/c_scale,dpr_1,f_auto,fl_progressive,pg_1,q_80,w_678/blogs/beblooms-2bAzj2l5k.jpg'),
+(1002, 'jawa modern', 1, NULL, NULL, 7500000, 'https://alexandra.bridestory.com/image/upload/c_scale,dpr_1,f_auto,fl_progressive,pg_1,q_80,w_678/blogs/zia-brides-makeup-6L5tzmyR8.jpg'),
 (1003, 'jawa tradisional', 2, NULL, NULL, 3000000, 'https://cdn.idntimes.com/content-images/post/20210425/89087748-832623867150206-4820966565789090054-n-894c8edfd7539520e9042e69c6c14fcb.jpg'),
-(1004, 'solo putri', 2, NULL, NULL, 3000000, NULL),
-(1005, 'yogya paes ageng', 2, NULL, NULL, 3000000, NULL),
+(1004, 'solo basahan', 2, NULL, NULL, 3000000, 'https://images.tempo.co/?id=659874&width=720'),
+(1005, 'solo putri', 2, NULL, NULL, 3000000, 'https://cdn.idntimes.com/content-images/community/2021/01/fromandroid-25a92e95b2cb5f7cae96cf553556536f.jpg'),
 (1006, 'mata bold dgn eyeliner', 3, NULL, NULL, 5000000, 'https://asset-a.grid.id/crop/0x103:423x350/360x240/photo/2021/07/12/arabic-bridal-party-wear-makeup-20210712123227.jpg'),
 (1007, 'shimer putih', 3, NULL, NULL, 5000000, 'https://i.ytimg.com/vi/7S4xegGxwgA/sddefault.jpg?v=60f84470'),
 (1008, 'eye shadow emas', 3, NULL, NULL, 5000000, 'https://asset-a.grid.id/crop/0x103:423x350/360x240/photo/2021/07/12/arabic-bridal-party-wear-makeup-20210712123227.jpg'),
 (1009, 'natural', 4, NULL, NULL, 3000000, 'https://i.pinimg.com/originals/43/14/f3/4314f375e8ef24d5108c60c02add0b8e.jpg'),
-(1010, 'berbie look', 4, NULL, NULL, 3000000, NULL),
-(1011, 'Glam Weding Make up', 4, NULL, NULL, 3000000, NULL),
+(1010, 'simple', 4, NULL, NULL, 3000000, 'https://cdns.klimg.com/dream.co.id/resources//real/2023/06/21/1107244/gaya-makeup-pengantin.jpg'),
+(1011, 'Glam Weding Make up', 4, NULL, NULL, 3000000, 'https://cdns.klimg.com/dream.co.id/resources//real/2023/08/16/1138467/gaya-makeup-pengantin-syari.jpg'),
 (1012, 'Paket Premium ', 5, NULL, NULL, 20000000, 'https://img.ws.mms.shopee.co.id/4b3109100dadffc02e4b4d703af55614'),
 (1013, 'Paket Medium ', 5, NULL, NULL, 15000000, NULL),
 (1014, 'Paket hemat ', 5, NULL, NULL, 10000000, NULL),
