@@ -129,7 +129,7 @@ INSERT INTO `dt_katalog` (`id_dt_katalog`, `judul_variasi`, `id_katalog`, `creat
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `id_dt_katalog`, `tanggal`, `status`) VALUES
-(555, 111, 777, '2002-02-02', 1);
+(555, 111, 1018, '2002-02-02', 1);
 COMMIT;
 
 --
