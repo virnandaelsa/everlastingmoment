@@ -185,7 +185,25 @@
         @endif
         <div class="top-bar">
             <div class="search-bar">
-                <input type="text" placeholder="Jasa Make Up Pengantin">
+                <input type="text" id="name" placeholder="Type something...">
+                <a id="dynamic-link" href="/">
+                    <button id="display" style="width: 100px;height: 40px;">Cari</button>
+                </a>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                            $(document).ready(function() {
+                            $('#name').on('input', function() {
+                                // $('#display').text($(this).val());
+                            });
+                        });
+                            $(document).ready(function() {
+                            $('#name').on('input', function() {
+                                let inputValue = $(this).val();
+                                $('#dynamic-link').attr('href', '/' + inputValue);
+                            });
+                        });
+                </script>
                 @auth
                 @else
                 <a href="/registrasi" class="btn-signup">SIGN UP</a>

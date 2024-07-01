@@ -44,7 +44,7 @@
     </div>
 </div>
 <div class="recommendations my-4">
-    <h4 class="bold-text">Rekomendasi</h4>
+    <h4 class="bold-text">Pencarian</h4>
     <div class="d-flex flex-wrap">
         @if (isset($isi))
             @if (!is_null($isi))
