@@ -80,7 +80,6 @@ INSERT INTO `katalog` (`id_katalog`, `id_detailPJ`, `judul`, `deskripsi`, `metod
 (5, 2, 'Paket Prasmanan', 'untuk 1000 undangan \r\nset makan inclide', 12345678, NULL, NULL),
 (6, 2, 'paket nasi kotak/piringan', 'per porsi include minum dan camilan', 12345678, NULL, NULL),
 (336, 225, 'MakeUp Internasional', 'MakeUp Modern', NULL, '2024-06-27 02:44:18', '2024-06-27 02:44:18'),
-(337, 226, 'Decoration Eropa', 'Decoration Modern Bernuansa Eropa', NULL, '2024-06-27 03:14:07', '2024-06-27 03:14:07'),
 (338, 226, 'Gold Wedding Decoration', 'Gold Wedding Decoration Lebar 6x6', NULL, '2024-06-27 03:22:41', '2024-06-27 03:22:41'),
 (339, 226, 'Gold Wedding Decoration Putih', 'Gold Wedding Decoration Lebar 6x6', NULL, '2024-06-27 03:29:03', '2024-06-27 03:29:03'),
 (340, 226, 'Gold Akad Decoration', 'Decoration Akad Bernuansa Emas Lebar 4x6', NULL, '2024-06-27 03:33:15', '2024-06-27 03:33:15'),
@@ -96,9 +95,6 @@ INSERT INTO `katalog` (`id_katalog`, `id_detailPJ`, `judul`, `deskripsi`, `metod
 --
 
 INSERT INTO `dt_katalog` (`id_dt_katalog`, `judul_variasi`, `id_katalog`, `created_at`, `updated_at`, `harga`, `gambar`) VALUES
-(777, 'Glamor', 333, NULL, NULL, 2000000, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hipwee.com%2Fwedding%2Farabian-wedding-makeup%2F&psig=AOvVaw03WvLSco7r-EoC_hyZHaBb&ust=1719937134735000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzvaafhocDFQAAAAAdAAAAABAE.jpg'),
-(888, 'Flawless', 333, NULL, NULL, 3500000, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.modernview.org%2F%3Fw%3Daimatuzz-wedding-arabian-look-mua-take-%40jasajepretjepret-muse-%40nisrinmartak-tt-akeMD4fo&psig=AOvVaw03WvLSco7r-EoC_hyZHaBb&ust=1719937134735000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzvaafhocDFQAAAAAdAAAAABAZ.jpg'),
-(999, 'akad', 333, NULL, NULL, 3000000, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dream.co.id%2Fbeauty%2Fingin-dirias-ala-timur-tengah-saat-menikah-intip-inspirasi-makeup-nya-di-sini-221214z.html&psig=AOvVaw03WvLSco7r-EoC_hyZHaBb&ust=1719937134735000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzvaafhocDFQAAAAAdAAAAABAf.jpg'),
 (1000, 'last lif', 1, NULL, NULL, 6000000, 'https://asset-2.tstatic.net/tribunnews/foto/bank/images/fira-shehan_20180226_120149.jpg'),
 (1001, 'mahkota', 1, NULL, NULL, 7000000, 'https://asset-a.grid.id/crop/0x0:0x0/x/photo/2022/06/20/jawa-crop-horz-1jpg-20220620111840.jpg'),
 (1002, 'singger jilbab', 1, NULL, NULL, 7500000, 'https://unipasby.ac.id/ckeditor/images-media/1579683173_IMG20200122134532.jpg'),
@@ -118,7 +114,6 @@ INSERT INTO `dt_katalog` (`id_dt_katalog`, `judul_variasi`, `id_katalog`, `creat
 (1016, 'Nasi Ayam Capjay, air putih, puding coklat', 6, NULL, NULL, 30000000, 'https://images.tokopedia.net/img/cache/700/VqbcmM/2023/11/18/f51af3db-d79a-4bc6-9991-3f14851a7371.jpg'),
 (1017, 'gado-gado, es cincau, roti isi', 6, NULL, NULL, 30000000, 'https://cdn.eurekabookhouse.co.id/ebh/product/all/2660669_349b831a-ca9c-4edd-a188-e57a56469b66_493_493.jpg'),
 (1018, 'MakeUp Internasional Modern Flawless', 336, '2024-06-27 02:44:18', '2024-06-27 02:44:18', 2500000, '1719456258.jpg'),
-(1019, 'Decoration Eropa', 337, '2024-06-27 03:14:07', '2024-06-27 03:14:07', 15000000, '1719458047.jpg'),
 (1020, 'Gold Decoration Gebyok', 338, '2024-06-27 03:22:41', '2024-06-27 03:22:41', 7200000, '1719458561.png'),
 (1021, 'Gold Wedding Decoration Putih', 339, '2024-06-27 03:29:03', '2024-06-27 03:29:03', 7200000, '1719458943.png'),
 (1022, 'Gold Akad Decoration', 340, '2024-06-27 03:33:15', '2024-06-27 03:33:15', 1900000, '1719459195.png'),
