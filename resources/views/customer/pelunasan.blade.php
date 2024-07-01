@@ -102,6 +102,8 @@
                         @endif --}}
                         @if ($dt_transaksi->dt_transaksi->status_pembayaran==2)
                         <div class="upload-section">
+                            <label for="upload-bukti">Upload bukti DP: Sudah Upload bukti DP</label>
+                            <hr>
                             <label for="upload-bukti">Upload bukti Pelunasan: 
                                 <br> <input class="mt-2" type="file" id="upload-bukti" name="upload-bukti_pelunasan"> </label>
                                 @if($errors->has('upload-bukti_pelunasan')) <p style="color: red">{{($messages[0])}}</p> @endif

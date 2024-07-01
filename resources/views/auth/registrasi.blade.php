@@ -15,15 +15,7 @@
 </head>
 <body>
 <div class="d-">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+    
 </div>
 
 <div class="container">
@@ -36,6 +28,15 @@
         <div class="right-panel">
 
             <h2>Welcome!</h2>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li style="color: red">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <form method="POST" action="/registrasi">
                 @csrf
                 <div class="input-group">
