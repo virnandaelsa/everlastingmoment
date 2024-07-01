@@ -235,7 +235,7 @@
             </div>
         </div>
         <div class="filter-section1">
-            <input type="text" placeholder="">
+            <input type="text" placeholder="Tema">
         </div>
         <div class="filter-section1">
             <input type="text" placeholder="Lain - Lain">
