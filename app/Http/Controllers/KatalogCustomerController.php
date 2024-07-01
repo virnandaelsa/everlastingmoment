@@ -379,9 +379,17 @@ class KatalogCustomerController extends Controller
 
     public function datapesanan()
     {
+        $pj=User::with('detailPJ')->where('id_user','=',auth()->user()->id_user)->orderBy('id_user','ASC')->first();
+        // dd($id_pj=$pj->detailPJ->id_detailPJ);
+        $id_pj=$pj->detailPJ->id_detailPJ;
+        $dataPJ=dt_transaksi::with(['transaksi.pengguna', 'transaksi.dt_katalog.katalog.detailPJ'])
+            ->whereHas('transaksi.dt_katalog.katalog.detailPJ', function ($query) use ($id_pj) {
+            $query->where('id_detailPJ', $id_pj);
+        })->get();
+        // dd($dataPJ);
         $data = dt_transaksi::with('transaksi.pengguna', 'transaksi.dt_katalog.katalog.detailPJ')->get();
         return view('penyedia_jasa.data_pesanan',[
-            'data' => $data,
+            'data' => $dataPJ,
         ]);
     }
 
