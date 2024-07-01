@@ -97,9 +97,9 @@ INSERT INTO `katalog` (`id_katalog`, `id_detailPJ`, `judul`, `deskripsi`, `metod
 --
 
 INSERT INTO `dt_katalog` (`id_dt_katalog`, `judul_variasi`, `id_katalog`, `created_at`, `updated_at`, `harga`, `gambar`) VALUES
-(777, 'merah', 333, NULL, NULL, 2000000, 'https://inpro.id/wp-content/uploads/2019/02/indra-eopapuaWhatsApp-Image-2019-02-14-at-15.30.53.jpeg'),
-(888, 'biru', 333, NULL, NULL, 3500000, '2.jpg'),
-(999, 'kuning', 333, NULL, NULL, 3000000, '1.jpg'),
+(777, 'Glamor', 333, NULL, NULL, 2000000, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hipwee.com%2Fwedding%2Farabian-wedding-makeup%2F&psig=AOvVaw03WvLSco7r-EoC_hyZHaBb&ust=1719937134735000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzvaafhocDFQAAAAAdAAAAABAE.jpg'),
+(888, 'Flawless', 333, NULL, NULL, 3500000, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.modernview.org%2F%3Fw%3Daimatuzz-wedding-arabian-look-mua-take-%40jasajepretjepret-muse-%40nisrinmartak-tt-akeMD4fo&psig=AOvVaw03WvLSco7r-EoC_hyZHaBb&ust=1719937134735000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzvaafhocDFQAAAAAdAAAAABAZ.jpg'),
+(999, 'akad', 333, NULL, NULL, 3000000, 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dream.co.id%2Fbeauty%2Fingin-dirias-ala-timur-tengah-saat-menikah-intip-inspirasi-makeup-nya-di-sini-221214z.html&psig=AOvVaw03WvLSco7r-EoC_hyZHaBb&ust=1719937134735000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjzvaafhocDFQAAAAAdAAAAABAf.jpg'),
 (1000, 'last lif', 1, NULL, NULL, 6000000, 'https://asset-2.tstatic.net/tribunnews/foto/bank/images/fira-shehan_20180226_120149.jpg'),
 (1001, 'mahkota', 1, NULL, NULL, 7000000, 'https://asset-a.grid.id/crop/0x0:0x0/x/photo/2022/06/20/jawa-crop-horz-1jpg-20220620111840.jpg'),
 (1002, 'singger jilbab', 1, NULL, NULL, 7500000, 'https://unipasby.ac.id/ckeditor/images-media/1579683173_IMG20200122134532.jpg'),
