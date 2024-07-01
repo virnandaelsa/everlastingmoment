@@ -228,11 +228,10 @@
             </div> --}}
             <div class="checkbox-group">
                 @foreach ($alamat as $item)
-                <input type="checkbox" name="lokasi[]" value="{{ $item->alamat }}">
-                <label>{{ $item->alamat }}</label>
+                <input type="checkbox" name="lokasi[]" id="{{ $item->alamat }}" value="{{ $item->alamat }}">
+                <label for="{{ $item->alamat }}">{{ $item->alamat }}</label>
                 @endforeach
 
-                <input type="checkbox" name="kucng" id="">
                 {{-- <input type="checkbox" id="jakarta" name="lokasi" value="DKI Jakarta">
                 <label for="jakarta">DKI Jakarta</label>
                 <input type="checkbox" id="jabar" name="lokasi" value="Jawa Barat">
@@ -276,7 +275,7 @@
             </div>
         </div> --}}
         <div class="apply-button">
-            <button type="submit" onclick="hidePopup()">Pakai</button>
+            <button type="submit" >Pakai</button>
         </div>
     </form>
     </div>

@@ -37,8 +37,19 @@ class KatalogCustomerController extends Controller
             }
         }
         if($request->isMethod('post')){
-            dd($request);
-            $data2 = katalog::with("dt_katalog")->get();
+            $selectedNames = $request->lokasi;
+            // $data2 = katalog::with("dt_katalog","detailPJ")->get();
+            $data2 = katalog::with("dt_katalog", "detailPJ")
+            ->whereHas('detailPJ', function ($query) use ($selectedNames) {
+                $query->where(function ($query) use ($selectedNames) {
+                    foreach ($selectedNames as $name) {
+                        $query->orWhere('alamat', 'like', '%' . $name . '%');
+                    }
+                });
+            })
+            ->get();
+
+            // dd($data2);
         }else{
             $data2 = katalog::with("dt_katalog")->get();
         }
