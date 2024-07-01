@@ -30,13 +30,15 @@
         ] as $category) --}}
         @foreach ($data as $category)
         <div class="category-item p-2">
+            <a href="/{{$category['judul_kategori']}}" style="color: #385a7f">
                 <div class="text-center">
-                    <img class="category-icon" src="{{ asset('images/categories/' . $category['gambar_kategori']) }}" alt="{{ $category['name'] }}">
+                    <img class="category-icon" src="{{ asset('images/categories/' . $category['gambar_kategori']) }}" alt="{{ $category['judul_kategori'] }}">
                     {{-- <!-- <img class="category-icon" src="{{ asset('images/categories/' . $category['image']) }}" alt="{{ $category['name'] }}"> --> --}}
                 </div>
                 <p>{{ $category['judul_kategori'] }}</p>
                 {{-- <!-- <p>{{ $category['name'] }}</p> --> --}}
-            </div>
+            </a>    
+        </div>
         @endforeach
     {{-- @endforeach --}}
     </div>
@@ -44,6 +46,30 @@
 <div class="recommendations my-4">
     <h4 class="bold-text">Rekomendasi</h4>
     <div class="d-flex flex-wrap">
+        @if (isset($isi))
+            @if (!is_null($isi))
+            @foreach ($results as $hasilbos)                
+            <div class="card" style="background: #c4d8e6;">
+                <?php
+                ?>
+                <img src="{{filter_var(asset("images/catalogs/$hasilbos->gambar"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $hasilbos->gambar }}';"
+                    class="card-img-top mt-2" alt="{{$hasilbos->gambar}}" style="width: 200px; height:100px ;align-self: center;">
+                <div class="card-body">
+                    <h5 class="m-0 card-title" style="align-self: center"> {{$hasilbos->judul}}</h5><hr>
+                    <p class="m-0 card-text">Variasi : {{$hasilbos->judul_variasi}}</p>
+                    <p class="m-0 card-text">Penyedia : {{$hasilbos->nama_toko}}</p>
+                    <p class="m-0 card-text">Kategori : {{$hasilbos->kategori}}</p>
+                    <p class="m-0 card-text">Harga : {{$hasilbos->harga}}</p>
+                    <p class="m-0 card-text"><br> Deskripsi : <br> {{$hasilbos->deskripsi}}<br></p>
+                    <p class="m-0 card-text"><br> Alamat : <br> {{$hasilbos->alamat}} <br></p>
+                    <div class="move-right">
+                        <a href="/lihatjasa/{{$hasilbos->id_katalog}}" class="">Lihat detail</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif    
+        @else            
         {{-- <div class="card">
             <img style="width: 300px; height:150px" src="{{ asset('images/categories/Beautician.png') }}" class="card-img-top" alt="MUA">
             <div class="card-body">
@@ -88,5 +114,6 @@
             </div>
         </div>
         @endforeach
+        @endif
     </div>
 </div>

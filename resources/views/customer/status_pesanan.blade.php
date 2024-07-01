@@ -86,7 +86,7 @@
         @php
             // dd($data)
         @endphp
-        <h3>PENGAJUAN</h3>
+        <h3>Pengajuan</h3>
         {{-- {{dd($data)}} --}}
         <div class="order-item">
             <img src="{{filter_var(asset("images/catalogs/$gpaket"), FILTER_VALIDATE_URL)}}" onerror="this.onerror=null; this.src='{{ $gpaket }}';">

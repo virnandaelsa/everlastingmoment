@@ -191,10 +191,18 @@
                 <a href="/registrasi" class="btn-signup">SIGN UP</a>
                 <a href="/login" class="btn-signin">SIGN IN</a>
                 @endauth
+                @auth                    
+                @if (auth()->user()->role==1)
+                @else
                 <button onclick="showPopup()">
                     <img src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
                 </button>
-
+                @endif
+                @else
+                <button onclick="showPopup()">
+                    <img src="{{ asset('images/filter.png') }}" alt="Gambar Tombol">
+                </button>
+                @endauth
                 {{-- <button class="btn-signup">SIGN UP</button>
                 <button class="btn-signin">SIGN IN</button> --}}
             </div>

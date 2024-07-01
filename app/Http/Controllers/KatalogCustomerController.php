@@ -19,7 +19,50 @@ use Illuminate\Support\Facades\Validator;
 
 class KatalogCustomerController extends Controller
 {
-    public function index(Request $request)
+    public function index($isi=null)
+    {
+        // dd($isi);
+        $search = $isi ; // Ganti dengan kata kunci pencarian Anda
+        $results = DB::table('dt_katalog')
+            ->join('katalog', 'dt_katalog.id_katalog', '=', 'katalog.id_katalog')
+            ->join('detailPJ', 'katalog.id_detailPJ', '=', 'detailPJ.id_detailPJ')
+            ->where('dt_katalog.judul_variasi', 'like', "%{$search}%")
+            ->orwhere('dt_katalog.harga', 'like', "%{$search}%")
+            ->orWhere('katalog.judul', 'like', "%{$search}%")
+            ->orWhere('katalog.deskripsi', 'like', "%{$search}%")
+            ->orWhere('detailPJ.nama_toko', 'like', "%{$search}%")
+            ->orWhere('detailPJ.alamat', 'like', "%{$search}%")
+            ->orWhere('detailPJ.kategori', 'like', "%{$search}%")
+            ->select('dt_katalog.*', 'katalog.*', 'detailPJ.*')
+            ->get();
+        // dd($results);
+
+        $alamat = DB::select('select distinct alamat from pengguna where role = 1 and alamat is not null');
+        // dd($alamat);
+        $data = kategori::all();
+        $data1=[];
+
+
+        if (auth()->check()) {
+            $a=auth()->user()->role;
+            $b=auth()->user()->id_user;
+            // dd(auth()->user());
+            if($a==1){
+                $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
+                $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
+            }
+        }
+            $data2 = katalog::with("dt_katalog")->get();
+            return view('customer.beranda', [
+                'alamat' => $alamat,
+                'data' => $data,
+                'data1' => $data1,
+                'data2' => $data2,
+                'isi' => $isi,
+                'results' => $results,
+                ] );
+    }
+    public function indexFilter(Request $request)
     {
         $alamat = DB::select('select distinct alamat from pengguna where role = 1 and alamat is not null');
         // dd($alamat);
