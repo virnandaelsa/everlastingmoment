@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [App\Http\Controllers\KatalogCustomerController::class, 'index']);
+Route::post('/', [App\Http\Controllers\KatalogCustomerController::class, 'index']);
 Route::get('/lihatjasa/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'lihatjasa']);
 Route::get('/pesan/{id}', [App\Http\Controllers\KatalogCustomerController::class, 'pesan'])->middleware("auth");
 Route::post('/pesan', [App\Http\Controllers\KatalogCustomerController::class, 'store_pesan'])->name('pesan.store')->middleware("auth");

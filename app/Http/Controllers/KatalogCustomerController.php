@@ -19,20 +19,31 @@ use Illuminate\Support\Facades\Validator;
 
 class KatalogCustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $alamat = DB::select('select distinct alamat from pengguna where role = 1 and alamat is not null');
+        // dd($alamat);
         $data = kategori::all();
         $data1=[];
+
+
         if (auth()->check()) {
-            $a=auth()->user()->role; $b=auth()->user()->id_user;
+            $a=auth()->user()->role;
+            $b=auth()->user()->id_user;
             // dd(auth()->user());
             if($a==1){
                 $pj=DB::table('detailPJ')->where('id_user',$b)->first()->id_detailPJ;
                 $data1 = katalog::with("dt_katalog")->get()->where('id_detailPJ','==',$pj);
             }
-            }
+        }
+        if($request->isMethod('post')){
+            dd($request);
             $data2 = katalog::with("dt_katalog")->get();
+        }else{
+            $data2 = katalog::with("dt_katalog")->get();
+        }
             return view('customer.beranda', [
+                'alamat' => $alamat,
                 'data' => $data,
                 'data1' => $data1,
                 'data2' => $data2,

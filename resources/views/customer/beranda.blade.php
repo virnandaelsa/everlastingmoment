@@ -219,22 +219,29 @@
     <div class="popup">
         <button class="close-button" onclick="hidePopup()">&times;</button>
         <div class="filter-section">
-            <h3>Lokasi</h3>
-            <div class="filter-section1">
+
+        <form action="/" method="post">
+            @csrf
+            <h3>Kota/Daerah</h3>
+            {{-- <div class="filter-section1">
                 <input type="text" placeholder="Provinsi/Kota">
-            </div>
+            </div> --}}
             <div class="checkbox-group">
-                <input type="checkbox" id="jabodetabek" name="lokasi" value="Jabodetabek">
-                <label for="jabodetabek">Jabodetabek</label>
-                <input type="checkbox" id="jakarta" name="lokasi" value="DKI Jakarta">
+                @foreach ($alamat as $item)
+                <input type="checkbox" name="lokasi[]" value="{{ $item->alamat }}">
+                <label>{{ $item->alamat }}</label>
+                @endforeach
+
+                <input type="checkbox" name="kucng" id="">
+                {{-- <input type="checkbox" id="jakarta" name="lokasi" value="DKI Jakarta">
                 <label for="jakarta">DKI Jakarta</label>
                 <input type="checkbox" id="jabar" name="lokasi" value="Jawa Barat">
                 <label for="jabar">Jawa Barat</label>
                 <input type="checkbox" id="jatim" name="lokasi" value="Jawa Timur">
-                <label for="jatim">Jawa Timur</label>
+                <label for="jatim">Jawa Timur</label> --}}
             </div>
         </div>
-        <div class="filter-section1">
+        {{-- <div class="filter-section1">
             <input type="text" placeholder="">
         </div>
         <div class="filter-section1">
@@ -267,10 +274,11 @@
                 <input type="checkbox" id="star1" name="bintang" value="1">
                 <label for="star1">Bintang 1</label>
             </div>
-        </div>
+        </div> --}}
         <div class="apply-button">
-            <button onclick="hidePopup()">Pakai</button>
+            <button type="submit" onclick="hidePopup()">Pakai</button>
         </div>
+    </form>
     </div>
 </div>
 
