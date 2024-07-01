@@ -79,7 +79,6 @@ INSERT INTO `katalog` (`id_katalog`, `id_detailPJ`, `judul`, `deskripsi`, `metod
 (4, 1, 'hijab syari', 'lebih natural dan flowles', 12345678, NULL, NULL),
 (5, 2, 'Paket Prasmanan', 'untuk 1000 undangan \r\nset makan inclide', 12345678, NULL, NULL),
 (6, 2, 'paket nasi kotak/piringan', 'per porsi include minum dan camilan', 12345678, NULL, NULL),
-(333, 222, 'Paket Make Up Arabian Look', 'Arabian look identic dengan riasan di bagian mata dengan ciri bulu mata yang tebal dan menggunakan smokey eyes. ...', 1, NULL, NULL),
 (336, 225, 'MakeUp Internasional', 'MakeUp Modern', NULL, '2024-06-27 02:44:18', '2024-06-27 02:44:18'),
 (337, 226, 'Decoration Eropa', 'Decoration Modern Bernuansa Eropa', NULL, '2024-06-27 03:14:07', '2024-06-27 03:14:07'),
 (338, 226, 'Gold Wedding Decoration', 'Gold Wedding Decoration Lebar 6x6', NULL, '2024-06-27 03:22:41', '2024-06-27 03:22:41'),
