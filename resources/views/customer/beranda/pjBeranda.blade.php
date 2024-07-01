@@ -32,7 +32,7 @@
             @endforeach
         </div>
     <div class="recommendations my-4">
-        <h4 class="bold-text">REVIEW</h4>
+        <h4 class="bold-text">PREVIEW KATALOG</h4>
         <div class="d-flex flex-wrap">
 
             @foreach($data1 as $katalog)
