@@ -30,7 +30,7 @@
         ] as $category) --}}
         @foreach ($data as $category)
         <div class="category-item p-2">
-            <a href="/cari{{$category['judul_kategori']}}" style="color: #385a7f">
+            <a href="/cari/{{$category['judul_kategori']}}" style="color: #385a7f">
                 <div class="text-center">
                     <img class="category-icon" src="{{ asset('images/categories/' . $category['gambar_kategori']) }}" alt="{{ $category['judul_kategori'] }}">
                     {{-- <!-- <img class="category-icon" src="{{ asset('images/categories/' . $category['image']) }}" alt="{{ $category['name'] }}"> --> --}}
